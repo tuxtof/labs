@@ -42,4 +42,4 @@ If so, then you've come to the right place! Nutanix Workshops provides comprehen
   :caption:     Workshops
   :name: _lab-docs
 
-  .. vdi_ahv/index
+  vdi_ahv/index

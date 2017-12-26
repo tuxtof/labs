@@ -1,3 +1,5 @@
+.. _windows-ahv-templates:
+
 AHV Windows Templates
 ---------------------
 
