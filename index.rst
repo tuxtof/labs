@@ -25,13 +25,13 @@ If so, then you've come to the right place! Nutanix Workshops provides comprehen
 
 .. toctree::
   :maxdepth: 2
-  :caption:     Introduction
+  :caption:     Getting Started
   :name: _intro-docs
 
-  getting_started
+  .. getting_started
   templates/index
-  ce
-  versions
+  .. ce
+  .. versions
   .. building
   contact
 
@@ -42,7 +42,4 @@ If so, then you've come to the right place! Nutanix Workshops provides comprehen
   :caption:     Workshops
   :name: _lab-docs
 
-  calm/index
-  ahv_citrix/index
-  ahv_sql/index
-  calm/index
+  .. vdi_ahv/index
