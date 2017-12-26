@@ -1,0 +1,2 @@
+pip install sphinx-bootstrap-theme==0.6.0
+pip install sphinxcontrib-fulltoc==1.2.0
