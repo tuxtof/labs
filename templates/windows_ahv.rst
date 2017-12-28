@@ -151,6 +151,8 @@ In **Prism > VM > Table**, select the VM you've created and click **Power on** f
 
 Once the VM is powered on, click **Launch Console** to access your VM.
 
+.. note:: You may need to allow pop-ups in your browser for the VM console to appear.
+
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/21.png
 
 Proceed with Windows installation. When prompted for installation location, select **Load driver**.
@@ -173,6 +175,8 @@ Complete the Windows installation. In **Prism > VM > Table**, select the VM you'
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/26.png
 
+.. _windows-ngt-install:
+
 Installing Nutanix Guest Tools
 ++++++++++++++++++++++++++++++
 
@@ -180,9 +184,10 @@ In **Prism > VM > Table**, select the VM you've created and click **Manage Guest
 
 .. note:: Nutanix Guest Tools can also be mounted programmatically with nCLI. Using nCLI or connecting to <Nutanix-Cluster-IP> via SSH:
 
-      ``> ncli vm list | grep <VM-Name> -B 2``
+  .. code::
 
-      ``> ncli ngt mount vm-id=<VM-Id>``
+      > ncli vm list | grep <VM-Name> -B 2
+      > ncli ngt mount vm-id=<VM-Id>
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/27.png
 
@@ -198,7 +203,9 @@ Complete the installation, click **Close** and reboot the VM.
 
 .. note:: Nutanix Guest Tools can also be installed silently via command line using the following syntax:
 
-      ``DRIVE:\> setup.exe /quiet ACCEPTEULA=yes``
+  .. code::
+
+      DRIVE:\> setup.exe /quiet ACCEPTEULA=yes
 
 .. note:: If you're prompted by the BIOS that the boot volume cannot be found, ensure your **scsi.0** disk is now configured as the **Boot Device**.
 
@@ -211,7 +218,9 @@ At this point you can patch your template image and install any other applicatio
 
 Following any patching or application installations, the next step in creating the template is to generalize the VM with Sysprep. In your VM console, open **Command Prompt** as **Administrator** and run the following command:
 
-``> sysprep.exe /generalize /oobe /shutdown``
+.. code::
+
+  > sysprep.exe /generalize /oobe /shutdown
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/31.png
 
@@ -220,11 +229,11 @@ Copying Template to Image Service
 
 Once the template VM has powered off following sysprep, we want to push the associated disk image to the Image Service for our cluster. Using an SSH client, execute the following:
 
-``> ssh nutanix@<NUTANIX-CLUSTER-IP>``
+.. code::
 
-``> acli``
-
-``<acropolis> image.create <IMAGE-NAME> clone_from_vmdisk=vm:<VM-NAME>:scsi.0 image_type=kDiskImage annotation="<IMAGE-ANNOTATION>"``
+  > ssh nutanix@<NUTANIX-CLUSTER-IP>
+  > acli
+  <acropolis> image.create <IMAGE-NAME> clone_from_vmdisk=vm:<VM-NAME>:scsi.0 image_type=kDiskImage annotation="<IMAGE-ANNOTATION>"
 
 Verify in Prism that the image is available and in an Active state.
 

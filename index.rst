@@ -24,7 +24,7 @@ If so, then you've come to the right place! Nutanix Workshops provides comprehen
 .. _intro-docs:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 1
   :caption:     Getting Started
   :name: _intro-docs
 
@@ -38,7 +38,7 @@ If so, then you've come to the right place! Nutanix Workshops provides comprehen
 .. _lab-docs:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 1
   :caption:     Workshops
   :name: _lab-docs
 
