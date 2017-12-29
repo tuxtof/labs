@@ -9,8 +9,6 @@ Creating the VM (via CLI)
 
 Using an SSH client, execute the following:
 
-.. note:: When using **acli**, you can use the Tab key to autocomplete fields. Pressing Tab twice lists available namespaces and values.
-
 .. code:: bash
 
   > ssh nutanix@<NUTANIX-CLUSTER-IP>
@@ -20,6 +18,8 @@ Using an SSH client, execute the following:
   <acropolis> vm.disk_create XD clone_from_image=<Windows 2012 Disk Image Name>
   <acropolis> vm.nic_create XD network=<Network Name> ip=<XD IP Address>
   <acropolis> vm.on XD
+
+.. note:: When using **acli**, you can use the Tab key to autocomplete fields. Pressing Tab twice lists available namespaces and values.
 
 In **Prism > VM > Table**, select the **XD** VM and click **Launch Console**.
 
@@ -173,9 +173,9 @@ Select **Use the free 30-day trial** and click **Next**.
 Fill out the following fields to configure the connection to your AHV cluster and click **Next**:
 
 - **Connection Type** - *Nutanix AHV*
-- **Connection Address** - *Refer to your Environment Details Worksheet*
+- **Connection Address** - Refer to your Environment Details Worksheet
 - **User Name** - *admin*
-- **Password** - *Refer to your Environment Details Worksheet*
+- **Password** - Refer to your Environment Details Worksheet
 - **Connection Name** - Specify a friendly name for the connection, such as your Nutanix cluster name
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab3/21.png

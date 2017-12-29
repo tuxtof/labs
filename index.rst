@@ -1,7 +1,3 @@
-.. .. only:: html
-
-  .. image:: _static/Nutanix_CMYK.svg
-      :align: center
 ============================
 Welcome to Nutanix Workshops
 ============================

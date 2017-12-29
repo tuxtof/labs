@@ -19,7 +19,7 @@ Requirements
 Uploading Installation Media
 ++++++++++++++++++++++++++++
 
-Open \https://<*Nutanix-Cluster-IP*>:9440 in your browser to access Prism. Log in as a user with administrative priveleges.
+Open \https://<*NUTANIX-CLUSTER-IP*>:9440 in your browser to access **Prism**. Log in as a user with administrative priveleges.
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/1.png
 
@@ -31,20 +31,11 @@ Click the Settings icon and select **Image Configuration** from the drop down me
 
 Click **Upload Image** and fill out the following fields:
 
-- **Name** - Nutanix VirtIO drivers
-*This serves as the display name for the image being uploaded*
-
-- **Annotation**
-*This is an optional field that is helpful for designating additional information about an image, such as version or filename*
-
-- **Image Type** - ISO
-*This field differentiates a mountable CD-ROM image used for installing an OS from a cloneable disk image of a pre-installed OS*
-
-- **Storage Container** - <*Default Storage Container*>
-*This field specifies which Nutanix storage container to which the image will be uploaded*
-
-- **Image Source**
-*Images can either be uploaded from your local filesystem or can be obtained directly from a remote webserver*
+- **Name** - *Nutanix VirtIO drivers* - This serves as the display name for the image being uploaded
+- **Annotation** - This is an optional field that is helpful for designating additional information about an image, such as version or filename
+- **Image Type** - *ISO* - This field differentiates a mountable CD-ROM image used for installing an OS from a cloneable disk image of a pre-installed OS
+- **Storage Container** - *<Default Storage Container>* - This field specifies which Nutanix storage container to which the image will be uploaded
+- **Image Source** - Images can either be uploaded from your local filesystem or can be obtained directly from a remote webserver
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/5.png
 
@@ -71,20 +62,11 @@ Click **Home** in the navigation bar and select **VM** from the drop down menu.
 
 Click **+ Create VM** and fill out the following fields:
 
-- **Name**
-*The display name of the VM being created, often confgiured to match the VM hostname*
-
-- **Description**
-*An optional field that is helpful for designating additional information about a VM, such as purpose or installed applications*
-
-- **vCPUs**
-*The number of virtual sockets presented to the VM*
-
-- **Number of Cores per vCPU**
-*The number of cores per virtual socket*
-
-- **Memory**
-*The amount of RAM presented to the VM in GB*
+- **Name** - The display name of the VM being created, often confgiured to match the VM hostname
+- **Description** - An optional field that is helpful for designating additional information about a VM, such as purpose or installed applications
+- **vCPUs** - The number of virtual sockets presented to the VM
+- **Number of Cores per vCPU** - The number of cores per virtual socket
+- **Memory** - The amount of RAM presented to the VM in GB
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/12.png
 
@@ -94,43 +76,34 @@ Under **Disks**, click the Pencil icon of the pre-populated CD-ROM drive.
 
 Fill out the following fields and click **Update**:
 
-- **Operation** - Clone From Image Services
-
-- **Bus Type** - IDE
-
-- **Image** - *Select the Windows installation .iso you uploaded to the Image Service*
+- **Operation** - *Clone From Image Services*
+- **Bus Type** - *IDE*
+- **Image** - Select the Windows installation .iso you uploaded to the Image Service
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/14.png
 
 Under **Disks**, click **Add New Disk**. Fill out the following fields and click **Add**:
 
-- **Type** - CD-ROM
-
-- **Operation** - Clone from Image Service
-
-- **Bus Type** - IDE
-
-- **Image** - *Select the Nutanix VirtIO drivers .iso you uploaded to the Image Service*
+- **Type** - *CD-ROM*
+- **Operation** - *Clone from Image Service*
+- **Bus Type** - *IDE*
+- **Image** - Select the Nutanix VirtIO drivers .iso you uploaded to the Image Service
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/15.png
 
 Under **Disks**, click **Add New Disk**. Fill out the following fields and click **Add**:
 
-- **Type** - DISK
-
-- **Operation** - Allocate on Storage Container
-
-- **Bus Type** - SCSI
-
-- **Storage Container** - *The storage container on which the virtual disk will be created*
-
-- **Size** - *The size of the virtual disk in GiB*
+- **Type** - *DISK*
+- **Operation** - *Allocate on Storage Container*
+- **Bus Type** - *SCSI*
+- **Storage Container** - The storage container on which the virtual disk will be created
+- **Size** - The size of the virtual disk in GiB
 
 .. note:: All virtual disks created on AHV are thin provisioned.
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/16.png
 
-Select the **Boot Device** radio button for the CD-ROM device mounting your Windows installation media.
+Select **Boot Device** for the CD-ROM device mounting your Windows installation media.
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/17.png
 
@@ -182,7 +155,7 @@ Installing Nutanix Guest Tools
 
 In **Prism > VM > Table**, select the VM you've created and click **Manage Guest Tools**. Select **Enable Nutanix Guest Tools** and **Mount Nutanix Guest Tools**. Click **Submit**.
 
-.. note:: Nutanix Guest Tools can also be mounted programmatically with nCLI. Using nCLI or connecting to <Nutanix-Cluster-IP> via SSH:
+.. note:: Nutanix Guest Tools can also be mounted programmatically with nCLI. Using nCLI or connecting to <NUTANIX-CLUSTER-IP> via SSH:
 
   .. code::
 

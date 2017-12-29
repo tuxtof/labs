@@ -50,7 +50,7 @@ Select **Create new Active Directory accounts**. Under the **NTNX.local** domain
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab5/9.png
 
-Specify a firendly **Machine Catalog name** and click **Finish**.
+Specify a friendly **Machine Catalog name** and click **Finish**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab5/10.png
 
@@ -170,7 +170,7 @@ Select the **Desktops** tab and click your **Personal Windows 10 Desktop** to la
 
   .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab5/32.png
 
-After the virtual desktop has completed logging in, experiment by changing application settings, installing applications, and restarting the VM. Try logging in as **USER2** and **USER3**.
+After the virtual desktop has completed logging in, experiment by changing application settings, installing applications, restarting the VM, and logging in again. Try logging in as **USER2** and **USER3**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab5/33.png
 

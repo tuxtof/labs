@@ -7,10 +7,12 @@ If this workshop is being completed outside of the scenario described above, you
 
 - A Nutanix cluster running AOS 5.1+ and AHV 20160925.90+
 - Windows Server 2012 R2 & Windows 10 templates
+
 .. note:: Windows installation media can be downloaded for trial installs through `MSDN Subscriber Downloads <https://msdn.microsoft.com/subscriptions/downloads>`_ or `Microsoft Evaluation Center <https://www.microsoft.com/en-us/evalcenter/>`_
   See :ref:`windows-ahv-templates` for complete instructions on creating your own templates for the Nutanix Image Service.
 
 - Citrix XenDesktop 7.15 LTSR installation .iso
+
 .. note:: Citrix software can be downloaded for free evaluation with creation of a Citrix account `here <https://www.citrix.com/welcome/create-account.html>`_.
 
 - XenDesktop MCS Plugin for Nutanix AHV

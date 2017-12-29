@@ -7,7 +7,7 @@ Overview
 Configuring VM Network
 ++++++++++++++++++++++
 
-Open \https://<*Nutanix-Cluster-IP*>:9440 in your browser to access Prism. Log in as a user with administrative priveleges.
+Open \https://<*NUTANIX-CLUSTER-IP*>:9440 in your browser to access **Prism**. Log in as a user with administrative priveleges.
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/1.png
 

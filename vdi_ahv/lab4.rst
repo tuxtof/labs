@@ -75,7 +75,7 @@ Log in to **W10-Gold** as **LocalUser**.
 Enabling Nutanix Guest Tools
 ++++++++++++++++++++++++++++
 
-In **Prism > VM > Table**, select the **DC** VM and click **Manage Guest Tools**.
+In **Prism > VM > Table**, select the **W10-Gold** VM and click **Manage Guest Tools**.
 
 Select **Enable Nutanix Guest Tools** and **Mount Nutanix Guest Tools**, click **Submit**.
 
@@ -187,8 +187,8 @@ Select **Guest shutdown** and click **submit** to gracefully shut down the VM.
 
 Once **W10-Gold** is powered off, select the VM and click **Take Snapshot**
 
-Specify a **Name** for the snapshot (e.g. "W10-Gold - Post-VDA 7.15 Install") and click **Submit**.
+Specify a **Name** for the snapshot (e.g. "W10-Gold vYYYYMMDD-X - Post-VDA 7.15 Install") and click **Submit**.
 
 Available snapshots and associated actions can be found by selecting the **VM Snapshots** tab under the VM table.
 
-.. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab4/28.png 
+.. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab4/28.png

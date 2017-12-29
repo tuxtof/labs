@@ -68,10 +68,10 @@ Select **Internet Protocol Version 4 (TCP/IPv4) > Properties**.
 
 Select **Use the following IP Address** and fill out the following fields:
 
-- **IP Address** - *Refer to your Environment Details Worksheet*
-- **Subnet Mask** - *Refer to your Environment Details Worksheet*
-- **Default Gateway** - *Refer to your Environment Details Worksheet*
-- **Preferred DNS Server** - *Refer to your Environment Details Worksheet*
+- **IP Address** - Refer to your Environment Details Worksheet
+- **Subnet Mask** - Refer to your Environment Details Worksheet
+- **Default Gateway** - Refer to your Environment Details Worksheet
+- **Preferred DNS Server** - Refer to your Environment Details Worksheet
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab2/5.png
 
