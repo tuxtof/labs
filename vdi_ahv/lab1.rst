@@ -4,6 +4,21 @@ Lab 1 - Cluster Configuration
 Overview
 ++++++++
 
+During this brief exercise you will use Prism to configure the storage and virtual network that will be used throughout the workshop.
+
+Configuring Storage Container
++++++++++++++++++++++++++++++
+
+In **Prism > Storage**, click **+ Storage Container**. Specify **Default** as the **Name** of the storage container.
+
+.. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab1/4.png
+
+Click **Advanced Settings**. Select **Compression** and specify **0** as the **Delay**.
+
+.. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab1/5.png
+
+Click **Save**.
+
 Configuring VM Network
 ++++++++++++++++++++++
 
@@ -38,15 +53,9 @@ Click **+ Create Pool** and fill out the following fields:
 
 Click **Submit > Save**.
 
-Configuring Storage Container
-+++++++++++++++++++++++++++++
+Takeaways
++++++++++
 
-In **Prism > Storage**, click **+ Storage Container**. Specify **Default** as the **Name** of the storage container.
+- Deploying storage in a Nutanix environment is a fast and simple operation. Large environments with mixed workloads can be deployed on a single storage container with no additional SAN administration overhead.
 
-.. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab1/4.png
-
-Click **Advanced Settings**. Select **Compression** and specify **0** as the **Delay**.
-
-.. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab1/5.png
-
-Click **Save**.
+- Virtual networking in AHV provides a simple to implement distributed virtual switch, complete with integrated IP Address Management services.

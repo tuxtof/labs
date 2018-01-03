@@ -4,6 +4,8 @@ Lab 2 - Domain Controller Install
 Overview
 ++++++++
 
+During this exercise you will use Prism to deploy a Windows 2012 template image that will be configured as a Domain Controller that will be used throughout the workshop. Following the Active Directory setup, the virtual network from the previous exercise will be updated to use the Domain Controller as the primary DNS server.
+
 Creating the VM
 +++++++++++++++
 
@@ -197,3 +199,14 @@ Update **Domain Search** with your fully qualified root domain, *NTNX.local*.
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab2/23.png
 
 Click **Save**.
+
+Takeaways
++++++++++
+
+- Nutanix Prism consolidates infrastructure and VM management in a single HTML5 console.
+
+- AHV can rapidly deploy clones from existing disk images.
+
+  .. seealso:: To learn more about how Nutanix implements snapshots and clones, check `this <http://nutanixbible.com/#anchor-snapshots-and-clones-73>`_ out.
+
+- Other stuff
