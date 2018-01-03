@@ -43,3 +43,4 @@ If so, then you've come to the right place! Nutanix Workshops provides comprehen
   :name: _lab-docs
 
   .. vdi_ahv/index
+  .. example/index
