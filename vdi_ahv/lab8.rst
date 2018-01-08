@@ -4,6 +4,8 @@ Lab 8 - Updating Machine Catalogs
 Overview
 ++++++++
 
+In this exercise you will use perform "Day 2" operations for a XenDesktop environment, including expanding an existing Machine Catalog with more desktop VMs, and rolling out an updated gold image to your non-persistent Machine Catalog.
+
 Adding More Desktops
 ++++++++++++++++++++
 
@@ -96,3 +98,11 @@ In **Citrix Studio > Machine Catalogs**, note you now have an option to rollback
 
 Takeaways
 +++++++++
+
+- Adding capacity to an existing Machine Catalog can be done rapidly. Combined with Nutanix's ability to expand a physical cluster with a One Click operation, this enables an IT organization to be very responsive to changing business needs.
+
+.. No vCenter.
+
+- Nutanix creates separate block maps (metadata mapping a vDisk to its corresponding extents) for each new snapshot created, eliminating the additional overhead and read latency common with large snapshot chains traditionally seen in other hypervisors. Gold image management is simplified by not having to mitigate the performance impact of snapshot chains.
+
+- Gold image versioning with MCS can be implemented easily through snapshot naming conventions.

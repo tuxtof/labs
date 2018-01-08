@@ -4,7 +4,7 @@ Lab 2 - Domain Controller Install
 Overview
 ++++++++
 
-During this exercise you will use Prism to deploy a Windows 2012 template image that will be configured as a Domain Controller that will be used throughout the workshop. Following the Active Directory setup, the virtual network from the previous exercise will be updated to use the Domain Controller as the primary DNS server.
+In this exercise you will use Prism to deploy a Windows 2012 template image and install Active Directory Domain Services. Following the Active Directory setup, the virtual network from the previous exercise will be updated to use the Domain Controller as the primary DNS server. The DC VM will be used throughout the workshop to provide Active Directory and DNS services.
 
 Creating the VM
 +++++++++++++++
@@ -50,6 +50,14 @@ Log in to the **DC** VM as **Administrator**.
 
 Enabling Nutanix Guest Tools
 ++++++++++++++++++++++++++++
+
+Nutanix Guest Tools provide the following capabilities:
+
+- Nutanix Guest Agent - Service for secure communication with the cluster.
+- VM Mobility Drivers - VirtIO drivers for VMs to achieve maximum performance running on AHV, also allowing for migration of VMs from ESXi to AHV.
+- Self-service File Level Restore - Covered in :ref:`ssflr_lab`
+- Nutanix VSS provider enabling application-consistent snapshots for Windows VMs on ESXi or AHV
+- Application-consistent snapshots for Linux VMs
 
 In **Prism > VM > Table**, select the **DC** VM and click **Manage Guest Tools**.
 
@@ -203,10 +211,8 @@ Click **Save**.
 Takeaways
 +++++++++
 
-- Nutanix Prism consolidates infrastructure and VM management in a single HTML5 console.
+- Nutanix Prism consolidates infrastructure and VM management in a single HTML5 console. Prism provides a consistent user experience, regardless of underlying hypervisor, with broad browser support.
 
-- AHV can rapidly deploy clones from existing disk images.
+- AHV can rapidly deploy clones from existing disk images. Leveraging redirect on write snapshots for cloning allows Nutanix to create instant clones of vDisks without additional I/O overhead. Nutanix supports fast and intelligent cloning on vSphere via VAAI and on Hyper-V via ODX.
 
-  .. seealso:: To learn more about how Nutanix implements snapshots and clones, check `this <http://nutanixbible.com/#anchor-snapshots-and-clones-73>`_ out.
-
-- Other stuff
+  .. note:: To learn more about how Nutanix implements snapshots and clones, see the `Snapshots and Clones <http://nutanixbible.com/#anchor-snapshots-and-clones-76>`_ section of the Nutanix Bible.

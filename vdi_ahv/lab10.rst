@@ -1,5 +1,11 @@
-*Optional Lab* - Self-Service File Restore
----------------------------------------------
+.. _ssflr_lab:
+*Optional Lab* - Self-Service File Level Restore
+------------------------------------------------
+
+Overview
+++++++++
+
+In this exercise you will configure a snapshot policy for your persistent virtual desktops and test restoring deleted files as an end user.
 
 Protecting the VMS
 ++++++++++++++++++
@@ -87,6 +93,12 @@ Copy and paste the files back to their original location on the C: drive. Return
 
 Takeaways
 +++++++++
+
+- Nutanix provides native snapshot and replication capabilities that can be configured at the individual VM level. Cluster to cluster replication is a key component in enabling DR for VDI components such as gold images and persistent virtual desktops.
+
+- Self-Service File Level Restore allows an end user to restore deleted or previous versions of files without storage or backup admin engagement. This may be applicable for persistent desktop users who may inadvertently store files in local directories.
+
+- Self-Service File Level Restore mounts the native disk directly to the guest VM, preserving the original filesystem and security ACLs.
 
 *Optional* - Making Domain Users Local Admins
 +++++++++++++++++++++++++++++++++++++++++++++

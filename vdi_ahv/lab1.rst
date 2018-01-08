@@ -4,7 +4,7 @@ Lab 1 - Cluster Configuration
 Overview
 ++++++++
 
-During this brief exercise you will use Prism to configure the storage and virtual network that will be used throughout the workshop.
+In this brief exercise you will use Prism to configure the storage and virtual network that will be used throughout the workshop.
 
 Configuring Storage Container
 +++++++++++++++++++++++++++++
@@ -22,7 +22,7 @@ Click **Save**.
 Configuring VM Network
 ++++++++++++++++++++++
 
-Open \https://<*NUTANIX-CLUSTER-IP*>:9440 in your browser to access **Prism**. Log in as a user with administrative priveleges.
+Open **\https://<NUTANIX-CLUSTER-IP>:9440** in your browser to access **Prism**. Log in as a user with administrative priveleges.
 
 .. figure:: http://s3.nutanixworkshops.com/templates/ahv_windows/1.png
 
@@ -58,4 +58,4 @@ Takeaways
 
 - Deploying storage in a Nutanix environment is a fast and simple operation. Large environments with mixed workloads can be deployed on a single storage container with no additional SAN administration overhead.
 
-- Virtual networking in AHV provides a simple to implement distributed virtual switch, complete with integrated IP Address Management services.
+- Virtual networking in AHV provides distributed virtual switching out of the box, complete with integrated IP Address Management services.

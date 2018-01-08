@@ -4,6 +4,8 @@ Lab 4 - Windows 10 Gold Image
 Overview
 ++++++++
 
+In this exercise you will use the Prism to deploy a Windows 10 template image to be used as a Master (often referred to as "Gold") image for XenDesktop. Once the image has been created, you will snapshot the VM in Prism.
+
 Creating the VM
 +++++++++++++++
 
@@ -192,3 +194,10 @@ Specify a **Name** for the snapshot (e.g. "W10-Gold vYYYYMMDD-X - Post-VDA 7.15 
 Available snapshots and associated actions can be found by selecting the **VM Snapshots** tab under the VM table.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab4/28.png
+
+Takeaways
++++++++++
+
+- The gold VM does not require Sysprep or being domain joined.
+
+- Using MCS helps simplify the gold image by not having to manually specify (or depend on Active Directory to specify) what XenDesktop Delivery Controller(s) with which the image should attempt to register. This allows more flexibility in having a single gold image support multiple environments without external dependencies.

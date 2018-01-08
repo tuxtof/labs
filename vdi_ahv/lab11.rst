@@ -1,6 +1,11 @@
 *Optional Lab* - Delivering Applications And Server Desktops
 -------------------------------------------------------------
 
+Overview
+++++++++
+
+In this exercise you will deploy and configure a Windows 2012 R2 XenApp gold image. Once the image has been created, you will create both the Machine Catalog and Delivery Group.
+
 Creating the XenApp VM (via CLI)
 ++++++++++++++++++++++++++++++++
 
@@ -238,7 +243,7 @@ Select an application and click **Properties**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab11/37.png
 
-Observe the pre-populated information such as executable path on the **Location** tab. Explore the additional configuration options, such as the ability to add shortcuts to a user's desktop, limit visibility or simultaneous instances (which may be necessary for licensing compliance).
+Note the pre-populated information such as executable path on the **Location** tab. Explore the additional configuration options, such as the ability to add shortcuts to a user's desktop, limit visibility or simultaneous instances (which may be necessary for licensing compliance).
 
 Click **OK**.
 
@@ -336,3 +341,5 @@ In **Citrix Studio > Delivery Groups > XenApp DG > View Machines**, observe mult
 
 Takeaways
 +++++++++
+
+- MCS offers a unified workflow for deploying desktops, desktop applications, server desktops and server applications.

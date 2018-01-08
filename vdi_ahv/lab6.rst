@@ -4,6 +4,8 @@ Lab 6 - Delivering Non-Persistent Desktops
 Overview
 ++++++++
 
+In this exercise you will use the Citrix Studio to deploy a pool of non-persistent virtual desktops based the same gold image as the previous lab exercise.
+
 Creating the Machine Catalog
 ++++++++++++++++++++++++++++
 
@@ -33,7 +35,7 @@ Select your Nutanix storage container and click **Next**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab6/6.png
 
-Select your **W10-Gold** snapshot and click **Next**.
+Select your **W10-Gold** snapshot and click **Next**. Note the XDSNAP* snapshot listed from the Preparation VM created by the persistent Machine Catalog previously. These snapshots will continue to exist as long as there are provisioned virtual desktops utilizing them.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab6/7.png
 
@@ -54,13 +56,24 @@ Specify a friendly **Machine Catalog name** and click **Finish**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab6/10.png
 
-MCS will now create a clone from the snapshot of **W10-Gold** and follow a similar preparation process as the Persistent Machine Catalog.
+MCS will now create a clone from the snapshot of **W10-Gold** and follow a similar preparation process as the in the previous exercise.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab6/11.png
 
 Upon completion, view the details of the Machine Catalog in **Citrix Studio**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab6/12.png
+
+Note the clones exist in **Prism** but are not powered on. Select one of the VMs and observe both the OS vDisk and ID disk attached to the VM on the **Virtual Disks** tab below the VMs table. Similar to the persistent Machine Catalog, each VM appears to have its own unique read/write copy of the gold image. With VMs in a Machine Catalog spanning several Nutanix nodes, data locality for VM reads is provided inherently by the Unified Cache.
+
+This MCS implementation is unique to AHV. For non-persistent Machine Catalogs, other hypervisors link to the base golden image for reads and apply writes to a separate disk, referred to as a differencing disk. In these scenarios, Nutanix Shadow Clones are used to provide data locality for VM reads. Shadow Clones is a feature that automatically provides distributed caching for multi-reader vDisks.
+
+.. note:: To learn about MCS provisioning in greater detail, see the following articles:
+
+  - `Citrix MCS for AHV: Under the hood <http://blog.myvirtualvision.com/2016/01/14/citrix-mcs-for-ahv-under-the-hood/>`_
+  - `Citrix MCS and PVS on Nutanix: Enhancing XenDesktop VM Provisioning with Nutanix  <http://next.nutanix.com/t5/Nutanix-Connect-Blog/Citrix-MCS-and-PVS-on-Nutanix-Enhancing-XenDesktop-VM/ba-p/3489>`_
+
+  To learn more about how Nutanix implements Shadow Clones, see the `Shadow Clones <http://nutanixbible.com/#anchor-shadow-clones-79>`_ section of the Nutanix Bible.
 
 Creating the Delivery Group
 +++++++++++++++++++++++++++
@@ -143,3 +156,9 @@ After the virtual desktop has completed logging in, experiment by changing appli
 
 Takeaways
 +++++++++
+
+- With MCS, a single gold image can be used for both persistent and non-persistent Machine Catalogs.
+
+- Non-persistent virtual desktops provide a consistent experience as the user is getting a "fresh" VM upon every login. This approach can provide significant operation savings over traditional software patching, but will likely require other tools to provide needed customization on top of the non-persistent desktop. Use cases such as kiosks or educational labs can be a great fit for "vanilla" non-persistent desktops.
+
+- Despite being based off of a single, shared, gold image, all the VMs in the Machine Catalog continue to benefit from data locality (reduced latency for reads and reduced network congestion). For non-AHV hypervisors, the same benefit is realized through Shadow Clones.

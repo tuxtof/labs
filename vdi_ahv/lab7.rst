@@ -1,6 +1,13 @@
 Lab 7 - User Profiles With AFS
 ------------------------------
 
+Overview
+++++++++
+
+In this exercise you will use Prism to deploy Acropolis File Services (AFS), a native, distributed file server solution for Nutanix clusters. The file server will be used to store user profiles and user data.
+
+You will use Citrix Studio to configure and enforce policy for Citrix User Profile Management (UPM), a built-in profile management solution for XenDesktop. Citrix UPM can also be configured via Group Policy or .ini files within the desktop VM.
+
 Deploy Acropolis File Services
 ++++++++++++++++++++++++++++++
 
@@ -71,7 +78,7 @@ In **Prism > File Server > File Server**, select the **AFS** server and click **
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab7/15.png
 
-Observe the default Self Service Restore schedules, this feature controls the snapshot schedule for Windows' Offline Files functionality. Note these local snapshots do not protect the file server cluster from local failures and that replication of the entire file server cluster can be performed to remote Nutanix clusters.
+Note the default Self Service Restore schedules, this feature controls the snapshot schedule for Windows' Previous Versions functionality. Supporting Previous Versions allows end users to roll back changes to files without engaging storage or backup administrators. Note these local snapshots do not protect the file server cluster from local failures and that replication of the entire file server cluster can be performed to remote Nutanix clusters.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab7/16.png
 
@@ -82,6 +89,8 @@ In **Prism > File Server > Share**, select the **home** share and click **Update
 Select **Enable Access Based Enumeration** and **Self Service Restore** and click **Save**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab7/18.png
+
+.. note:: To learn more about AFS architecture, see the `File Services <http://nutanixbible.com/#anchor-file-services-85>`_ section of the Nutanix Bible.
 
 Configuring Share Permissions
 +++++++++++++++++++++++++++++
@@ -148,7 +157,7 @@ Click **Browse** and select the **Non-PersistentDesktops** OU. Click **OK > OK**
 
 Click **Next**.
 
-.. note:: Studio offers many different means of applying policies. Across a more diverse environment it may make sense to configure UPM settings based on tags. If our computers weren't optimally organized in Active Directory, we could have also elected to assign this policy based on the Non-Persistent desktop Delivery Group.
+Studio offers many different means of applying policies. Across a more diverse environment it may make sense to configure UPM settings based on tags. If our computers weren't optimally organized in Active Directory, we could have also elected to assign this policy based on the Non-Persistent desktop Delivery Group.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab7/30.png
 
@@ -182,3 +191,18 @@ Again, log in to Citrix StoreFront as **USER2** and connect to a **Pooled Window
 Open **\\\\\\AFS\\home\\user2\\** in **File Explorer**. Drill down into the directory structure to find the data associated with your user profile.
 
 Log in to Citrix StoreFront as **USER3** and connect to a **Pooled Windows 10 Desktop** with Citrix Receiver. Open **\\\\\\AFS\\home\\** in **File Explorer**. Note that you don't see or have access to USER2's profile directory. Disable **Access Based Enumeration (ABE)** in **Prism > File Server > Share > home > Update** and try again.
+
+Takeaways
++++++++++
+
+- Nutanix provides native file services suitable for storing user profiles and data.
+
+- AFS can be deployed on the same Nutanix cluster as your virtual desktops, resulting in better utilization of storage capacity and the elimination of an additional storage silo.
+
+- Supporting mixed workloads (e.g. virtual desktops and file services) is further enhanced by Nutanix's ability to mix different node configurations within a single cluster, such as:
+
+  - Mixing storage heavy and compute heavy nodes
+  - Expanding a cluster with Storage Only nodes to increase storage capacity without incurring additional virtualization licensing costs
+  - Mixing different generations of hardware (e.g. NX-3460-G6 + NX-6235-G5)
+  - Mixing all flash nodes with hybrid nodes
+  - Mixing NVIDIA GPU nodes with non-GPU nodes

@@ -1,5 +1,5 @@
-Requirements
-------------
+Lab Requirements
+----------------
 
 If this workshop is being completed as part of a Nutanix or Nutanix partner sponsored event, all necessary software, templates, credentials and networking information will be provided to you.
 

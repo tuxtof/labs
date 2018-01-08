@@ -1,7 +1,15 @@
 *Optional Lab* - Remote Access With NetScaler VPX
------------------------------------------------------------
+-------------------------------------------------
 
-Obtain the latest Netscaler Gateway VPX for KVM build from https://www.citrix.com/downloads.
+Overview
+++++++++
+
+In this exercise you will deploy a NetScaler virtual appliance and configure NetScaler Gateway to provide remote access capabilities for your XenDesktop Site. Configuring remote access for a Citrix environment requires valid SSL certificates. To support this requirement you will configure the NetScaler VPX to act as a Root Certificate Authority, create and sign a server SSL certificate for the appliance, and configure your client to trust the Root certificate.
+
+Deploying NetScaler Virtual Appliance
++++++++++++++++++++++++++++++++++++++
+
+Obtain the latest NetScaler Gateway VPX for KVM build from https://www.citrix.com/downloads.
 
 .. note:: As of writing the current version is 12.0-53.13.
 
@@ -15,7 +23,7 @@ In **Prism**, click the **Settings** icon and select **Image Configuration**.
 
 Click **Upload Image** and fill out the following fields:
 
-- **Name** - *Netscaler VPX 12*
+- **Name** - *NetScaler VPX 12*
 - **Annotation** - This is an optional field that is helpful for designating additional information about an image, such as version or filename
 - **Image Type** - *DISK*
 - **Storage Container** - *Default*
@@ -36,7 +44,7 @@ Using an SSH client, execute the following:
   > ssh nutanix@<NUTANIX-CLUSTER-IP>
   > acli
   <acropolis> vm.create NSVPX num_vcpus=2 num_cores_per_vcpu=1 memory=4G
-  <acropolis> vm.disk_create NSVPX bus=ide clone_from_image=<Netscaler VPX Disk Image Name>
+  <acropolis> vm.disk_create NSVPX bus=ide clone_from_image=<NetScaler VPX Disk Image Name>
   <acropolis> vm.nic_create NSVPX network=<IPAM Network Name>
   <acropolis> vm.serial_port_create NSVPX type=kServer index=0
   <acropolis> vm.on NSVPX
@@ -53,7 +61,7 @@ Enter the initial configuration wizard:
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab12/4.png
 
-Enter **1** and specify the NSVPX IP address from your Environment Details Worksheet.
+Enter **1** and specify the NSVPX Management IP address from your Environment Details Worksheet.
 
 Press **Return** and enter the netmask. Press **Return**.
 
@@ -83,7 +91,7 @@ Click **Subnet IP Address**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab12/8.png
 
-Enter your Subnet IP Address and Netmask according to your Environment Details Worksheet
+Enter your Subnet IP Address and Netmask according to your Environment Details Worksheet. The Subnet IP is what the NetScaler uses to communicate with other backend services, such as the StoreFront server. In a production environment the Subnet IP would likely be on a separate interface/subnet than the Management IP.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab12/9.png
 
@@ -129,10 +137,8 @@ Click **Reboot > Yes** to complete the license installation.
 
 After the VM reboots you will be returned to the login page. Log in as **nsroot**.
 
-Configuring SSL Certificates
-++++++++++++++++++++++++++++
-
-For the purposes of the workshop, we're going to use the NetScaler as the Certificate Authority (CA).
+Configuring Root Certificate Authority
+++++++++++++++++++++++++++++++++++++++
 
 Select **Traffic Management > SSL** and click **Root-CA Certificate Wizard**.
 
@@ -174,6 +180,9 @@ Enter *root* as the **Certificate Key Pair Name** and click **Create**.
 Click **Done**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab12/23.png
+
+Configuring Server SSL Certificate
+++++++++++++++++++++++++++++++++++++++
 
 Select **Traffic Management > SSL** and click **Server Certificate Wizard**.
 
@@ -222,7 +231,7 @@ Click **Done**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab12/29.png
 
-COnfiguring NetScaler for XenDesktop
+Configuring NetScaler for XenDesktop
 ++++++++++++++++++++++++++++++++++++
 
 Select **XenApp and XenDesktop** from the menu and click **Get Started**.
@@ -238,6 +247,8 @@ Fill out the following fields and click **Continue**:
 - **Gateway FQDN** - *mydesktop.ntnx.local*
 -	**Gateway IP Address** - Refer to your Environment Details Worksheet
 - **Port** - *443*
+
+Note that the Gateway FQDN corresponds to the Common Name of our SSL certificate. The Gateway IP Address (also referred to as the Virtual IP Address or VIP) is the IP address used to communicate with external networks. In a production environment the VIP would be on a separate interface/subnet, typically in the DMZ.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab12/32.png
 
@@ -294,7 +305,7 @@ In **File Explorer**, copy **GatewayConfig.zip** to **\\\\<XD-IP-ADDRESS>\\c$\\*
 Importing NetScaler Configuration
 +++++++++++++++++++++++++++++++++
 
-In **Citrix Studio > Citrix StoreFront**, right-click **Stores > Manage Netscaler Gateways**.
+In **Citrix Studio > Citrix StoreFront**, right-click **Stores > Manage NetScaler Gateways**.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab12/42.png
 
@@ -412,3 +423,8 @@ Click **Use light version**.
 Launch a **Pooled Windows 10 Desktop** and verify that it opens in a new tab in your browser.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab12/64.png
+
+Takeaways
++++++++++
+
+- Support for Citrix products on AHV extends beyond core XenDesktop services. In addition to NetScaler, Citrix ShareFile, Director and Provisioning Services (PVS) are also supported on AHV.

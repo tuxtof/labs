@@ -4,6 +4,14 @@
 Overview
 ++++++++
 
+In this exercise you will explore and configure AHV's High Availability (HA) and Acropolis Dynamic Scheduling (ADS) features. You will also fail a node with active connections to your virtual desktops and observe the environment's behavior during failure.
+
+.. note::
+
+  If you're interested in additional real world system testing, Nutanix has produced an automated system test suite, X-Ray. X-Ray is designed to evaluate hyperconverged infrastructure platforms in a variety of scenarios, including: Database co-location (workload interference), snapshot impact, rolling upgrades, node failures, and workload simulations.
+
+  Learn more and get started with X-Ray at http://www.nutanix.com/xray/
+
 Updating CVM Firewall Rules
 +++++++++++++++++++++++++++
 
@@ -43,6 +51,8 @@ Repeat these steps for **XD** and any other applicable non-AFS or non-desktop VM
 
 Enabling HA Memory Reservation
 ++++++++++++++++++++++++++++++
+
+By default, Nutanix AHV will protect VMs in the event of a node failure on a best effort basis, presuming there is adequate memory availability to restart VMs from the failed host. Enabling HA forces a dynamic memory reservation to ensure memory availability in the event of a node failure. It will also validate there are no affinity rules that would prevent HA from being enabled, for instance a VM with a host affinity policy only containing a single host.
 
 In **Prism**, click the **Settings** icon and select **Manage VM High Availability**.
 
@@ -132,7 +142,7 @@ In **Prism > Home**, verify that the cluster is in Critical Status and that a re
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab9/23.png
 
-Open \https://<*NUTANIX-CLUSTER-IP*>:2010 in your browser and click the **Curator Master** link.
+Open **\https://<NUTANIX-CLUSTER-IP>:2010** in your browser and click the **Curator Master** link.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab9/24.png
 
@@ -174,3 +184,15 @@ Verify you're no longer able to access the Curator page from your browser.
 
 Takeaways
 +++++++++
+
+- Nutanix begins re-protecting missing extents as soon as a disk or node failure is detected.
+
+- Nutanix does not risk data loss by only writing a single copy of data during failure scenarios and will continue to write new data in accordance with the Storage Container Replication Factor (RF) policy.
+
+- AHV supports affinity rules to accomodate VM to Host scenarios (e.g. tying a VM to a subset of hosts for software licensing purposes), as well as VM to VM anti-affinity scenarios (e.g. separating multiple XenDesktop Delivery Controller VMs for high availability).
+
+- HA and ADS are enabled by default.
+
+- ADS goes above and beyond CPU and memory congestion avoidance when making decisions about VM placement. AHV has visibility into the storage stack as well, allowing VM placement decisions to also account for factors such as SSD utilization and data locality.
+
+- Unlike RAID based solutions, Nutanix can fully self-heal without administative intervention following a node or disk failure provided there is adequate compute and storage availability.

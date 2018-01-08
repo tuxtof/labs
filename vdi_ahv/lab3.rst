@@ -4,6 +4,10 @@ Lab 3 - XenDesktop Install
 Overview
 ++++++++
 
+In this exercise you will use the CLI to deploy a Windows 2012 template image and install backend services for XenDesktop. For the purposes of simplifying the workshop, all key XenDesktop roles (Studio, Delivery Controller, StoreFront, Citrix Licensing) will be installed in a single VM.
+
+As previously discussed, in a production environment these roles would be sepearated on multiple VMs to provide scalbility and high availability. Additionally, you will install the MCS Plugin for AHV on the Delivery Controller VM. This plugin leverages the Citrix Provisioning SDK to allow Citrix Machine Creation Service to deploy and configure VMs running on Nutanix AHV. In a production environment the MCS Plugin would be deployed on each Delivery Controller VM.
+
 Creating the VM (via CLI)
 +++++++++++++++++++++++++
 
@@ -203,3 +207,16 @@ Selecting the **PowerShell** tab will detail all the steps taken by the Site Cre
 Select **Citrix StoreFront > Stores** and review the configuration.
 
 .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab3/27.png
+
+Takeaways
++++++++++
+
+- The Nutanix MCS Plugin provides an integrated and fully supported experience for adding AHV clusters in Citrix Studio.
+
+- Both Citrix and Nutanix support multiple hypervisors, including AHV, vSphere, Hyper-V, and XenServer. Choice of hypervisor and hardware platform with Nutanix prevents a business from being locked in to a single solution.
+
+- The **acli** and **ncli** tools provide a programmatic interface for infrastructure and VM operations.
+
+  .. note:: Nutanix also provides SDKs and fully documented APIs. See `developer.nutanix.com <http://developer.nutanix.com>`_ for API reference, code samples, and more. You can also find an interactive API Explorer within Prism under the <Username> drop down menu.
+
+    .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab3/29.PNG
