@@ -15,7 +15,7 @@ Calm Workshop
    orchestration
    nucalm_overview
    nucalm_deepdive
-   nucalm_positioning
+   .. nucalm_positioning
    quiz
 
    lab1
