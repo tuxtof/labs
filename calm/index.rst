@@ -7,8 +7,7 @@ Welcome to Calm Workshop's documentation!
 =========================================
 
 .. toctree::
-   :maxdepth: 2
-   :glob:
+   :name: _calm_toc
 
    sdlc
    alm
@@ -29,11 +28,3 @@ Welcome to Calm Workshop's documentation!
    lab7 
    mission  
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
