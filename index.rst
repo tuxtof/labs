@@ -42,7 +42,7 @@ If so, then you've come to the right place! Nutanix Workshops provides comprehen
   :caption:     Workshops
   :name: _lab-docs
 
-  .. workshop_setup/index
-  .. calm/index
+  workshop_setup/index
+  calm/index
   .. vdi_ahv/index
   .. example/index
