@@ -1,5 +1,5 @@
 ****************
-NuCalm REST APIs
+Lab5 - REST APIs
 ****************
 
 .. toctree::
