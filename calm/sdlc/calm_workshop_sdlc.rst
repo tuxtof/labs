@@ -1,6 +1,6 @@
-*****************************************************
-Calm Workshop – Software Development Lifecycle (SDLC)
-*****************************************************
+**************************************
+Software Development Lifecycle (SDLC)
+**************************************
 
    
 SDLC Introduction
