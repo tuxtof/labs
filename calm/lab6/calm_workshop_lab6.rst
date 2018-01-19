@@ -1,5 +1,5 @@
 **************
-NuCalm Ansible
+Lab6 - Ansible
 **************
 
 .. toctree::
