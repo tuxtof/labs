@@ -1,5 +1,5 @@
 *******************************
-Lab1 - Simple Blueprint (MySQL)
+Lab1 - Blueprint (MySQL)
 *******************************
 
 .. contents::
