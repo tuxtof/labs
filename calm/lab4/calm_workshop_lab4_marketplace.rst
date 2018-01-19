@@ -1,5 +1,5 @@
 *******************************
-NuCalm Blueprint Marketplace P1
+Lab4 - Blueprint Marketplace P1
 *******************************
 
 .. contents::
