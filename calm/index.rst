@@ -22,9 +22,9 @@ Calm Workshop
    lab2
    lab3
    lab4
-   lab8
    lab5 
    lab6 
-   lab7 
+   lab7
+   lab8
    mission  
 
