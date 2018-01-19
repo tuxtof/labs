@@ -1,5 +1,5 @@
 *******************************
-NuCalm Blueprint Marketplace P2
+Lab8 - Blueprint Marketplace P2
 *******************************
 
 .. contents::
