@@ -134,7 +134,7 @@ Once *pip has been installed and verified, we can now install *requests* as foll
 
 Participants will need access to Git to download or clone the calm-lab automation repository. 
 
-Power-on the VM and login to the assigned *ip-address* as **user:** *root*, **password:** *nutanix/4u* using *ssh* or *putty*.
+With the CentOS v7 VM powered on, and logged in...
 
 Install git:
 
