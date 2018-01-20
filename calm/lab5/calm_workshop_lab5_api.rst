@@ -129,100 +129,6 @@ Once *pip has been installed and verified, we can now install *requests* as foll
     Installing collected packages: certifi, chardet, idna, urllib3, requests
     Successfully installed certifi-2017.11.5 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
 
-
-**Install Git:**
-
-Participants will need access to Git to download or clone the calm-lab automation repository. 
-
-With the CentOS v7 VM powered on, and logged in...
-
-Install git:
-
-.. code-block:: bash
-
-  $ yum install git -y
-  
-Create a directory for development:
-
-.. code-block:: bash
-
-  $ mkdir /root/development
-  
-Change to the directory and run:
-
-.. code-block:: bash
-
-  $ git clone https://github.com/mjastad/automation.git
-
-If all was successfull you should find a directory */root/automation/solution*
-
-Edit */root/automation/solution/main.py* and set the connection variables for the assigned cluster.  Make rue the values are within quotes(**""**):
-
-- USER:  Cluster Admin user name
-- PASSWD: Cluster Admin user password
-- IPADDRESS: Cluster IP Address
-
-Be sure to comment **v2** imports and functions and uncomment **v3** imports as shown below:
-
-.. code-block:: bash
-
-  #!/usr/bin/env python
-
-  """
-  File: main.py: NTNX REST API Driver.
-  """
-
-  '''
-  from v2.core.Connection import Connection
-  from v2.core.Host import Host
-  from v2.core.User import User
-  from v2.services.VirtualMachineService import VirtualMachineService
-  from v2.services.ImageService import ImageService
-  from v2.services.StorageContainerService import StorageContainerService
-
-  '''
-  from v3.core.Connection import Connection
-  from v3.core.Host import Host
-  from v3.core.User import User
-  from v3.services.VirtualMachineService import VirtualMachineService
-  from v3.services.ImageService import ImageService
-  from v3.services.StorageContainerService import StorageContainerService
-  from v3.services.ApplicationService import ApplicationService
-  from v3.services.BlueprintService import BlueprintService
-
-  USER = "Cluster Admin user name"
-  PASSWD = "Cluster Admin password!"
-  IPADDRESS = "Cluster IP Address"
-  PORT = "9440"
-
-  def main():
-
-    data = {'filter': '', 'offset': 0, 'length': 20}
-
-    user = User(USER, PASSWD)
-    host = Host(IPADDRESS, PORT)
-    connection = Connection(user, host)
-
-    #v2 API
-    #_virtualMachines(connection)
-
-    #v3 API
-    getVirtualMachines(connection, data)
-    getApplications(connection, data)
-    getBlueprints(connection, data)
-
-  if __name__ == "__main__":
-    main()
-
-
-Test the runtime and the code by running:
-
-.. code-block:: bash
-  
-   $ python main.py
-
-If successfull,  You should see VM, Blueprint and Application property output...
-
 Configure Postman (Optional)
 ****************************
 
@@ -664,6 +570,106 @@ STATE-CHANGE:
 - Update a Blueprint
 - Launch Blueprint
 - Delete an App
+
+  
+**Install Git:**
+
+Participants will need access to Git to download or clone the calm-lab automation repository. 
+
+From an active terminal session logged in as *root* on the CentOS v7 Server VM created earlier...
+
+Install git:
+
+.. code-block:: bash
+
+  $ yum install git -y
+  
+Create a directory for development:
+
+.. code-block:: bash
+
+  $ mkdir /root/development
+  
+Change to the directory and run:
+
+.. code-block:: bash
+
+  $ git clone https://github.com/mjastad/automation.git
+
+If all was successfull you should find a directory */root/automation/solution*
+
+Edit */root/automation/solution/main.py* and set the connection variables for your assigned cluster.  Make sure the values are within quotes(**"some_value"**):
+
+- USER:  Cluster Admin user name
+- PASSWD: Cluster Admin user password
+- IPADDRESS: Cluster IP Address
+
+Be sure to comment **v2** imports and functions and uncomment **v3** imports as shown below:
+
+.. code-block:: bash
+
+  #!/usr/bin/env python
+
+  """
+  File: main.py: NTNX REST API Driver.
+  """
+
+  #from V2 import *
+  from V3 import * 
+  from config import * 
+  from manageBlueprint import * 
+
+  __author__ = "M. Jastad"
+  __copyright__ = "Copyright 2017, Calm Workshop"
+  __credits__ = ["Joseph Angeletti", "Mark Lavi"]
+  __license__ = "Use-As-Is"
+  __version__ = "2.0.1"
+  __maintainer__ = "M. Jastad"
+  __email__ = "michael.jastad@nutanix.com"
+  __status__ = "Reference"
+
+  def showList(itemList):
+      for item in itemList : item.show()
+
+  def main():
+
+    data = {'filter': '', 'offset': 0, 'length': 20}
+
+    user = User(USER, PASSWD)
+    host = Host(IPADDRESS, PORT)
+    connection = Connection(user, host)
+
+    #v2 API
+    #showList(VirtualMachineService().getVMS(connection)) 
+    #showList(ImageService().getImages(connection)) 
+    #showList(StorageContainerService().getStorageContainers(connection)) 
+
+    #v3 API
+    showList(VirtualMachineService().getVMS(connection, data)) 
+    showList(ApplicationService().getApplications(connection, data)) 
+    showList(BlueprintService().getBlueprints(connection, data)) 
+    showList(ProjectService().getProjects(connection, data)) 
+
+    importBlueprint(connection, PROJECT, BLUEPRINT_FILE, BLUEPRINT, DRAFT)
+    modifyCredential(connection, BLUEPRINT, DRAFT, CREDENTIAL, PASSWORD)
+    launchBlueprint(connection, BLUEPRINT, ACTIVE, APPLICATION)
+
+  if __name__ == "__main__":
+      main()
+
+
+Test the runtime and the code by running the foollwojng comand from a local terminal window:
+
+.. code-block:: bash
+  
+   $ python main.py
+
+If successfull,  You should see VM, Blueprint and Application property output fro the target cluster...
+
+**Summary**
+
+You've successfully installed git, setup a dev environment, cloned a git repistory, and executed python code that automates the commands previously ran manually using the NTNX v4 REST API Explorer... 
+
 
 .. _Chrome-JSON-Editor-Extension: https://chrome.google.com/webstore/detail/json-editor/lhkmoheomjbkfloacpgllgjcamhihfaj?hl=en
 .. _Import-Blueprint.JSON: lab5/blueprints/importBlueprint.html
