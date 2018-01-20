@@ -26,7 +26,7 @@ Connectivity Instructions:
 Lab Overview
 ************
 
-The Automation Lab starts with an introduction to NuCalm REST API, and associated JSON. The lab is a set of exercises designed to walk participants through navigating the REST API Explorer, locating Blueprint and Appication REST requests, executing the requests, and observing the results using both the Swagger generated API Explorer (Prism Central). Participants will also deploy several commands using python.
+The Automation Lab starts with an introduction to NuCalm REST API, and associated JSON. The lab is a set of exercises designed to walk participants through navigating the REST API Explorer, locating Blueprint and Appication REST requests, executing the requests, and observing the results using both the Swagger generated API Explorer (Prism Central) and Postman (optional). Participants will also deploy several commands using python.
 
 NTNX REST API Explorer Requests:
 
@@ -38,26 +38,24 @@ NTNX REST API Explorer Requests:
 Requirements:
 *************
 
-Reference:
+**Reference:**
 
 - REST/HTTP Overview: REST-HTTP-Overview_
 - NTNX REST API Explorer Overview:  NTNX-REST-API-Explorer-Overview_
+
+**Execution & Development:**
+
 - Chrome Web Browser + Developer Tools
 - Chrome JSON Editor: Chrome-JSON-Editor-Extension_
-
-Development:
-
-- CentOS Server v7 VM created:  configure-centos-server-v7
-- Python 2.7.x
+- CentOS Server v7 VM.
+   - *Python 2.7.x*, *requests*, and *git* installed
 - Git Hub Account: https://github.com
 
-
-The Automation Lab starts with an introduction to NuCalm REST API, and associated JSON. The lab is a set of exercises designed to walk participants through navigating the REST API Explorer, locating Bluepint and Appication commands, executing the commands, and observing the results using both the Swagger generated API Explorer (Prism), and Postman (3rd party API toolchain). Participants will then deploy several commands using python.
 
 Create a CentOS Server v7 VM
 ****************************
 
-Create a CentOS Server v7 VM on the assigned cluster using Prism Central using the folloiwng specifications:
+Create a CentOS Server v7 VM on the assigned cluster using Prism Central with the folloiwng specifications:
 
 - vCPU: 2x, 1x core/vCPU
 - mem:  4 GiB
@@ -65,13 +63,12 @@ Create a CentOS Server v7 VM on the assigned cluster using Prism Central using t
 - name: calm_lab_dev
 - image: CentOS Server v7  (Disk)
 
-  
-
-Create a Development Environment
-********************************
-
+Create a Development Runtime
+****************************
 
 **Install pip, and requests:**
+
+Power-on the VM and login to the assigned *ip-address* as **user:** *root*, **password:** *nutanix/4u* using *ssh* or *putty*.
 
 We'll need to make sure the python 2.7 runtime has all the appropriate packages, sepcifically *pip* and *requests*. We'll provision a CentOS Server VM to insure participants are working fromm a common-base.
 
@@ -128,100 +125,6 @@ Once *pip has been installed and verified, we can now install *requests* as foll
     Installing collected packages: certifi, chardet, idna, urllib3, requests
     Successfully installed certifi-2017.11.5 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
 
-
-**Install Git:**
-
-Participants will need access to Git to download or clone the calm-lab automation repository. 
-
-Power-on the VM and login to the assigned *ip-address* as **user:** *root*, **password:** *nutanix/4u* using *ssh* or *putty*.
-
-Install git:
-
-.. code-block:: bash
-
-  $ yum install git -y
-  
-Create a directory for development:
-
-.. code-block:: bash
-
-  $ mkdir /root/development
-  
-Change to the directory and run:
-
-.. code-block:: bash
-
-  $ git clone https://github.com/mjastad/automation.git
-
-If all was successfull you should find a directory */root/automation/solution*
-
-Edit */root/automation/solution/main.py* and set the connection variables for the assigned cluster.  Make rue the values are within quotes(**""**):
-
-- USER:  Cluster Admin user name
-- PASSWD: Cluster Admin user password
-- IPADDRESS: Cluster IP Address
-
-Be sure to comment **v2** imports and functions and uncomment **v3** imports as shown below:
-
-.. code-block:: bash
-
-  #!/usr/bin/env python
-
-  """
-  File: main.py: NTNX REST API Driver.
-  """
-
-  '''
-  from v2.core.Connection import Connection
-  from v2.core.Host import Host
-  from v2.core.User import User
-  from v2.services.VirtualMachineService import VirtualMachineService
-  from v2.services.ImageService import ImageService
-  from v2.services.StorageContainerService import StorageContainerService
-
-  '''
-  from v3.core.Connection import Connection
-  from v3.core.Host import Host
-  from v3.core.User import User
-  from v3.services.VirtualMachineService import VirtualMachineService
-  from v3.services.ImageService import ImageService
-  from v3.services.StorageContainerService import StorageContainerService
-  from v3.services.ApplicationService import ApplicationService
-  from v3.services.BlueprintService import BlueprintService
-
-  USER = "Cluster Admin user name"
-  PASSWD = "Cluster Admin password!"
-  IPADDRESS = "Cluster IP Address"
-  PORT = "9440"
-
-  def main():
-
-    data = {'filter': '', 'offset': 0, 'length': 20}
-
-    user = User(USER, PASSWD)
-    host = Host(IPADDRESS, PORT)
-    connection = Connection(user, host)
-
-    #v2 API
-    #_virtualMachines(connection)
-
-    #v3 API
-    getVirtualMachines(connection, data)
-    getApplications(connection, data)
-    getBlueprints(connection, data)
-
-  if __name__ == "__main__":
-    main()
-
-
-Test the runtime and the code by running:
-
-.. code-block:: bash
-  
-   $ python main.py
-
-If successfull,  You should see VM, Blueprint and Application property output...
-
 Configure Postman (Optional)
 ****************************
 
@@ -229,13 +132,12 @@ This lab will use Postman allowing you to preserve the v3 REST API Requests so t
 
 Lab setup for Postman:  configure-postman_
 
-
 Accessing the REST API's
 ************************
 
 A link for launching the REST API Explorer may not be accessible via Prism Central - specifically in the case of AOS v5.5.  The explorer can be launched by explicitly typing the *url* in the address bar of your browser as follows:
 
-**Note:** . The v3 REST API's for NuCalm can only be accessed via Prism Central(PC) *url*.
+**Note:** The NTNX v3 REST API Explorer in AOS v5.5.0.x can only be accessed using the Prism Central(PC) *url* typed into the active browsers address bar.  
 
 .. code-block:: bash
 
@@ -648,25 +550,116 @@ You've successfully deleted an application that was previously imported and laun
 Automation of REST Endpoints
 ****************************
 
-In this section we'll learn how to run python code instrumented to programmatically perform the commands we ran manually via REST API Explorer:
+In this section we'll run python code instrumented to programmatically perform the commands you ran manually from previous steps using the NTNX REST API Explorer.  You'll begin by installing *git*, configuring a dev environment, cloning an exiting *git* repository to the dev environment, and execute the code downloaded from the repository.
 
-READ:
+  
+**Install Git:**
 
-- App(s)
-- Blueprint(s)
-- Project(s)
-- Role(s)
+Starting from an active terminal session logged in as *root* to the CentOS v7 Server VM created earlier...
 
-STATE-CHANGE:
+Install git:
 
-- Import a Blueprint(JSON)
-- Update a Blueprint
-- Launch Blueprint
-- Delete an App
+.. code-block:: bash
+
+  $ yum install git -y
+
+**Create dev environment:**
+
+Create a directory for development:
+
+.. code-block:: bash
+
+  $ mkdir /root/development
+  
+Change to the directory created above and run:
+
+.. code-block:: bash
+
+  $ git clone https://github.com/mjastad/automation.git
+
+If all was successfull you should find a directory */root/automation/solution/*
+
+Edit */root/automation/solution/config.py* and set the connection variables (i.e. *user, passwd, ipaddress*) using the associated information for your assigned cluster.  Make sure the values are within quotes(**"some_value"**) as follows:
+
+.. code-block:: python
+
+  USER         = "admin"           < edit
+  PASSWD       = "nx2Tech476!"     < edit
+  IPADDRESS    = "10.21.81.39"     < edit
+  PORT         = "9440"
+
+Check If the **v2** imports and function calls are commented with *#* in file */root/automation/solution/main.py*.  If they aren't, be sure to comment **v2** imports and function calls using *#*, and uncomment **v3** imports by removing *#* as shown:
+
+.. code-block:: python
+
+  #!/usr/bin/env python
+
+  """
+  File: main.py: NTNX REST API Driver.
+  """
+
+  #from V2 import *
+  from V3 import * 
+  from config import * 
+  from manageBlueprint import * 
+
+  __author__ = "M. Jastad"
+  __copyright__ = "Copyright 2017, Calm Workshop"
+  __credits__ = ["Joseph Angeletti", "Mark Lavi"]
+  __license__ = "Use-As-Is"
+  __version__ = "2.0.1"
+  __maintainer__ = "M. Jastad"
+  __email__ = "michael.jastad@nutanix.com"
+  __status__ = "Reference"
+
+  def showList(itemList):
+      for item in itemList : item.show()
+
+  def main():
+
+    data = {'filter': '', 'offset': 0, 'length': 20}
+
+    user = User(USER, PASSWD)
+    host = Host(IPADDRESS, PORT)
+    connection = Connection(user, host)
+
+    #v2 API
+    #showList(VirtualMachineService().getVMS(connection)) 
+    #showList(ImageService().getImages(connection)) 
+    #showList(StorageContainerService().getStorageContainers(connection)) 
+
+    #v3 API
+    showList(VirtualMachineService().getVMS(connection, data)) 
+    showList(ApplicationService().getApplications(connection, data)) 
+    showList(BlueprintService().getBlueprints(connection, data)) 
+    showList(ProjectService().getProjects(connection, data)) 
+
+    importBlueprint(connection, PROJECT, BLUEPRINT_FILE, BLUEPRINT, DRAFT)
+    modifyCredential(connection, BLUEPRINT, DRAFT, CREDENTIAL, PASSWORD)
+    launchBlueprint(connection, BLUEPRINT, ACTIVE, APPLICATION)
+
+  if __name__ == "__main__":
+      main()
+
+**Execute the code:**
+
+Test the runtime and the code by running the following comand from a local terminal window:
+
+.. code-block:: bash
+  
+   $ python main.py
+
+If successfull, You should see output for VM, Blueprint, and deployed Application elements configured and/or running on the target cluster...
+
+**Summary**
+
+You've successfully installed git, setup a dev environment, cloned a git repistory, and executed python code that automates the commands previously ran manually using the NTNX v4 REST API Explorer... 
+
 
 .. _Chrome-JSON-Editor-Extension: https://chrome.google.com/webstore/detail/json-editor/lhkmoheomjbkfloacpgllgjcamhihfaj?hl=en
 .. _Import-Blueprint.JSON: lab5/blueprints/importBlueprint.html
 
+.. _configure-centos-server-v7: lab6/calm_workshop_lab6_config_centos.html
 .. _REST-HTTP-Overview: lab5/calm_workshop_lab5_rest_overview.html
 .. _NTNX-REST-API-Explorer-Overview: lab5/calm_workshop_ntnx_api_explorer_overview.html
 .. _configure-postman: lab5/calm_workshop_postman_setup.html
