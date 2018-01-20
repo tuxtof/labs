@@ -65,7 +65,7 @@ Create a CentOS Server v7 VM on the assigned cluster using Prism Central using t
 - name: calm_lab_dev
 - image: CentOS Server v7  (Disk)
 
-configuration setup & guidelines: configure-centos-server-v7_  
+Configuration setup guidelines: configure-centos-server-v7_  
 
 Create a Development Environment
 ********************************
