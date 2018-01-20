@@ -29,7 +29,7 @@ Lab Overview
 
 In this lab participants will learn about NuCalm Blueprint Best Practices, identify anamolies, and diagnose poorly written or defective Blueprints.
 
-In this exercise we'll walk through the steps to:
+In this exercise you'll walk through the steps to:
 
 1. Import a Blueprint.
 2. Launch the Blueprint.
@@ -57,11 +57,17 @@ You are, by default, dropped into the Applications tab and can see all the insta
 Part 2: Import Blueprint
 ************************
 
+Navigate your SMB share for the **.../CalmWorkshp/Troubleshooting.json** blueprint.  Select the file and continue.  
+
+Download the blueprint to be imported:
+
+:download:`Blueprint <json/Troubleshooting.json>`
+
 Navigate to the Blueprint Workspace by clicking (|image1|) icon located on the left tool ribbon.  This will open the Blueprint Workspace where self-authored blueprints are staged editing, publishing, and/or launching as Applications.  When the Blueprint grid appears, click the **Upload Blueprint** button located along the top of the Blueprint grid.  
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image2.png
 
-Navigate your SMB share for the **.../CalmWorkshp/Troubleshooting.json** blueprint.  Select the file and continue.  A modal dialog will appear prompting for a name and project when saving. Complete the fileds as show below and click **upload**. This will save the blueprint to the workspace.
+A modal dialog will appear prompting for a name and project when saving. Complete the fileds as shown below and click **upload**. This will save the blueprint to the workspace.
 
 - **Name:** Calm Workshop Blueprint Debug
 - **Project:** Calm
