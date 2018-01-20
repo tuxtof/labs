@@ -47,17 +47,16 @@ Reference:
 
 Development:
 
-- CentOS Server v7 VM created:  configure-centos-server-v7_
-- Python 2.7.x
+- CentOS Server v7 VM.
+   - *Python 2.7.x*, *requests*, and *git* installed
 - Git Hub Account: https://github.com
-
 
 The Automation Lab starts with an introduction to NuCalm REST API, and associated JSON. The lab is a set of exercises designed to walk participants through navigating the REST API Explorer, locating Bluepint and Appication commands, executing the commands, and observing the results using both the Swagger generated API Explorer (Prism), and Postman (3rd party API toolchain). Participants will then deploy several commands using python.
 
 Create a CentOS Server v7 VM
 ****************************
 
-Create a CentOS Server v7 VM on the assigned cluster using Prism Central using the folloiwng specifications:
+Create a CentOS Server v7 VM on the assigned cluster using Prism Central with the folloiwng specifications:
 
 - vCPU: 2x, 1x core/vCPU
 - mem:  4 GiB
@@ -65,10 +64,9 @@ Create a CentOS Server v7 VM on the assigned cluster using Prism Central using t
 - name: calm_lab_dev
 - image: CentOS Server v7  (Disk)
 
-Configuration setup guidelines: configure-centos-server-v7_  
 
-Create a Development Environment
-********************************
+Create a Development Runtime
+****************************
 
 **Install pip, and requests:**
 
@@ -135,7 +133,6 @@ Configure Postman (Optional)
 This lab will use Postman allowing you to preserve the v3 REST API Requests so they can be used later when demonstrating NuCalm REST API's and HOW-TO guidance with a partner or customer.  If you use another REST API tool, feel to use it in place of Postman.
 
 Lab setup for Postman:  configure-postman_
-
 
 Accessing the REST API's
 ************************
@@ -648,13 +645,13 @@ Check If the **v2** imports and function calls are commented with *#* in file */
 
 **Execute the code:**
 
-Test the runtime and the code by running the foollwojng comand from a local terminal window:
+Test the runtime and the code by running the following comand from a local terminal window:
 
 .. code-block:: bash
   
    $ python main.py
 
-If successfull,  You should see VM, Blueprint and Application property output from the target cluster...
+If successfull, You should see output for VM, Blueprint, and deployed Application elements configured and/or running on the target cluster...
 
 **Summary**
 
