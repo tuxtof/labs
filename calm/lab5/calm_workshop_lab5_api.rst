@@ -47,7 +47,7 @@ Reference:
 
 Development:
 
-- CentOS Server v7 VM created:  configure-centos-server-v7
+- CentOS Server v7 VM created:  configure-centos-server-v7_
 - Python 2.7.x
 - Git Hub Account: https://github.com
 
@@ -667,6 +667,8 @@ STATE-CHANGE:
 .. _Chrome-JSON-Editor-Extension: https://chrome.google.com/webstore/detail/json-editor/lhkmoheomjbkfloacpgllgjcamhihfaj?hl=en
 .. _Import-Blueprint.JSON: lab5/blueprints/importBlueprint.html
 
+
+.. _configure-centos-server-v7: lab6/configure-centos-server-v7.html
 .. _REST-HTTP-Overview: lab5/calm_workshop_lab5_rest_overview.html
 .. _NTNX-REST-API-Explorer-Overview: lab5/calm_workshop_ntnx_api_explorer_overview.html
 .. _configure-postman: lab5/calm_workshop_postman_setup.html
