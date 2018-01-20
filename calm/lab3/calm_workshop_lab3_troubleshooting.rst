@@ -57,15 +57,15 @@ You are, by default, dropped into the Applications tab and can see all the insta
 Part 2: Import Blueprint
 ************************
 
-Navigate your SMB share for the **.../CalmWorkshp/Troubleshooting.json** blueprint.  Select the file and continue.  
-
 Download the blueprint to be imported:
 
 :download:`Blueprint <lab3/json/Troubleshooting.json>`
 
-Navigate to the Blueprint Workspace by clicking (|image1|) icon located on the left tool ribbon.  This will open the Blueprint Workspace where self-authored blueprints are staged editing, publishing, and/or launching as Applications.  When the Blueprint grid appears, click the **Upload Blueprint** button located along the top of the Blueprint grid.  
+From Apps (NuCalm) within Prism Central, navigate to the Blueprint Workspace by clicking (|image1|) icon located on the left tool ribbon.  This will open the Blueprint Workspace where self-authored blueprints are staged for editing, publishing, and/or launching as Applications.  When the Blueprint grid appears, click the **Upload Blueprint** button located along the top of the Blueprint grid.  
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image2.png
+
+Navigate to the blueprint file (i.e. *Troubleshooting.json*) recently downloaded and select it by clicking on the file.
 
 A modal dialog will appear prompting for a name and project when saving. Complete the fileds as shown below and click **upload**. This will save the blueprint to the workspace.
 
