@@ -555,7 +555,7 @@ You've successfully deleted an application that was previously imported and laun
 Automation of REST Endpoints
 ****************************
 
-In this section we'll run python code instrumented to programmatically perform the commands you ran manually from previous steps using the NTNX REST API Explorer.  You'll begin by installing *git*, configuring a dev envinment, cloning an exiting *git* repository to the dev enviornment, and execute the code downloaded from the repository.
+In this section we'll run python code instrumented to programmatically perform the commands you ran manually from previous steps using the NTNX REST API Explorer.  You'll begin by installing *git*, configuring a dev environment, cloning an exiting *git* repository to the dev environment, and execute the code downloaded from the repository.
 
   
 **Install Git:**
@@ -567,7 +567,9 @@ Install git:
 .. code-block:: bash
 
   $ yum install git -y
-  
+
+**Create dev environment:**
+
 Create a directory for development:
 
 .. code-block:: bash
@@ -586,10 +588,10 @@ Edit */root/automation/solution/config.py* and set the connection variables for 
 
 .. code-block:: python
 
-  USER 	  	= "admin"
-  PASSWD 	  	= "nx2Tech476!"
-  IPADDRESS 	= "10.21.81.39"
-  PORT 	  	= "9440"
+  USER         = "admin"           < edit
+  PASSWD       = "nx2Tech476!"     < edit
+  IPADDRESS    = "10.21.81.39"     < edit
+  PORT         = "9440"
 
 Check If the **v2** imports and function calls are commented with *#* in file */root/automation/solution/main.py*.  If they aren't, be sure to comment **v2** imports and function calls using *#*, and uncomment **v3** imports by removing *#* as shown:
 
@@ -644,6 +646,7 @@ Check If the **v2** imports and function calls are commented with *#* in file */
   if __name__ == "__main__":
       main()
 
+**Execute the code:**
 
 Test the runtime and the code by running the foollwojng comand from a local terminal window:
 
