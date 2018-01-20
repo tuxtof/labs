@@ -38,12 +38,12 @@ NTNX REST API Explorer Requests:
 Requirements:
 *************
 
-Reference:
+**Reference:**
 
 - REST/HTTP Overview: REST-HTTP-Overview_
 - NTNX REST API Explorer Overview:  NTNX-REST-API-Explorer-Overview_
 
-Execution & Development:
+**Execution & Development:**
 
 - Chrome Web Browser + Developer Tools
 - Chrome JSON Editor: Chrome-JSON-Editor-Extension_
