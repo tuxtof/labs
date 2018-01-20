@@ -65,13 +65,14 @@ Create a CentOS Server v7 VM on the assigned cluster using Prism Central using t
 - name: calm_lab_dev
 - image: CentOS Server v7  (Disk)
 
-  
+configuration setup & guidelines: configure-centos-server-v7_  
 
 Create a Development Environment
 ********************************
 
-
 **Install pip, and requests:**
+
+Power-on the VM and login to the assigned *ip-address* as **user:** *root*, **password:** *nutanix/4u* using *ssh* or *putty*.
 
 We'll need to make sure the python 2.7 runtime has all the appropriate packages, sepcifically *pip* and *requests*. We'll provision a CentOS Server VM to insure participants are working fromm a common-base.
 
