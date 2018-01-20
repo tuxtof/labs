@@ -555,28 +555,12 @@ You've successfully deleted an application that was previously imported and laun
 Automation of REST Endpoints
 ****************************
 
-In this section we'll learn how to run python code instrumented to programmatically perform the commands we ran manually via REST API Explorer:
-
-READ:
-
-- App(s)
-- Blueprint(s)
-- Project(s)
-- Role(s)
-
-STATE-CHANGE:
-
-- Import a Blueprint(JSON)
-- Update a Blueprint
-- Launch Blueprint
-- Delete an App
+In this section we'll run python code instrumented to programmatically perform the commands you ran manually from previous steps using the NTNX REST API Explorer.  You'll begin by installing *git*, configuring a dev envinment, cloning an exiting *git* repository to the dev enviornment, and execute the code downloaded from the repository.
 
   
 **Install Git:**
 
-Participants will need access to Git to download or clone the calm-lab automation repository. In the following set of steps, you'll install *git*, setup a dev envinment, clone an exiting git repository to that enviornment, and execute the code downloaded from the repository.
-
-From an active terminal session logged in as *root* to the CentOS v7 Server VM created earlier...
+Starting from an active terminal session logged in as *root* to the CentOS v7 Server VM created earlier...
 
 Install git:
 
@@ -600,14 +584,14 @@ If all was successfull you should find a directory */root/automation/solution/*
 
 Edit */root/automation/solution/config.py* and set the connection variables for your assigned cluster.  Make sure the values are within quotes(**"some_value"**) as showb below:
 
-.. code0blokc:: python
+.. code-block:: python
 
   USER 	  	= "admin"
   PASSWD 	  	= "nx2Tech476!"
   IPADDRESS 	= "10.21.81.39"
   PORT 	  	= "9440"
 
-If needed, edit */root/automation/solution/main.py* Be sure to comment **v2** imports and functions using *#*, and uncomment **v3** imports by removing *#* as shown:
+Check If the **v2** imports and function calls are commented with *#* in file */root/automation/solution/main.py*.  If they aren't, be sure to comment **v2** imports and function calls using *#*, and uncomment **v3** imports by removing *#* as shown:
 
 .. code-block:: python
 
