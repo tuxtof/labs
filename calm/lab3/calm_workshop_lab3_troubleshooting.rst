@@ -61,7 +61,7 @@ Navigate your SMB share for the **.../CalmWorkshp/Troubleshooting.json** bluepri
 
 Download the blueprint to be imported:
 
-:download:`Blueprint <json/Troubleshooting.json>`
+:download:`Blueprint <lab3/json/Troubleshooting.json>`
 
 Navigate to the Blueprint Workspace by clicking (|image1|) icon located on the left tool ribbon.  This will open the Blueprint Workspace where self-authored blueprints are staged editing, publishing, and/or launching as Applications.  When the Blueprint grid appears, click the **Upload Blueprint** button located along the top of the Blueprint grid.  
 
