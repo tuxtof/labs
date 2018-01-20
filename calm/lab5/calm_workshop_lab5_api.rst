@@ -574,9 +574,9 @@ STATE-CHANGE:
   
 **Install Git:**
 
-Participants will need access to Git to download or clone the calm-lab automation repository. 
+Participants will need access to Git to download or clone the calm-lab automation repository. In the following set of steps, you'll install *git*, setup a dev envinment, clone an exiting git repository to that enviornment, and execute the code downloaded from the repository.
 
-From an active terminal session logged in as *root* on the CentOS v7 Server VM created earlier...
+From an active terminal session logged in as *root* to the CentOS v7 Server VM created earlier...
 
 Install git:
 
@@ -590,23 +590,26 @@ Create a directory for development:
 
   $ mkdir /root/development
   
-Change to the directory and run:
+Change to the directory created above and run:
 
 .. code-block:: bash
 
   $ git clone https://github.com/mjastad/automation.git
 
-If all was successfull you should find a directory */root/automation/solution*
+If all was successfull you should find a directory */root/automation/solution/*
 
-Edit */root/automation/solution/main.py* and set the connection variables for your assigned cluster.  Make sure the values are within quotes(**"some_value"**):
+Edit */root/automation/solution/config.py* and set the connection variables for your assigned cluster.  Make sure the values are within quotes(**"some_value"**) as showb below:
 
-- USER:  Cluster Admin user name
-- PASSWD: Cluster Admin user password
-- IPADDRESS: Cluster IP Address
+.. code0blokc:: python
 
-Be sure to comment **v2** imports and functions and uncomment **v3** imports as shown below:
+  USER 	  	= "admin"
+  PASSWD 	  	= "nx2Tech476!"
+  IPADDRESS 	= "10.21.81.39"
+  PORT 	  	= "9440"
 
-.. code-block:: bash
+If needed, edit */root/automation/solution/main.py* Be sure to comment **v2** imports and functions using *#*, and uncomment **v3** imports by removing *#* as shown:
+
+.. code-block:: python
 
   #!/usr/bin/env python
 
@@ -664,7 +667,7 @@ Test the runtime and the code by running the foollwojng comand from a local term
   
    $ python main.py
 
-If successfull,  You should see VM, Blueprint and Application property output fro the target cluster...
+If successfull,  You should see VM, Blueprint and Application property output from the target cluster...
 
 **Summary**
 
