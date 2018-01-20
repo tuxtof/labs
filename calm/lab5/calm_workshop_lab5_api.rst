@@ -138,7 +138,7 @@ Accessing the REST API's
 
 A link for launching the REST API Explorer may not be accessible via Prism Central - specifically in the case of AOS v5.5.  The explorer can be launched by explicitly typing the *url* in the address bar of your browser as follows:
 
-**Note:** . The v3 REST API's for NuCalm can only be accessed via Prism Central(PC) *url*.
+**Note:** The NTNX v3 REST API Explorer in AOS v5.5.0.x can only be accessed using the Prism Central(PC) *url* typed into the active browsers address bar.  
 
 .. code-block:: bash
 
