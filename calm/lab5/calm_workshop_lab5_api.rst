@@ -46,7 +46,7 @@ Reference:
 Execution & Development:
 
 - Chrome Web Browser + Developer Tools
-- Chrome JSON Editor: Chrome-JSON-Editor-Extension
+- Chrome JSON Editor: Chrome-JSON-Editor-Extension_
 - CentOS Server v7 VM.
    - *Python 2.7.x*, *requests*, and *git* installed
 - Git Hub Account: https://github.com
