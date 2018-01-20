@@ -584,7 +584,7 @@ Change to the directory created above and run:
 
 If all was successfull you should find a directory */root/automation/solution/*
 
-Edit */root/automation/solution/config.py* and set the connection variables for your assigned cluster.  Make sure the values are within quotes(**"some_value"**) as showb below:
+Edit */root/automation/solution/config.py* and set the connection variables (i.e. *user, passwd, ipaddress*) using the associated information for your assigned cluster.  Make sure the values are within quotes(**"some_value"**) as follows:
 
 .. code-block:: python
 
