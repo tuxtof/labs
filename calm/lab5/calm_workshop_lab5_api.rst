@@ -42,11 +42,11 @@ Reference:
 
 - REST/HTTP Overview: REST-HTTP-Overview_
 - NTNX REST API Explorer Overview:  NTNX-REST-API-Explorer-Overview_
+
+Execution & Development:
+
 - Chrome Web Browser + Developer Tools
-- Chrome JSON Editor: Chrome-JSON-Editor-Extension_
-
-Development:
-
+- Chrome JSON Editor: Chrome-JSON-Editor-Extension
 - CentOS Server v7 VM.
    - *Python 2.7.x*, *requests*, and *git* installed
 - Git Hub Account: https://github.com
@@ -63,7 +63,6 @@ Create a CentOS Server v7 VM on the assigned cluster using Prism Central with th
 - network: bootcamp
 - name: calm_lab_dev
 - image: CentOS Server v7  (Disk)
-
 
 Create a Development Runtime
 ****************************
