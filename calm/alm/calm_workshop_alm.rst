@@ -48,10 +48,10 @@ Like a human life, an application’s lifecycle is demarcated by significant eve
 "Why don’t we build something that does this?" Once the application is created, the next big event is
 deployment, when the application goes into production. And finally, when it no longer has business value, the application reaches end of life and is removed from service.
 
-1. Governance, which encompasses all of the decision making and project management for this application, extends over this entire time.
-2. Development, the process of actually creating the application, happens first between idea and deployment. For most applications, the development process reappears again several more times in the application’s lifetime, both for upgrades and for wholly new versions.
-3. Operations, the work required to run and manage the application, typically begins shortly before deployment, then runs continuously until the application is removed from service. Each of these three areas is important, and so each is worth
-examining in more detail.
+1. **Governance:** which encompasses all of the decision making and project management for this application, extends over this entire time.
+2. **Development:** the process of actually creating the application, happens first between idea and deployment. For most applications, the development process reappears again several more times in the application’s lifetime, both for upgrades and for wholly new versions.
+3. **Operations:** the work required to run and manage the application, typically begins shortly before deployment, then runs continuously until the application is removed from service. Each of these three areas is important, and so each is worth examining in more detail.
+
 
 Governance
 ==========
