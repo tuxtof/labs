@@ -245,6 +245,8 @@ Docker Containers
 
 A Docker container, as discussed above, wraps an application’s software into an invisible box with everything the application needs to run. That includes the operating system, application code, runtime, system tools, system libraries, and etc. Docker containers are built off Docker images. Since images are read-only, Docker adds a read-write file system over the read-only file system of the image to create a container.
 
+.. figure:: http://s3.nutanixworkshops.com/calm/docker/image3.png
+
 Moreover, then creating the container, Docker creates a network interface so that the container can talk to the local host, attaches an available IP address to the container, and executes the process that you specified to run your application when defining the image.
 
 Once you’ve successfully created a container, you can then run it in any environment without having to make changes.
