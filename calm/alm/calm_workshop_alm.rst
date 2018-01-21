@@ -61,7 +61,7 @@ needs. The figure below gives a close-up view of ALM governance, providing a bit
 
 .. figure:: http://s3.nutanixworkshops.com/calm/alm/image11.png
 
-The first step in ALM governance is business case development. As Figure 2 shows, this analysis happens
+The first step in ALM governance is business case development. As the above figure shows, this analysis happens
 before the development process begins. Once the business case is approved, application development
 starts, and governance is now implemented through project portfolio management. In some
 organizations, this is simple: A project manager might be attached to the development team, or one of
@@ -95,13 +95,14 @@ development as a series of iterations. Each iteration would contain some require
 design, some development, and some testing. This iterative style of development isn’t always
 appropriate—some projects are still better done using more traditional methods—but it’s becoming the
 norm in many areas.
+
 Once the SDLC process for version 1 of the application is complete, the application is deployed. For most
 applications, however, deployment doesn’t mark the end of development. Instead, the application needs
-periodic updates, as shown in the figure, and perhaps one or more full SDLC efforts to create new
+periodic updates, as shown in the figure above, and perhaps one or more full SDLC efforts to create new
 versions, as in this example. For some applications, the money spent on these updates and new versions
 can exceed the cost of the original development by a significant amount.
 
-Once again, notice the role of SDLC in the overall ALM process. As Figure 2 shows, this aspect is certainly
+Once again, notice the role of SDLC in the overall ALM process. As the figure above shows, this aspect is certainly
 important, but it’s far from the whole story. Viewing ALM as synonymous with SDLC is just wrong—it
 leads to a misunderstanding of what’s really required to be successful in this area.
 
