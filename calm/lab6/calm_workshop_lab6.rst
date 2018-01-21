@@ -259,13 +259,13 @@ The group in question for us is the Development Tools.
 
 In order to get the necessary development tools, run the following:
 
-.. code-block::
+.. code-block:: bash
 
   $ yum groupinstall -y development
 
 or;
 
-.. code-block::
+.. code-block:: bash
 
   $ yum groupinstall -y 'development tools'
 
@@ -273,7 +273,7 @@ or;
 
 To download some additional packages which are handy:
 
-.. code-block::
+.. code-block:: bash
 
   $ yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel
 
