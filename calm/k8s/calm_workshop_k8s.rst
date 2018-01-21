@@ -12,7 +12,7 @@ Kubernetes (also known as K8s) is a vendor-agnostic cluster and container manage
 Kubernetes and the Need for Containers
 **************************************
 
-Before we explain what Kubernetes does, we need to explain what containers are, how they differ from VMsm, and why people are using those.
+Before explaining what Kubernetes does, lets explain what containers are, how they differ from VMs, and why people are using those.
 
 **Virtial Machine**
 
