@@ -84,7 +84,8 @@ of virtual machines. It works with different containers, not just Docker.
 .. figure:: http://s3.nutanixworkshops.com/calm/k8s/image1.png
 *Image source: wikipedia*
 
-Kubernetes terminologies:
+
+**Kubernetes terminologies:**
 
 - Pods– Pods are a collection of one or more containers. It acts as a Kubernetes’ core unit of management. Pods set the logical boundary for containers sharing the same context and resources.
 - Labels– Labels are arbitrary tags that can be placed on the above work units to mark them as a part of a group. These can then be selected for management purposes and action targeting.
