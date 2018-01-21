@@ -47,7 +47,8 @@ Well, since the VM has a virtual operating system of its own, the hypervisor pla
 
 As you can see in the diagram, VMs package up the virtual hardware, a kernel (i.e. OS) and user space for each new VM.
 
-**Containers**
+Containers
+==========
 
 Unlike a VM which provides hardware virtualization, a container provides operating-system-level virtualization by abstracting the “user space”. You’ll see what I mean as we unpack the term container.
 
@@ -86,7 +87,8 @@ Fundamental Docker Concepts
 
 Now that we’ve got the big picture in place, let’s go through the fundamental parts of Docker piece by piece:
 
-**Docker Engine**
+Docker Engine
+=============
 
 Docker engine is the layer on which Docker runs. It’s a lightweight runtime and tooling that manages containers, images, builds, and more. It runs natively on Linux systems and is made up of:
 
@@ -94,7 +96,8 @@ Docker engine is the layer on which Docker runs. It’s a lightweight runtime an
 2. A Docker Client that then communicates with the Docker Daemon to execute commands.
 3. A REST API for interacting with the Docker Daemon remotely.
 
-**Docker Client**
+Docker Client
+=============
 
 The Docker Client is what you, as the end-user of Docker, communicate with. Think of it as the UI for Docker. For example, when you do…
 
@@ -104,11 +107,13 @@ The Docker Client is what you, as the end-user of Docker, communicate with. Thin
   
 you are communicating to the Docker Client, which then communicates your instructions to the Docker Daemon.
 
-**Docker Daemon**
+Docker Daemon
+=============
 
 The Docker daemon is what actually executes commands sent to the Docker Client — like building, running, and distributing your containers. The Docker Daemon runs on the host machine, but as a user, you never communicate directly with the Daemon. The Docker Client can run on the host machine as well, but it’s not required to. It can run on a different machine and communicate with the Docker Daemon that’s running on the host machine.
 
-**Dockerfile**
+Dockerfile
+==========
 
 A Dockerfile is where you write the instructions to build a Docker image. These instructions can be:
 
@@ -207,19 +212,22 @@ Once you’ve got your Dockerfile set up, you can use the docker build command t
 
   CMD ["npm", "start"]
 
-**Docker Image**
+Docker Image
+============
 
 Images are read-only templates that you build from a set of instructions written in your Dockerfile. Images define both what you want your packaged application and its dependencies to look like *and* what processes to run when it’s launched.
 
 The Docker image is built using a Dockerfile. Each instruction in the Dockerfile adds a new “layer” to the image, with layers representing a portion of the images file system that either adds to or replaces the layer below it. Layers are key to Docker’s lightweight yet powerful structure. Docker uses a Union File System to achieve this:
 
-**Union File Systems**
+Union File Systems
+==================
 
 Docker uses Union File Systems to build up an image. You can think of a Union File System as a stackable file system, meaning files and directories of separate file systems (known as branches) can be transparently overlaid to form a single file system.
 
 The contents of directories which have the same path within the overlaid branches are seen as a single merged directory, which avoids the need to create separate copies of each layer. Instead, they can all be given pointers to the same resource; when certain layers need to be modified, it’ll create a copy and modify a local copy, leaving the original unchanged. That’s how file systems can *appear* writable without actually allowing writes. (In other words, a “copy-on-write” system.)
 
-**Layered systems** 
+Layered systems
+===============
 
 Layered systems offer two main benefits:
 
@@ -227,11 +235,13 @@ Layered systems offer two main benefits:
 
 2. **Layer segregation:** Making a change is much faster — when you change an image, Docker only propagates the updates to the layer that was changed.
 
-**Volumes**
+Volumes
+=======
 
 Volumes are the “data” part of a container, initialized when a container is created. Volumes allow you to persist and share a container’s data. Data volumes are separate from the default Union File System and exist as normal directories and files on the host filesystem. So, even if you destroy, update, or rebuild your container, the data volumes will remain untouched. When you want to update a volume, you make changes to it directly. (As an added bonus, data volumes can be shared and reused among multiple containers, which is pretty neat.)
 
-**Docker Containers**
+Docker Containers
+=================
 
 A Docker container, as discussed above, wraps an application’s software into an invisible box with everything the application needs to run. That includes the operating system, application code, runtime, system tools, system libraries, and etc. Docker containers are built off Docker images. Since images are read-only, Docker adds a read-write file system over the read-only file system of the image to create a container.
 
