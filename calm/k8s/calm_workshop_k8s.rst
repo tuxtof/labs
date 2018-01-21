@@ -82,7 +82,6 @@ Kubernetes is a cluster and container management tool. It lets you deploy contai
 of virtual machines. It works with different containers, not just Docker.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/k8s/image1.png
-
 *Image source: wikipedia*
 
 Kubernetes terminologies:
