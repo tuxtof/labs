@@ -13,6 +13,7 @@ Calm Workshop
    alm
    devops
    orchestration
+   docker
    k8s
    nucalm_overview
    nucalm_deepdive
