@@ -21,7 +21,8 @@ Moreover, containers and VMs remove the need for physical hardware, allowing for
 
 The main difference between containers and VMs is in their architectural approach. Let’s take a closer look.
 
-**Virtual Machines**
+Virtual Machines
+================
 
 A VM is essentially an emulation of a real computer that executes programs like a real computer. VMs run on top of a physical machine using a “hypervisor”. A hypervisor, in turn, runs on either a host machine or on “bare-metal”.
 
