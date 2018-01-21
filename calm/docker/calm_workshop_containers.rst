@@ -76,9 +76,9 @@ So why is Docker all of a sudden gaining steam?
 
 4. **Modularity and Scalability:** Docker makes it easy to break out your application’s functionality into individual containers. For example, you might have your Postgres database running in one container and your Redis server in another while your Node.js app is in another. With Docker, it’s become easier to link these containers together to create your application, making it easy to scale or update components independently in the future.
 
-Last but not least, who doesn’t love the Docker whale? ;)
+Last but not least, who doesn’t love the Docker whale?
 
-Source: https://www.docker.com/docker-birthday
+Source: https://www.docker.com/
 
 Fundamental Docker Concepts
 ***************************
