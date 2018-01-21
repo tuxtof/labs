@@ -227,7 +227,8 @@ Remember: You can see all available releases of Python by checking out the Relea
 
 **Note:** This guide should be valid for CentOS version 7 as well as 6.x and 5.x.
 
-**Updating The Default CentOS Applications**
+Updating The Default CentOS Applications
+========================================
 
 Before we begin with the installation, let's make sure to update the default system applications to have the latest versions available.
 
@@ -237,7 +238,8 @@ Run the following command to update the system applications:
 
   $ yum -y update
 
-**Preparing The System for Development Installations**
+Preparing The System for Development Installations
+==================================================
 
 CentOS distributions are lean - perhaps, a little too lean - meaning they do not come with many of the popular applications and tools that you are likely to need.
 
@@ -245,17 +247,18 @@ This is an intentional design choice. For our installations, however, we are goi
 
 There are two ways of getting the development tools on your system using the package manager yum:
 
-Option #1 (not recommended) consists of downloading these tools (e.g. make, gcc etc.) one-by-one. It is followed by trying to develop something and highly-likely running into errors midway through - because you will have forgotten another package so you will switch back to downloading.
+**Option #1 (not recommended):** Consists of downloading these tools (e.g. make, gcc etc.) one-by-one. It is followed by trying to develop something and highly-likely running into errors midway through - because you will have forgotten another package so you will switch back to downloading.
 
-The recommended and sane way of doing this is following Option #2: simply downloading a bunch of tools by a single command with yum software groups.
+The recommended and sane way of doing this is following **Option #2:** Simply downloading a bunch of tools using a single command with yum software groups.
 
-YUM Software Groups
+**YUM Software Groups**
 
 YUM Software Groups consist of bunch of commonly used tools (applications) bundled together, ready for download all at the same time via execution of a single command and stating a group name. Using YUM, you can even download multiple groups together.
 
 The group in question for us is the Development Tools.
 
-**How to Install Development Tools using YUM on CentOS**
+How to Install Development Tools using YUM on CentOS
+====================================================
 
 In order to get the necessary development tools, run the following:
 
