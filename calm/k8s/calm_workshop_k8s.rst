@@ -140,8 +140,8 @@ The services on a node include:
 **Pods**
 
 A pod is a one or more containers that logically go together. Pods run on nodes. Pods run together as a logical unit. So 
-they have the same shared content. They all share the share IP address but can reach other other via localhost. And they can 
-share storage. But they do not need to all run on the same machine as containers can span more than one machine. One node 
+they have the same shared content. They all share the same IP address, but can reach other Pods via localhost, as well as
+share storage. Pods don't need to all run on the same machine as containers can span more than one machine. One node 
 can run multiple pods.
 
 Pods are cloud-aware. For example you could spin up two Nginx instances and assign them a public IP address on the Google 
