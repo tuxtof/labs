@@ -13,6 +13,7 @@ Calm Workshop
    alm
    devops
    orchestration
+   k8s
    nucalm_overview
    nucalm_deepdive
    .. nucalm_positioning
