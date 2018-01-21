@@ -21,7 +21,6 @@ application’s life. Application lifecycle management (ALM) is the supervision 
 
 .. figure:: http://s3.nutanixworkshops.com/calm/alm/image9.png
 
-
 Application Portfolio Management
 ********************************
 
@@ -32,7 +31,6 @@ Application portfolio management is a critical part of IT governance. It enables
 Application Portfolio Management is an approach to managing IT software applications and software-based services across the enterprise. Mapping the universe of software applications against a common set of strategic drivers of investment allows you to make critical decisions about which applications to maintain, invest, retire or consolidate. Our approach to APM is centered on cost, performance and strategic alignment with business needs.
 
 An APM system uses a scoring algorithm for generating reports about the value of each application and the health of the IT infrastructure as a whole. By gathering metrics like an application's age, how often it's used, the cost it takes to maintain it and its interrelationships with other applications, a manager can use more than just an educated guess to decide whether or not a particular application should be kept, updated, retired or replaced. 
-
 
 Application Lifecycle Management
 ********************************
@@ -109,7 +107,7 @@ leads to a misunderstanding of what’s really required to be successful in this
 Operations
 ==========
 
-Every deployed application must be monitored and managed. Figure 4 shows some of the important parts
+Every deployed application must be monitored and managed. The figure below shows some of the important parts
 in this operations process.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/alm/image13.png
@@ -126,7 +124,6 @@ Application Release Management
 Release management is a relatively new but rapidly growing discipline within software engineering. As software systems, software development processes, and resources become more distributed, they invariably become more specialized and complex. Furthermore, software products (especially web applications) are typically in an ongoing cycle of development, testing, and release, often running on evolving platforms with growing complexity. Such systems require dedicated resources to oversee the integration and flow of development, testing, deployment, and support.
 
 In organizations that manage IT operations using the IT Service Management paradigm, specifically the ITIL framework, release management will be guided by ITIL concepts and principles. There are several formal ITIL Processes that are related to release management, primarily the Release and Deployment Management process, which "aims to plan, schedule and control the movement of releases to test and live environments.", and the Change Management process In ITIL organizations, releases tend to be less frequent than in an agile development environment. Release processes are managed by IT operations teams using IT Service Management ticketing systems, with less focus on automation of release processes.
-
 
 **Build/Release**
 
@@ -158,7 +155,6 @@ Software Testing Processes:
 
 - Functional testing to check the whole system behavior as per the defined requirements.
 
-
 Testers must operate under the assumption that there are more bugs out there, and they have to find them. They operate in such a way that they expect to find problems, not just to verify that it is possible for everything to work fine. A good tester is one who is constantly thinking of things that have not been tried and is expected to exercise parts of the software that may be weak or that may not interact well. The whole point of this very critical look at software is to find bugs as fast as possible and get the right ones fixed. There will always be more bugs, but without knowing what they are, a conscious decision cannot be made regarding the software’s ability to meet the customer’s demands.
 
 Test organizations can become flooded with bad software and drown in bugs if they are not going about their side of the process correctly. This will happen when a test organization becomes too reactive, only catching bugs instead of proactively preventing them. Individual testers may be required, above all else, to find more bugs. However, this focus on increasing the number of bugs instead of increasing the quality of the software can lead to the demise of many organizations.
@@ -170,7 +166,6 @@ The ultimate goal of any software development effort is to ship a high-quality p
 Although many testers would never take advantage of a poorly constructed system, it still should not be set up in this way because it is not rewarding people for doing what management really wants. Failing to do that will eventually lead to an organization that has lost key members who saw past the reward system, leaving behind an organization that plays to management’s set of rewards.
 
 Test organizations that are not effectively communicating with the rest of the software team (development and project managers) will not be aware of proposed changes and will not be able to step in early in the process to prevent problems, which allows a torrential flood of bugs to come back to testers late in the cycle and can end up costing the company time and money. Testing needs to evaluate processes as well as break the software.
-
 
 Application Performance Management
 **********************************
