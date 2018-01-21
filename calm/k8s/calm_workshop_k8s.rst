@@ -12,7 +12,7 @@ Kubernetes (also known as K8s) is a vendor-agnostic cluster and container manage
 Kubernetes and the Need for Containers
 **************************************
 
-Before we explain what Kubernetes does, we need to explain what containers are, how they differ from VMsm, and why people are using those.
+Before explaining what Kubernetes does, lets explain what containers are, how they differ from VMs, and why people are using those.
 
 **Virtial Machine**
 
@@ -62,8 +62,8 @@ by downloading them from there.
 As you can see it is running on port 8888. So you could install something else on another port or even install a 
 second instance of Spark and Jupyter.
 
-Container Sprawl- The Need for Orchestration
-********************************************
+Container Proliferation - The Need for Orchestration
+****************************************************
 
 There's an inherent problem with containers, just like there is with virtual machines. That is the need to keep track of 
 them. When public cloud companies bill you for CPU time or storage then you need to make sure you do not have any orphaned 
@@ -72,14 +72,14 @@ memory, CPU, or storage, as well as shut them down when the load lightens.
 
 Orchestration tackles these problems. This is where Kubernetes comes in.
 
-Kubernetes
-**********
+Kubernetes Architecture
+***********************
 
-Google built Kubernetes and has been using it for 10 years. That it has been used to run Google’s massive systems 
-for that long is one of its key selling points. Two years ago Google pushed Kubernetes into open source.
+Google built Kubernetes and has been using it for 10 years. The fact it's been used to run Google’s massive systems 
+for over decade is one of its key selling points. In 2014 Google pushed Kubernetes into open source.
 
 Kubernetes is a cluster and container management tool. It lets you deploy containers to clusters, meaning a network
-of virtual machines. It works with different containers, not just Docker.
+of virtual machines, and works with different containers, not just Docker.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/k8s/image1.png
 *Image source: wikipedia*
