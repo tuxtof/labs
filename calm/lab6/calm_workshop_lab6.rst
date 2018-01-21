@@ -227,7 +227,8 @@ Remember: You can see all available releases of Python by checking out the Relea
 
 **Note:** This guide should be valid for CentOS version 7 as well as 6.x and 5.x.
 
-**Updating The Default CentOS Applications**
+Updating The Default CentOS Applications
+========================================
 
 Before we begin with the installation, let's make sure to update the default system applications to have the latest versions available.
 
@@ -237,7 +238,8 @@ Run the following command to update the system applications:
 
   $ yum -y update
 
-**Preparing The System for Development Installations**
+Preparing The System for Development Installations
+==================================================
 
 CentOS distributions are lean - perhaps, a little too lean - meaning they do not come with many of the popular applications and tools that you are likely to need.
 
