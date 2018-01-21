@@ -39,7 +39,7 @@ Application Lifecycle Management
 
 ALM is a very broad term that reflects a change in attitude towards software development that is also expressed in the term DevOps. DevOps blends the tasks performed by a company's application development and systems operations teams. In the past, a development team might work independently using a waterfall development model and hand off the completed software application to an operations team for deployment and maintenance. Today, it is more likely that developers will use an agile model and remain involved with the application after deployment, working with business owners and operations to make incremental changes as needed.  
 
-ALM can be divided into three distinct areas: governance, development, and operations. Figure 1
+ALM can be divided into three distinct areas: governance, development, and operations. The following figure 
 illustrates this, showing each of these three aspects on its own horizontal line.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/alm/image10.png
@@ -57,7 +57,7 @@ Governance
 ==========
 
 In ALM, the purpose of governance is to make sure the application always provides what the business
-needs. Figure 2 gives a close-up view of ALM governance, providing a bit more detail on what it entails.
+needs. The figure below gives a close-up view of ALM governance, providing a bit more detail on what it entails.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/alm/image11.png
 
@@ -84,7 +84,7 @@ Development
 ===========
 
 While equating ALM with the software development process isn’t accurate, development certainly is a
-fundamental part of every custom application’s lifecycle. Figure 3 takes a closer look at this aspect of
+fundamental part of every custom application’s lifecycle. The following figure takes a closer look at this aspect of
 ALM.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/alm/image12.png
