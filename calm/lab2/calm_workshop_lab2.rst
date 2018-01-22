@@ -161,7 +161,7 @@ Package Configuration
    fi
    
    git clone @@{App_git_link}@@ /var/www/laravel
-   sed -i 's/DB_HOST=.*/DB_HOST=@@{DBService.address}@@/' /var/www/laravel/.env
+   sed -i 's/DB_HOST=.*/DB_HOST=@@{MySQL.address}@@/' /var/www/laravel/.env
    sudo su - -c "cd /var/www/laravel; composer install ; php artisan migrate"
    
    chown -R nginx:nginx /var/www/laravel
