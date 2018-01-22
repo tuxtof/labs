@@ -91,10 +91,8 @@ Create the Service as follows.
   Core/vCPU .: 1
   Memory     : 4 GB
 
-
 8. Scroll to the bottom and add the NIC **bootcamp** to the **APACHE_PHP** VM.
 9. Configure the **Credentials** to use **CENTOS** created earlier.
-
 
 Package Configuration
 =====================
