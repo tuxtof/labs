@@ -95,7 +95,7 @@ This section provides the steps to create a simple service.
 Create Blueprint Workflow
 =========================
 
-In general, the Blueprint creation flow goes:
+.. noote:: In general, the Blueprint creation flow goes:
 
 1. Create Object in Application Overview or select existing object from the workspace or the Overview panel.
 2. Configure the object in the configuration pane.
@@ -119,7 +119,7 @@ Let’s get started by setting up the basics
 | **Use as Default**    | Checked       |
 +-----------------------+---------------+
 
-**Note:** Credentials are unique per Blueprint.
+.. node:: Credentials are unique per Blueprint.
 
 Setting Variables
 =================
@@ -226,9 +226,6 @@ Package Configuration
    FLUSH PRIVILEGES;
    EOF
    
-   #!/bin/bash
-   set -ex
-   
    
 Looking at this script, we see that we’re using the variables we set
 before and doing basic mySQL configuration. This can be customized for
@@ -258,7 +255,7 @@ Click on the **Launch** button in the top right of the blueprint. This will brin
 
 Give this instance a unique name **Calm_Workshop_MYSQL_App_1**. 
 
-**Note:** Every launch performed requires a name change, making each lanuch unique - this can be done by incrementing the suffix in the name.
+.. note:: Every launch performed requires a name change, making each lanuch unique - this can be done by incrementing the suffix in the name.
 
 This will now bring you to the **Instance** page. The bar across the top allows you to see various information about the application instance:
 
