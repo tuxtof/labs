@@ -176,7 +176,7 @@ Package Configuration
    sleep 2
 
 
-Here you see variables like before, but also something new:
+Here you'll find variables like before, but also something new:
 
 @@{MySQL.address}@@
 
@@ -196,10 +196,6 @@ Since we need the DB IP Address to bring up the AppServer, we need to add a **De
 - Click on the . **AppService** service, 
 - Click on the Arrow icon that appears right above it,
 - Click on the **MySQL** service.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image5.png
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image6.png
 
 This tells Calm to hold running the script until the **MySQL** service is up. 
 
