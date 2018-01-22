@@ -111,7 +111,7 @@ Let’s get started by setting up the basics
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image7.png
 
 +-----------------------+---------------+
-| **Name**              | CETNOS        |
+| **Name**              | CENTOS        |
 +-----------------------+---------------+
 | **Username**          | root          |
 +-----------------------+---------------+
@@ -177,18 +177,25 @@ Configure the VM
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image21.png
 
-2. Scroll to the bottom and add a NIC attached to the **SQLDB** network
+Configure Network
+=================
+
+1. Scroll to the bottom and add a NIC attached to the **SQLDB** network
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
 
-3. Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
+
+Configure Credentials
+=====================
+
+1. Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
-
-4. Scroll back up to the top and click **Package**
 
 Package Configuration
 =====================
+
+Scroll to the top of the Service Panel and click **Package**.
 
 Here is where we specify the installation and uninstall scripts for this
 service. Give the install package a name (MySQL\_Package for example),
