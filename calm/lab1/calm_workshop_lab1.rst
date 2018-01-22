@@ -95,7 +95,7 @@ This section provides the steps to create a simple service.
 Create Blueprint Workflow
 =========================
 
-.. noote:: In general, the Blueprint creation flow goes:
+.. note:: In general, the Blueprint creation flow goes:
 
 1. Create Object in Application Overview or select existing object from the workspace or the Overview panel.
 2. Configure the object in the configuration pane.
@@ -119,7 +119,7 @@ Let’s get started by setting up the basics
 | **Use as Default**    | Checked       |
 +-----------------------+---------------+
 
-.. node:: Credentials are unique per Blueprint.
+.. note:: Credentials are unique per Blueprint.
 
 Setting Variables
 =================
