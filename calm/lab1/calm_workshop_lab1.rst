@@ -178,7 +178,7 @@ With these basics setup, let’s create our first service.
   Memory     : 4 GB
 
 
-7. Scroll to the bottom and add the NIC **bootcamp** NIC to the **MYSQL** VM.
+7. Scroll to the bottom and add the NIC **bootcamp** to the **MYSQL** VM.
 8. Configure the **Credentials** to use **CENTOS** created earlier.
 
 
