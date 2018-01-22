@@ -269,7 +269,7 @@ Give this instance a unique name **Calm_Workshop_App_1**.
 This will now bring you to the **Instance** page. The bar across the top
 allows you to see various information about the instance:
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image12.png
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image25.png
 
 Summary
 *******
