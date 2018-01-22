@@ -27,7 +27,7 @@
  a#dLabelGlobalToc {
 display: none;
  }
-
+/*
 .row {
   margin-top: -25px;
 }
@@ -39,7 +39,7 @@ display: none;
 
 .navbar-inverse .brand {
   color: #FFF;
-}
+}*/
 
 /*
  * Reset navbar styles from overrides in:
