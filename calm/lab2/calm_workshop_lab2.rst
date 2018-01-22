@@ -167,7 +167,7 @@ Now that we've added redundancy or load balancing capacity to the AppServer we n
 4. Name your service **HAProxy** in the *Service Name* field.
 5. Name the *Substrate*  **HAPROXYAHV**
 6. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
-7. The Service should look as follows:
+7. Configure the VM as follows:
 
 .. code-block:: bash
   
