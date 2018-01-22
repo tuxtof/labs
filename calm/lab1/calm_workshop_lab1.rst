@@ -97,7 +97,7 @@ Create Blueprint Workflow
 
 In general, the Blueprint creation flow goes:
 
-1. Create Object in Application Overview or select an existing object either from the workspace or the Overview panel.
+1. Create Object in Application Overview or select existing object from the workspace or the Overview panel.
 2. Configure the object in the configuration pane.
 3. Repeat for each object.
 4. Connect dependencies in the workspace.
