@@ -161,22 +161,31 @@ Adding A DB Service
 With these basics setup, let’s create our first service.
 
 1. Click the + sign next to **Services** in the **Overview** pane.
-
 2. Notice that the **Configuration** pane has changed and there is now a box in the **Workspace.**
-
-3. Name your service DBService at the top
-
+3. Name your service **MySQL** in the *Service Name* field.
 4. The Substrate section is the internal Calm name for this Service. Name this **MySQLSubstrate.**
+5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+6. The VM should look as follows:
 
-5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** Configure the VM as shown below:
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image23.png
 
-Now update the VM Configuration section to match the following:
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image11.png
+Configure the VM
+================
 
-1. Scroll to the bottom and add a NIC attached to the **DemoVMs** network
-2. Configure the **Credentials** at the bottom to use the credentials you made above
-3. Scroll back up to the top and click **Package**
+1. update the VM Configuration section to match the following:
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image21.png
+
+2. Scroll to the bottom and add a NIC attached to the **SQLDB** network
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
+
+3. Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
+
+4. Scroll back up to the top and click **Package**
 
 Package Configuration
 =====================
