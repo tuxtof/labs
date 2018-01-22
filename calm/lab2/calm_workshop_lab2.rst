@@ -272,10 +272,6 @@ Package Configuration
    #!/bin/bash
    echo "goodbye!"
 
-Your blueprint should now look like this:
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image8.png
-
 Save the blueprint, and launch it.
 
 
