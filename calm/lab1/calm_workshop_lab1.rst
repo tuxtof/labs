@@ -162,12 +162,20 @@ With these basics setup, let’s create our first service.
 
 1. Click the + sign next to **Services** in the **Overview** pane.
 2. Notice that the **Configuration** pane has changed and there is now a box in the **Workspace.**
-3. Name your service **MySQL** in the *Service Name* field.
-4. The Substrate section is the internal Calm name for this Service. Name this **MySQLSubstrate.**
+3. Name your service **MYSQL** in the *Service Name* field.
+4. The Substrate section is the internal Calm name for this Service. Name this **MMYSQLAHV**
 5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
 6. The VM should look as follows:
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image23.png
+.. code-block:: bash
+  
+  VM Name .  : MYSQL
+  Image .    : CentOS
+  Disk Type .: DISK
+  Device Bus : SCSI
+  vCPU .     : 2
+  Core/vCPU .: 1
+  Memory     : 4 GB
 
 
 Configure the VM
@@ -180,7 +188,7 @@ Configure the VM
 Configure Network
 =================
 
-1. Scroll to the bottom and add a NIC attached to the **SQLDB** network
+1. Scroll to the bottom and add a NIC attached to the **MYSQL** network
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
 
@@ -197,7 +205,7 @@ Package Configuration
 
 - Scroll to the top of the Service Panel and click **Package**.
 - Here is where we specify the installation and uninstall scripts for this service.
-- Give the install package a name **MySQL_Package**,
+- Give the install package a name **MYSQL_PACKAGE**,
 - Set the install script to **shell** and select the credential **CENTOS** created earlier. 
 - Copy the following script into the *script* field of the **install** window:
 
@@ -235,6 +243,10 @@ Package Configuration
 
    FLUSH PRIVILEGES;
    EOF
+   
+   #!/bin/bash
+   set -ex
+   
    
 Looking at this script, we see that we’re using the variables we set
 before and doing basic mySQL configuration. This can be customized for
