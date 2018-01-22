@@ -71,8 +71,8 @@ Part 2: Creating a Web Server
 
 In this step we’ll add a second tier and connect it to the MYSQL service created from Lab #1 MySQL Blueprint.
 
-Adding App Service
-===================
+Create Service
+===============
 
 Create the Service as follows.
 
@@ -163,6 +163,9 @@ Part 3: - Create HA Proxy Load Balancer
 ***************************************
 
 Now that we've added redundancy or load balancing capacity to the AppServer we need something to actually perform the load balancing.  Lets add another Service **HA Proxy**
+
+Create Service
+===============
 
 1. Click the + sign next to **Services** in the **Overview** pane.
 2. Notice there are now 3 service block icons in the workspace.
