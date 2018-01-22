@@ -272,13 +272,13 @@ Package Configuration
    #!/bin/bash
    echo "goodbye!"
    
-Since we need the PHP App Server, we need to add a **Dependency** between **HAProxy** and **APACHE_PHP_AHV**
+We need to add a **Dependency** between **HAProxy** and **APACHE_PHP_AHV**
 
 - Click on the **HAProxy** service, 
 - Click on the Arrow icon that appears right above it,
 - Click on the **APACHE_PHP_AHV** service.
 
-This tells Calm to hold running the script until the **MYSQL** service is up.   
+This tells Calm to hold running the script until the **APACHE_PHP_AHV** service is up.   
 
 Save the blueprint, and launch it.
 
