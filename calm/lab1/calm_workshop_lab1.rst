@@ -195,14 +195,11 @@ Configure Credentials
 Package Configuration
 =====================
 
-Scroll to the top of the Service Panel and click **Package**.
-
-Here is where we specify the installation and uninstall scripts for this
-service. Give the install package a name (MySQL\_Package for example),
-set the install
-
-script to **shell** and select the credential you created earlier. Copy
-the following script into the **install** window:
+- Scroll to the top of the Service Panel and click **Package**.
+- Here is where we specify the installation and uninstall scripts for this service.
+- Give the install package a name **MySQL_Package**,
+- Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+- Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
@@ -248,17 +245,15 @@ add a very basic script to the uninstall. This can be useful for cleanup
 (for example, releasing DNS names or cleaning up AD), but we won’t use
 it here.
 
-Set the uninstall script to **shell** and select the credential you used
-earlier. Fill the uninstall script window with a simple:
+Set the uninstall script to **shell** and select the credential **CENTOS** created earlie. 
+Addthe following to the *script* field in the **uninstall** window:
 
 .. code-block:: bash
    
    #!/bin/bash
    echo "Goodbye!"
 
-After doing all the configuration click the **Save** button. If any
-errors come up, go back and review the configuration to ensure that all
-fields have been filled.
+After completing the configuration, click the **Save** button. If any errors come up, go back and review the configuration to ensure that all fields have been filled.
 
 Part 3: Launching the Blueprint
 *******************************
@@ -267,7 +262,7 @@ Now that the blueprint has been created and saved, you can launch it!
 
 Click on the **Launch** button in the top right. This will bring up the
 the launch window. Give this instance a unique name
-(**HOL\_<<YourName>>\_1**). Note that for every launch you do you will
+(**Calm_Workshop_App_1**). Note that for every launch you do you will
 need to increment this as instance names must be unique.
 
 This will now bring you to the **Instance** page. The bar across the top
@@ -279,17 +274,15 @@ allows you to see various information about the instance:
 instance (we’ll get to creating custom actions in a moment).
 
 You can also click on the arrow all the right on an action to see what
-it does and ­ if it’s currently running ­ where in the process it is.
+it does (i.e. execution state, task/process, etc...).
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image13.png
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image14.png
 
-The **Services** tab show you information about the VMs that make up
-this instance.
+The **Services** tab shows you information about the VMs that make up this instance.
 
-Finally the **Audit** tab shows you what actions have been called
-against this instance and by who. You can also click on any action (or sub­action) and get the logs from that event.
+Finally the **Audit** tab shows you what actions have been called against this instance and by who. You can click on any action (or sub-action) and get the logs from that event.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image15.png
 
