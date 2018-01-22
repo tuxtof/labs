@@ -260,31 +260,21 @@ Part 3: Launching the Blueprint
 
 Now that the blueprint has been created and saved, you can launch it!
 
-Click on the **Launch** button in the top right. This will bring up the
-the launch window. Give this instance a unique name
-(**Calm_Workshop_App_1**). Note that for every launch you do you will
-need to increment this as instance names must be unique.
+Click on the **Launch** button in the top right of the blueprint. This will bring up the the launch window. 
+
+Give this instance a unique name **Calm_Workshop_App_1**. 
+
+**Note:** Every launch performed requires a name change, making each lanuch unique - this can be done by incrementing the suffix in the name.
 
 This will now bring you to the **Instance** page. The bar across the top
 allows you to see various information about the instance:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image12.png
 
-**Manage** allows you to see all the actions you can run against this
-instance (we’ll get to creating custom actions in a moment).
+Summary
+*******
 
-You can also click on the arrow all the right on an action to see what
-it does (i.e. execution state, task/process, etc...).
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image13.png
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image14.png
-
-The **Services** tab shows you information about the VMs that make up this instance.
-
-Finally the **Audit** tab shows you what actions have been called against this instance and by who. You can click on any action (or sub-action) and get the logs from that event.
-
-**NOTE:** In this lab, the only active project is **Default** and all users are a member of it.
+You've successfully created a blieprint, and launched it as an application.
 
 .. |image0| image:: lab1/media/image1.png
 .. |image1| image:: lab1/media/image2.png
