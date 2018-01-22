@@ -1,5 +1,5 @@
 ***********************
-SSH Password-less Login 
+SSH Password-less Login
 ***********************
 
 
@@ -62,13 +62,13 @@ Step 2: Create SSH KEY
   |... .            |
   |.                |
   +-----------------+
-  
-  $
- 
 
- 
+  $
+
+
+
 Step 3: Migrate SSH KEY
-*********************** 
+***********************
 
 Once you have sucessfully created the keys, you will find two files inside you *.ssh* directory: *id_rsa* and *id_rsa.pub*. We are going to use *id_rsa.pub* as a base file.
 
@@ -79,7 +79,7 @@ Once you have sucessfully created the keys, you will find two files inside you *
   -rw-------. 1 test test 1679 Dec 10 09:51 id_rsa
   -rw-r--r--. 1 test test  405 Dec 10 09:51 id_rsa.pub
 
-Use the *ssh-copy-id* command with an input file of *id_rsa.pub*; it creates ~/.ssh/authorized_keys if not present, otherwise it would replace the key. 
+Use the *ssh-copy-id* command with an input file of *id_rsa.pub*; it creates ~/.ssh/authorized_keys if not present, otherwise it would replace the key.
 
 **Note:** The key contains the information about *nucalm* host and user name.
 
@@ -88,14 +88,17 @@ Copy the new keys from the *Ansible* host to each host participating in the MySQ
 .. code-block:: bash
 
   $ ssh-copy-id -i ~/.ssh/id_rsa.pub ansible@remote-machine-ipaddress
-  
-Test your password-less logins using *ssh* to login to each of the hosts participating in the MySQL Application.  
+
+Test your password-less logins using *ssh* to login to each of the hosts participating in the MySQL Application.
 
 .. code-block:: bash
 
   $ ssh ansible@[IP ADDRESS]
   Last login: Sun Dec 10 09:24:56 2017 from 10.21.9.85
-  $ 
+  $
 
-**Note:** You should **NOT** be prompted for a password... 
+**Note:** You should **NOT** be prompted for a password...
 
+.. Note:: If you want to do the Optional SSH Daemon Config, you can go back to the configure-centos-server-v7_ docker
+
+.. _configure-centos-server-v7: lab6/calm_workshop_lab6_config_centos.html
