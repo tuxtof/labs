@@ -190,7 +190,7 @@ Configure Credentials
 
 1. Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image24.png
 
 Package Configuration
 =====================
