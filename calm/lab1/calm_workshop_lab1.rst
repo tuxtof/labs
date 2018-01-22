@@ -77,20 +77,30 @@ This section provides the steps to create a simple service.
 3. Assign this Blueprint to the **Calm** 
 
 
+Blueprint Editor Overview
+=========================
+
 Welcome to the Blueprint Editor! Let’s take a look at the interface.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image4.png
 
+
+Create Blueprint Workflow
+=========================
+
 In general, the Blueprint creation flow goes:
 
-- Create Object in Application Overview or select an existing object either from the workspace or the Overview panel.
-- Configure the object in the configuration pane.
-- Repeat for each object.
-- Connect dependencies in the workspace.
+1. Create Object in Application Overview or select an existing object either from the workspace or the Overview panel.
+2. Configure the object in the configuration pane.
+3. Repeat for each object.
+4. Connect dependencies in the workspace.
 
 There are 2 more buttons that are helpful to use while making a blueprint:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image5.png
+
+Getting Started
+===============
 
 Let’s get started by setting up the basics
 
