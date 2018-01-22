@@ -205,10 +205,10 @@ This tells Calm to hold running the script until the **MySQL** service is up.
 
 **Save** the blueprint, then click on the **Create** action from the **Overview** pane to see this.
 
-Part 3: Scale-out AppService and Load Balancer
-**********************************************
+Scale-out AppService
+====================
 
-In this part we’re going to complete the provisioning of the blueprint.  
+Here we'll complete the provisioning of the blueprint.  
 
 1. Click on the **AppService** service. 
 2. Click on the **Service** tab. 
@@ -216,23 +216,51 @@ In this part we’re going to complete the provisioning of the blueprint.  
 
 This service will now deploy 2 VMs with the same configuration rather than just 1
 
-Load Balancer
-=============
+Part 3: - Create HA Proxy Load Balancer
+***************************************
 
-Now that we've added redundancy or load balancing capacity to the AppServer we need something to actually perform the load balancing.
+Now that we've added redundancy or load balancing capacity to the AppServer we need something to actually perform the load balancing.  Lets add another Service **HA Proxy**
 
-1. Add another Service. This will be our load balancer, so name the Service **HAProxy**.
-2. Name the **Substrate** AppProxy
-3. Name the VM **ProxyVM** and configure the rest of the service.
-2. Remember to configure the NIC and credentials at the bottom
+1. Click the + sign next to **Services** in the **Overview** pane.
+2. Notice there are now 3 service block icons in the workspace.
+3. Rearrange the icons to your liking, then click on the new Service 3.
+4. Name your service **HAProxy** in the *Service Name* field.
+4. TName the *Substrate*  **ProxySubstrate.**
+5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+6. The Service should look as follows:
 
-Under **Package** configure the following install script
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image27.png
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image7.png
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image4.png
+Configure the VM
+================
 
-Under **Package** configure the following install script:
+Update the VM Configuration section to match the following:
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image28.png
+
+Configure Network
+=================
+
+Scroll to the bottom and add a NIC attached to the **SQLDB** network
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
+
+
+Configure Credentials
+=====================
+
+Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image24.png
+
+Package Configuration
+=====================
+
+- Scroll to the top of the Service Panel and click **Package**.
+- Name the package **ProxyPackage**,
+- Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+- Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
@@ -296,9 +324,7 @@ Under **Package** configure the following install script:
          sudo firewall-cmd --reload
  
  
-Notice we’re using **@@{PHP.address}@@** here just like before, but
-putting it in a loop to get both PHP servers added to the HAProxy
-config. Add the **Dependency** arrow like before.
+Notice we’re using **@@{PHP.address}@@** here just like before, but putting it in a loop to get both PHP servers added to the HAProxy config. Add the **Dependency** arrow like before.
 
 Add the following uninstall script
 
