@@ -56,52 +56,62 @@ Getting Familiar with the Tools
 3. Click on the Apps tab across the top of Prism
 
 Welcome to Calm! Upon accessing this page you will now notice a new
-ribbon along the left ­ this is used to navigate through Calm.
+ribbon along the left - this is used to navigate through Calm.
 
 You are, by default, dropped into the Applications tab and can see all
 the instances of applications that have been launched from a blueprint.
+
+Tabbed Navigation
+=================
 
 For now, let’s step through each tab:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image2.png
 
-Part 2: Your Entry Level Blueprint
-***********************************
+Blueprint Editor Overview
+=========================
 
-Part 2 provides the steps to create a simple service.
-
-1. Navigate to the Blueprint ( |image2|) tab.
-
-2. Click on Create Blueprint.
-
-3. Assign this Blueprint to the Default Project Welcome to the Blueprint Editor! Let’s take a look at the interface.
+Welcome to the Blueprint Editor! Let’s take a look at the interface.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image4.png
-
-In general, the Blueprint creation flow goes:
-
-- Create Object in Application Overview or select an existing object either from the workspace or the Overview panel.
-
-- Configure the object in the configuration pane.
-
-- Repeat for each object.
-
-- Connect dependencies in the workspace.
 
 There are 2 more buttons that are helpful to use while making a blueprint:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image5.png
 
+
+Part 2: Your Entry Level Blueprint
+***********************************
+
+This section provides the steps to create a simple service.
+
+1. Navigate to the Blueprint (|image2|) tab.
+
+2. Click on Create Blueprint.
+
+3. Assign this Blueprint to the **Calm** 
+
+
+Create Blueprint Workflow
+=========================
+
+In general, the Blueprint creation flow goes:
+
+1. Create Object in Application Overview or select existing object from the workspace or the Overview panel.
+2. Configure the object in the configuration pane.
+3. Repeat for each object.
+4. Connect dependencies in the workspace.
+
+
 Let’s get started by setting up the basics
 
-1. Update the Blueprint Name to HOL­<<yourName>>
-
-2. Click on Credentials ( |image5|) button ○ Credentials are unique per blueprint
+1. Update the Blueprint Name to Calm_Workshop_<<yourName>>
+2. Click on Credentials (|image5|) button. Credentials are unique per blueprint
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image7.png
 
 +-----------------------+---------------+
-| **Name**              | Your choice   |
+| **Name**              | CENTOS        |
 +-----------------------+---------------+
 | **Username**          | root          |
 +-----------------------+---------------+
@@ -113,6 +123,7 @@ Let’s get started by setting up the basics
 +-----------------------+---------------+
 
 Setting Variables
+=================
 
 At this step let’s set some variables up. It’s not necessary to do it at
 this point, however it will make our lives easier for the rest of the
@@ -144,38 +155,51 @@ string before sending it down to the VM
 
 Setup the variables as specified in the table above.
 
-**Adding A DB Service**
+Adding A DB Service
+===================
 
 With these basics setup, let’s create our first service.
 
 1. Click the + sign next to **Services** in the **Overview** pane.
-
 2. Notice that the **Configuration** pane has changed and there is now a box in the **Workspace.**
-
-3. Name your service DBService at the top
-
+3. Name your service **MySQL** in the *Service Name* field.
 4. The Substrate section is the internal Calm name for this Service. Name this **MySQLSubstrate.**
+5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+6. The VM should look as follows:
 
-5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** Configure the VM as shown below:
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image23.png
 
-Now update the VM Configuration section to match the following:
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image11.png
+Configure the VM
+================
 
-1. Scroll to the bottom and add a NIC attached to the **DemoVMs** network
+1. update the VM Configuration section to match the following:
 
-2. Configure the **Credentials** at the bottom to use the credentials you made above
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image21.png
 
-3. Scroll back up to the top and click **Package**
+Configure Network
+=================
 
-**Package Configuration**
+1. Scroll to the bottom and add a NIC attached to the **SQLDB** network
 
-Here is where we specify the installation and uninstall scripts for this
-service. Give the install package a name (MySQL\_Package for example),
-set the install
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
 
-script to **shell** and select the credential you created earlier. Copy
-the following script into the **install** window:
+
+Configure Credentials
+=====================
+
+1. Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image24.png
+
+Package Configuration
+=====================
+
+- Scroll to the top of the Service Panel and click **Package**.
+- Here is where we specify the installation and uninstall scripts for this service.
+- Give the install package a name **MySQL_Package**,
+- Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+- Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
@@ -221,54 +245,36 @@ add a very basic script to the uninstall. This can be useful for cleanup
 (for example, releasing DNS names or cleaning up AD), but we won’t use
 it here.
 
-Set the uninstall script to **shell** and select the credential you used
-earlier. Fill the uninstall script window with a simple:
+Set the uninstall script to **shell** and select the credential **CENTOS** created earlie. 
+Addthe following to the *script* field in the **uninstall** window:
 
 .. code-block:: bash
    
    #!/bin/bash
    echo "Goodbye!"
 
-After doing all the configuration click the **Save** button. If any
-errors come up, go back and review the configuration to ensure that all
-fields have been filled.
+After completing the configuration, click the **Save** button. If any errors come up, go back and review the configuration to ensure that all fields have been filled.
 
 Part 3: Launching the Blueprint
 *******************************
 
 Now that the blueprint has been created and saved, you can launch it!
 
-Click on the **Launch** button in the top right. This will bring up the
-the launch window. Give this instance a unique name
-(**HOL\_<<YourName>>\_1**). Note that for every launch you do you will
-need to increment this as instance names must be unique.
+Click on the **Launch** button in the top right of the blueprint. This will bring up the the launch window. 
+
+Give this instance a unique name **Calm_Workshop_App_1**. 
+
+**Note:** Every launch performed requires a name change, making each lanuch unique - this can be done by incrementing the suffix in the name.
 
 This will now bring you to the **Instance** page. The bar across the top
 allows you to see various information about the instance:
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image12.png
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image25.png
 
-**Manage** allows you to see all the actions you can run against this
-instance (we’ll get to creating custom actions in a moment).
+Summary
+*******
 
-You can also click on the arrow all the right on an action to see what
-it does and ­ if it’s currently running ­ where in the process it is.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image13.png
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image14.png
-
-The **Services** tab show you information about the VMs that make up
-this instance.
-
-Finally the **Audit** tab shows you what actions have been called
-against this instance and by who. You can also click on any action (or sub­action) and get the logs from that event.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image15.png
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image16.png
-
-**NOTE:** In this lab, the only active project is **Default** and all users are a member of it.
+You've successfully created a blieprint, and launched it as an application.
 
 .. |image0| image:: lab1/media/image1.png
 .. |image1| image:: lab1/media/image2.png

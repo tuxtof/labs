@@ -68,40 +68,63 @@ For now, let’s step through each tab:
 
 Part 2: Creating a Web Server
 *****************************
-In this step we’ll add a second tier and connect it back into the DB
-Service created from Lab #1 Simple Blueprint service(MySQL).
 
-1. Click the + sign next to **Services** in the **Overview** pane
+In this step we’ll add a second tier and connect it to the DBService created from Lab #1 MySQL Blueprint.
 
-2. Notice that there is now a second block in the workspace.
+Adding App Service
+===================
 
+Create the Service was follows.
+
+1. Click the + sign next to **Services** in the **Overview** pane.
+2. Notice there are now 2 service block icons in the workspace.
 3. Rearrange the icons to your liking, then click on the new Service 2.
-   Since this is our application server, name the service AppService.
+4. Name your service **AppService** in the *Service Name* field.
+4. The Substrate section is the internal Calm name for this Service. Name this **AppSubstrate.**
+5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+6. The Service should look as follows:
 
-4. Give the Substrate a name, and choose a VM name like above. Proceed
-   and configure the rest of the application as we did with the DB
-   server
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image27.png
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image3.png
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image4.png
+Configure the VM
+================
 
-Be sure to scroll down, add a NIC and configure the credentials.
+Update the VM Configuration section to match the following:
 
-Now that our PHP server has the basic VM settings, navigate over to the
-Package page.
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image28.png
 
-Once again, give the package a unique name (PHPPackage) and set the
-script type to shell (using the credentials you used above). Fill in the
-Install script with the following script:
+Configure Network
+=================
+
+Scroll to the bottom and add a NIC attached to the **SQLDB** network
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
+
+
+Configure Credentials
+=====================
+
+Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image24.png
+
+Package Configuration
+=====================
+
+- Scroll to the top of the Service Panel and click **Package**.
+- Here is where we specify the installation and uninstall scripts for this service.
+- Nme install package **AppPackage**,
+- Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+- Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
    #!/bin/bash
    sudo yum update -y
-   sudo yum -y install epel­release
+   sudo yum -y install epel-release
    rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-   sudo yum install -y nginx php56w­fpm php56w-cli php56w-mcrypt php56w-mysql php56w-mbstring php56w-dom git
+   sudo yum install -y nginx php56w-fpm php56w-cli php56w-mcrypt php56w-mysql php56w-mbstring php56w-dom git
    mkdir -p /var/www/laravel
    echo "server {
          listen   80 default_server;
@@ -153,15 +176,13 @@ Install script with the following script:
    sleep 2
 
 
-Here you see variables like before, but also something new:
+Here you'll find variables like before, but also something new:
 
 @@{MySQL.address}@@
 
-This is a **Calm Macro**. What this does it get the IP address from
-the \ **MySQL** server and replaces that in this script. With that it
-doesn’t matter what IP the DB comes up with, the PHP server will always
-know where it’s DB is. There are many more native macros - a full list
-will be available in documentation at launch!
+This is a **Calm Macro**. What this does it get the IP address from the **MySQL** server and replaces that in this script. Using the Macro,  it doesn’t matter what IP the DB comes up with, the PHP server will always know where it’s DB is. 
+
+There are many more native macros and can be foundin the the Calm Deep-Dive sections...
 
 Fill in the uninstall script with the same basic exit as before:
 
@@ -170,49 +191,72 @@ Fill in the uninstall script with the same basic exit as before:
    #!/bin/bash
    echo "goodbye!"
 
-Before we’re finished here, we have 1 more step to do. Since we need the
-DB address to bring up the PHP server, we need to add a **Dependency**.
-Click on the
+Since we need the DB IP Address to bring up the AppServer, we need to add a **Dependency**.
 
-**PHP** service, click on the Arrow icon that appears right above it,
-then click on the **MySQL** service
+- Click on the . **AppService** service, 
+- Click on the Arrow icon that appears right above it,
+- Click on the **MySQL** service.
 
-This tells Calm to hold running the script until the **MySQL** service
-is up. **Save** the blueprint, then click on the **Create** action from
-the **Overview** pane to see this.
+This tells Calm to hold running the script until the **MySQL** service is up. 
 
-Part 3: Scale-out PHP and Load Balancer
+**Save** the blueprint, then click on the **Create** action from the **Overview** pane to see this.
+
+Scale-out AppService
+====================
+
+Here we'll complete the provisioning of the blueprint.  
+
+1. Click on the **AppService** service. 
+2. Click on the **Service** tab. 
+3. Change **Number of replicas** under **Deployment Config** from 1 to 2.  
+
+This service will now deploy 2 VMs with the same configuration rather than just 1
+
+Part 3: - Create HA Proxy Load Balancer
 ***************************************
 
-In this part we’re going to finally finish the provisioning blueprint.  
+Now that we've added redundancy or load balancing capacity to the AppServer we need something to actually perform the load balancing.  Lets add another Service **HA Proxy**
 
-1. Click on the \ **PHP** \ service. 
+1. Click the + sign next to **Services** in the **Overview** pane.
+2. Notice there are now 3 service block icons in the workspace.
+3. Rearrange the icons to your liking, then click on the new Service 3.
+4. Name your service **HAProxy** in the *Service Name* field.
+4. TName the *Substrate*  **ProxySubstrate.**
+5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+6. The Service should look as follows:
 
-2. Click on the \ **Service** \ tab. 
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image27.png
 
-3. Change \ **Number of replicas** \ under \ **Deployment Config** \ from 1 to 2.  
 
-This service will now deploy 2 VMs with the same configuration rather
-than just 1
+Configure the VM
+================
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image5.png
+Update the VM Configuration section to match the following:
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image6.png
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image28.png
 
-We’ve now added redundancy or load balancing capacity to the PHP server,
-but need something to actually to the load balancing.
+Configure Network
+=================
 
-1. Add another Service. This will be our load balancer, so name the Service **HAProxy**, give the substrate and VM a name and configure the rest of the service.
+Scroll to the bottom and add a NIC attached to the **SQLDB** network
 
-2. Remember to configure the NIC and credentials at the bottom
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
 
-Under **Package** configure the following install script
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image7.png
+Configure Credentials
+=====================
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image4.png
+Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
 
-Under **Package** configure the following install script:
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image24.png
+
+Package Configuration
+=====================
+
+- Scroll to the top of the Service Panel and click **Package**.
+- Name the package **ProxyPackage**,
+- Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+- Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
@@ -276,9 +320,7 @@ Under **Package** configure the following install script:
          sudo firewall-cmd --reload
  
  
-Notice we’re using **@@{PHP.address}@@** here just like before, but
-putting it in a loop to get both PHP servers added to the HAProxy
-config. Add the **Dependency** arrow like before.
+Notice we’re using **@@{PHP.address}@@** here just like before, but putting it in a loop to get both PHP servers added to the HAProxy config. Add the **Dependency** arrow like before.
 
 Add the following uninstall script
 
@@ -291,41 +333,9 @@ Your blueprint should now look like this:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab2/image8.png
 
-Part 4: Next steps
-******************
+Save the blueprint, and launch it.
 
-In this lab we just configured the provisioning steps. Calm also does
-hybrid cloud management and lifecycle management. We also didn’t publish
-this blueprint to the marketplace. Explore these on your own, using the
-following as a guide as the ideas are the same throughout.
 
-**Custom Actions**
-
-Click the + sign next to **Actions** in the **Overview** pane to create
-your own action.
-
-You can now create variables specific to this action, add subtasks on
-each service, and wire them up to ensure they are executed in the right
-order
-
-**NOTE:** The orange arrows run in the opposite direction then the white
-provisioning arrows. Rather than pointing at what this subaction depends
-on, it instead points in the order of operations.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image9.png
-
-Application Profiles
-
-You already have a default profile created, you can clone this by
-clicking the ... next to the name. Using this you can now change
-deployment configuration or move to a different cloud. With multiple
-profiles, you will be asked which one you want when you go to launch the
-application.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image10.png
-
-**NOTE:** In this lab, the only active project is **Default** and all
-users are a member of it.
 
 .. |image0| image:: lab2/media/image1.png
 .. |image1| image:: lab2/media/image2.png
