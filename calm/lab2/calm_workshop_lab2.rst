@@ -69,122 +69,69 @@ For now, let’s step through each tab:
 Part 2: Creating a Web Server
 *****************************
 
-In this step we’ll add a second tier and connect it to the DBService created from Lab #1 MySQL Blueprint.
+In this step we’ll add a second tier and connect it to the MYSQL service created from Lab #1 MySQL Blueprint.
 
-Adding App Service
-===================
+Create Service
+===============
 
-Create the Service was follows.
+Create the Service as follows.
 
 1. Click the + sign next to **Services** in the **Overview** pane.
 2. Notice there are now 2 service block icons in the workspace.
 3. Rearrange the icons to your liking, then click on the new Service 2.
-4. Name your service **AppService** in the *Service Name* field.
-4. The Substrate section is the internal Calm name for this Service. Name this **AppSubstrate.**
-5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
-6. The Service should look as follows:
+4. Name your service **APACHE_PHP** in the *Service Name* field.
+5. The Substrate section is the internal Calm name for this Service. Name this **APACHE_PHP_AHV**
+6. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+7. Configure the VM as follows:
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image27.png
-
-
-Configure the VM
-================
-
-Update the VM Configuration section to match the following:
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image28.png
-
-Configure Network
-=================
-
-Scroll to the bottom and add a NIC attached to the **SQLDB** network
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
+.. code-block:: bash
+  
+  VM Name .  : APACHE_PHP
+  Image .    : CentOS
+  Disk Type .: DISK
+  Device Bus : SCSI
+  vCPU .     : 2
+  Core/vCPU .: 1
+  Memory     : 4 GB
 
 
-Configure Credentials
-=====================
+8. Scroll to the bottom and add the NIC **bootcamp** to the **MYSQL** VM.
+9. Configure the **Credentials** to use **CENTOS** created earlier.
 
-Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image24.png
 
 Package Configuration
 =====================
 
 - Scroll to the top of the Service Panel and click **Package**.
 - Here is where we specify the installation and uninstall scripts for this service.
-- Nme install package **AppPackage**,
+- Name install package **APACHE_PHP_PACKAGE**,
 - Set the install script to **shell** and select the credential **CENTOS** created earlier. 
 - Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
    #!/bin/bash
+   set -ex
+   # -*- Install httpd and php
    sudo yum update -y
    sudo yum -y install epel-release
-   rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-   sudo yum install -y nginx php56w-fpm php56w-cli php56w-mcrypt php56w-mysql php56w-mbstring php56w-dom git
-   mkdir -p /var/www/laravel
-   echo "server {
-         listen   80 default_server;
-         listen [::]:80 default_server ipv6only=on;
-         root /var/www/laravel/public/;
-         index index.php index.html index.htm;
-         location / {
-             try_files \$uri \$uri/ /index.php?\$query_string;
-         }
-         # pass the PHP scripts to FastCGI server listening on/var/run/php5­fpm.sock
-         location ~ \.php$ {
-                  try_files \$uri /index.php =404;
-                  fastcgi_split_path_info ^(.+\.php)(/.+)\$;
-                  fastcgi_pass 127.0.0.1:9000;
-                  fastcgi_index index.php;
-                  fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-                  include fastcgi_params;
-         }
-   }" |sudo tee /etc/nginx/conf.d/laravel.conf
-   sed -i 's/80 default_server/80/g' /etc/nginx/nginx.conf
-   if `grep "cgi.fix_pathinfo" /etc/php.ini` ; then
-      sed -i 's/cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
-   else
-      sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
-   fi
-   
-   #sudo php5enmod mcrypt
-   sudo systemctl restart php-fpm
-   sudo systemctl restart nginx
-   if [ ! -e /usr/local/bin/composer ] then
-      curl -sS https://getcomposer.org/installer | php
-      mv composer.phar /usr/local/bin/composer
-      chmod +x /usr/local/bin/composer
-   fi
-   
-   git clone @@{App_git_link}@@ /var/www/laravel
-   sed -i 's/DB_HOST=.*/DB_HOST=@@{DBService.address}@@/' /var/www/laravel/.env
-   sudo su - -c "cd /var/www/laravel; composer install ; php artisan migrate"
-   
-   chown -R nginx:nginx /var/www/laravel
-   chmod -R 777 /var/www/laravel/
- 
-   systemctl restart php-fpm
-   systemctl restart nginx
-   sudo yum install firewalld -y
-   sudo service firewalld start
-   sudo firewall-cmd --add-service=http --zone=public --permanent
-   sudo firewall-cmd --reload
-   sleep 2
+   sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+   sudo yum install -y httpd php56w php56w-mysql
 
+   echo "<IfModule mod_dir.c>
+           DirectoryIndex index.php index.html index.cgi index.pl index.php index.xhtml index.htm
+   </IfModule>" | sudo tee /etc/httpd/conf.modules.d/dir.conf
 
-Here you'll find variables like before, but also something new:
+   echo "<?php
+   phpinfo();
+   ?>" | sudo tee /var/www/html/info.php 
+   sudo systemctl restart httpd
+   sudo systemctl enable httpd
 
-@@{MySQL.address}@@
+**Fill in the uninstall script:**
 
-This is a **Calm Macro**. What this does it get the IP address from the **MySQL** server and replaces that in this script. Using the Macro,  it doesn’t matter what IP the DB comes up with, the PHP server will always know where it’s DB is. 
-
-There are many more native macros and can be foundin the the Calm Deep-Dive sections...
-
-Fill in the uninstall script with the same basic exit as before:
+- Set the uninstall script to **shell** and select the credential **CENTOS** created earlier. 
+- Copy the following script into the *script* field of the **uninstall** window:
 
 .. code-block:: bash
 
@@ -193,11 +140,11 @@ Fill in the uninstall script with the same basic exit as before:
 
 Since we need the DB IP Address to bring up the AppServer, we need to add a **Dependency**.
 
-- Click on the . **AppService** service, 
+- Click on the **APACHE_PHP_PACKAGE** service, 
 - Click on the Arrow icon that appears right above it,
-- Click on the **MySQL** service.
+- Click on the **MYSQL** service.
 
-This tells Calm to hold running the script until the **MySQL** service is up. 
+This tells Calm to hold running the script until the **MYSQL** service is up. 
 
 **Save** the blueprint, then click on the **Create** action from the **Overview** pane to see this.
 
@@ -206,7 +153,7 @@ Scale-out AppService
 
 Here we'll complete the provisioning of the blueprint.  
 
-1. Click on the **AppService** service. 
+1. Click on the **APACHE_PHP_PACKAGE** service. 
 2. Click on the **Service** tab. 
 3. Change **Number of replicas** under **Deployment Config** from 1 to 2.  
 
@@ -217,124 +164,115 @@ Part 3: - Create HA Proxy Load Balancer
 
 Now that we've added redundancy or load balancing capacity to the AppServer we need something to actually perform the load balancing.  Lets add another Service **HA Proxy**
 
+Create Service
+===============
+
 1. Click the + sign next to **Services** in the **Overview** pane.
 2. Notice there are now 3 service block icons in the workspace.
 3. Rearrange the icons to your liking, then click on the new Service 3.
 4. Name your service **HAProxy** in the *Service Name* field.
-4. TName the *Substrate*  **ProxySubstrate.**
-5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
-6. The Service should look as follows:
+5. Name the *Substrate*  **HAPROXYAHV**
+6. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+7. Configure the VM as follows:
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image27.png
-
-
-Configure the VM
-================
-
-Update the VM Configuration section to match the following:
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image28.png
-
-Configure Network
-=================
-
-Scroll to the bottom and add a NIC attached to the **SQLDB** network
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
+.. code-block:: bash
+  
+  VM Name .  : HAProxy
+  Image .    : CentOS
+  Disk Type .: DISK
+  Device Bus : SCSI
+  vCPU .     : 2
+  Core/vCPU .: 1
+  Memory     : 4 GB
 
 
-Configure Credentials
-=====================
+8. Scroll to the bottom and add the NIC **bootcamp** to the **MYSQL** VM.
+9. Configure the **Credentials** to use **CENTOS** created earlier.
 
-Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image24.png
 
 Package Configuration
 =====================
 
 - Scroll to the top of the Service Panel and click **Package**.
-- Name the package **ProxyPackage**,
+- Here is where we specify the installation and uninstall scripts for this service.
+- Name the package **HAPROXY_PACKAGE**,
 - Set the install script to **shell** and select the credential **CENTOS** created earlier. 
 - Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
-   #!/bin/bash
-   set -ex
- 
-   sudo yum update -y
-   sudo yum install -y haproxy
-   echo "global
-         log 127.0.0.1 local0
-         log 127.0.0.1 local1 notice
-         maxconn 4096
-         quiet
-         user haproxy
-         group haproxy
-         defaults
-               log     global
-               mode    http
-               retries 3
-               timeout client 50s
-               timeout connect 5s
-               timeout server 50s
-               option dontlognull
-               option httplog
-               option redispatch
-               balance  roundrobin
-         # Set up application listeners here.
-         listen stats 0.0.0.0:8080
-         mode http
-         log global
-         stats enable
-         stats hide-version
-         stats refresh 30s
-         stats show-node
-         stats uri /stats
-         listen admin
-         bind 127.0.0.1:22002
-         mode http
-         stats uri /
-         frontend http
-         maxconn 2000
-         bind 0.0.0.0:80
-         default_backend servers­http
-         backend servers-http" | tee /etc/haproxy/haproxy.cfg
-         sudo sed -i 's/server host-/#server
-         host-/g' /etc/haproxy/haproxy.cfg
-         hosts=$(echo "@@{AppService.address}@@" | sed 's/^,//' | sed 's/,$//' | tr "," "\n")
-         port=80
-         for host in $hosts do
-            echo "  server host­${host} ${host}:${port} weight 1 maxconn
-            100 check" | tee ­a /etc/haproxy/haproxy.cfg
-         done
-         
-         sudo systemctl daemon­reload
-         sudo systemctl restart haproxy
-         sudo yum install firewalld -y
-         
-         sudo service firewalld start
-         sudo firewall-cmd -add-service=http --zone=public --permanent
-         sudo firewall-cmd --add­port=8080/tcp --zone=public --permanent
-         sudo firewall-cmd --reload
- 
- 
-Notice we’re using **@@{PHP.address}@@** here just like before, but putting it in a loop to get both PHP servers added to the HAProxy config. Add the **Dependency** arrow like before.
+  #!/bin/bash
+  set -ex
 
-Add the following uninstall script
+  sudo setenforce 0
+  sudo sed -i 's/permissive/disabled/' /etc/sysconfig/selinux
+
+  port=80
+  sudo yum update -y
+  sudo yum install -y haproxy
+
+  echo "global
+    log 127.0.0.1 local0
+    log 127.0.0.1 local1 notice
+    maxconn 4096
+    quiet
+    user haproxy
+    group haproxy
+  defaults
+    log     global
+    mode    http
+    retries 3
+    timeout client 50s
+    timeout connect 5s
+    timeout server 50s
+    option dontlognull
+    option httplog
+    option redispatch
+    balance  roundrobin
+  # Set up application listeners here.
+  listen stats 0.0.0.0:8080
+    mode http
+    log global
+    stats enable
+    stats hide-version
+    stats refresh 30s
+    stats show-node
+    stats uri /stats
+  listen admin
+    bind 127.0.0.1:22002
+    mode http
+    stats uri /
+  frontend http
+    maxconn 2000
+    bind 0.0.0.0:80
+    default_backend servers-http
+  backend servers-http" | sudo tee /etc/haproxy/haproxy.cfg
+
+  sudo sed -i 's/server host-/#server host-/g' /etc/haproxy/haproxy.cfg
+
+  hosts=$(echo "@@{APACHE_PHP.address}@@" | sed 's/^,//' | sed 's/,$//' | tr "," "\n")
+
+
+  for host in $hosts
+  do
+     echo "  server host-${host} ${host}:${port} weight 1 maxconn 100 check" | sudo tee -a /etc/haproxy/haproxy.cfg
+  done
+
+  sudo systemctl daemon-reload
+  sudo systemctl enable haproxy
+  sudo systemctl restart haproxy
+
+**Fill in the uninstall script:**
+
+- Set the uninstall script to **shell** and select the credential **CENTOS** created earlier. 
+- Copy the following script into the *script* field of the **uninstall** window:
 
 .. code-block:: bash
 
    #!/bin/bash
    echo "goodbye!"
 
-Your blueprint should now look like this:
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image8.png
-
 Save the blueprint, and launch it.
-
 
 
 .. |image0| image:: lab2/media/image1.png

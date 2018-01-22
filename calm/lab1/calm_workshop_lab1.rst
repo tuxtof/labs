@@ -105,10 +105,8 @@ In general, the Blueprint creation flow goes:
 
 Let’s get started by setting up the basics
 
-1. Update the Blueprint Name to Calm_Workshop_<<yourName>>
-2. Click on Credentials (|image5|) button. Credentials are unique per blueprint
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image7.png
+1. Update the Blueprint Name to Calm_Workshop
+2. Click on Credentials (|image5|) button. Update credentials as follows:
 
 +-----------------------+---------------+
 | **Name**              | CENTOS        |
@@ -121,6 +119,8 @@ Let’s get started by setting up the basics
 +-----------------------+---------------+
 | **Use as Default**    | Checked       |
 +-----------------------+---------------+
+
+**Note:** Credentials are unique per Blueprint.
 
 Setting Variables
 =================
@@ -162,42 +162,31 @@ With these basics setup, let’s create our first service.
 
 1. Click the + sign next to **Services** in the **Overview** pane.
 2. Notice that the **Configuration** pane has changed and there is now a box in the **Workspace.**
-3. Name your service **MySQL** in the *Service Name* field.
-4. The Substrate section is the internal Calm name for this Service. Name this **MySQLSubstrate.**
+3. Name your service **MYSQL** in the *Service Name* field.
+4. The Substrate section is the internal Calm name for this Service. Name this **MMYSQLAHV**
 5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
-6. The VM should look as follows:
+6. Configure the VM as follows:
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image23.png
-
-
-Configure the VM
-================
-
-1. update the VM Configuration section to match the following:
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image21.png
-
-Configure Network
-=================
-
-1. Scroll to the bottom and add a NIC attached to the **SQLDB** network
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
+.. code-block:: bash
+  
+  VM Name .  : MYSQL
+  Image .    : CentOS
+  Disk Type .: DISK
+  Device Bus : SCSI
+  vCPU .     : 2
+  Core/vCPU .: 1
+  Memory     : 4 GB
 
 
-Configure Credentials
-=====================
+7. Scroll to the bottom and add the NIC **bootcamp** to the **MYSQL** VM.
+8. Configure the **Credentials** to use **CENTOS** created earlier.
 
-1. Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image24.png
 
 Package Configuration
 =====================
 
 - Scroll to the top of the Service Panel and click **Package**.
-- Here is where we specify the installation and uninstall scripts for this service.
-- Give the install package a name **MySQL_Package**,
+- Name the install package **MYSQL_PACKAGE**,
 - Set the install script to **shell** and select the credential **CENTOS** created earlier. 
 - Copy the following script into the *script* field of the **install** window:
 
@@ -236,6 +225,10 @@ Package Configuration
    FLUSH PRIVILEGES;
    EOF
    
+   #!/bin/bash
+   set -ex
+   
+   
 Looking at this script, we see that we’re using the variables we set
 before and doing basic mySQL configuration. This can be customized for
 whatever unique need you have.
@@ -262,19 +255,19 @@ Now that the blueprint has been created and saved, you can launch it!
 
 Click on the **Launch** button in the top right of the blueprint. This will bring up the the launch window. 
 
-Give this instance a unique name **Calm_Workshop_App_1**. 
+Give this instance a unique name **Calm_Workshop_MYSQL_App_1**. 
 
 **Note:** Every launch performed requires a name change, making each lanuch unique - this can be done by incrementing the suffix in the name.
 
-This will now bring you to the **Instance** page. The bar across the top
-allows you to see various information about the instance:
+This will now bring you to the **Instance** page. The bar across the top allows you to see various information about the application instance:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image25.png
+
 
 Summary
 *******
 
-You've successfully created a blieprint, and launched it as an application.
+You've successfully created a blueprint, and launched it as an application.
 
 .. |image0| image:: lab1/media/image1.png
 .. |image1| image:: lab1/media/image2.png
