@@ -78,6 +78,9 @@ The Blueprint workspace should appear as follows.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image4.png
 
+Assign Credential
+=================
+
 Since Blureprints are exported as clear text, they do not retain credential information that could potentially be used maliciously.  You'll be required to set the **Credentials**.  
 
 +-------------------------------------------------------------------------+
@@ -92,30 +95,38 @@ Since Blureprints are exported as clear text, they do not retain credential info
 
 Save the Blueprint.  The red **!** should no longer appear.
 
+Checking Blueprint Affinity
+===========================
+
 To inusre the blueprint has affinity with your working cluster, you'll need to insure it has the proper *disk-image* and *network* selected. 
 
 1. Mouse-Click on the **Master Service**.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image24.png
 
+
 2. Mouse-Click on the **VM** tab within the configuration pane.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image20.png
+
 
 3. Select **centos** for the VM Disk image.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image23.png
 
+
 4. Select **bootcamp** for the VM network (NIC).
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image21.png
 
-5. Select **centos** for the VM crednetial.
+
+5. Select **centos** for the VM credential.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image22.png
 
 
-Save the Blueprint.
+6. Save the Blueprint.
+
 
 Part 3: Launch Blueprint
 ************************
