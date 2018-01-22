@@ -87,9 +87,9 @@ This section provides the steps to create a simple service.
 
 1. Navigate to the Blueprint (|image2|) tab.
 
-2. Click on Create Blueprint.
+2. Click on **Create Application Blueprint**.
 
-3. Assign this Blueprint to the **Calm** 
+3. Assign this Blueprint to the **Calm** project
 
 
 Create Blueprint Workflow
