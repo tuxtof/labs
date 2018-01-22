@@ -284,10 +284,6 @@ The **Services** tab shows you information about the VMs that make up this insta
 
 Finally the **Audit** tab shows you what actions have been called against this instance and by who. You can click on any action (or sub-action) and get the logs from that event.
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image15.png
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image16.png
-
 **NOTE:** In this lab, the only active project is **Default** and all users are a member of it.
 
 .. |image0| image:: lab1/media/image1.png
