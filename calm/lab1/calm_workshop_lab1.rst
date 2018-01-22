@@ -255,7 +255,7 @@ Click on the **Launch** button in the top right of the blueprint. This will brin
 
 Give this instance a unique name **Calm_Workshop_MYSQL_App_1**. 
 
-.. note:: Every launch performed requires a name change, making each lanuch unique - this can be done by incrementing the suffix in the name.
+.. note:: Every launch performed requires a name change, making each launch unique - this can be done by incrementing the suffix in the name.
 
 This will now bring you to the **Instance** page. The bar across the top allows you to see various information about the application instance:
 
