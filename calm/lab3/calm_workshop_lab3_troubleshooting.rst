@@ -78,7 +78,13 @@ The Blueprint workspace should appear as follows.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image4.png
 
-Since Blureprints are exported as clear text, they do not retain credential information that could potentially be used maliciously.  You'll be required to set the **Credentials** to *User: root*,  *Password: nutanix/4u*.  Save the Blueprint.  The red **!** should no longer appear.
+Since Blureprints are exported as clear text, they do not retain credential information that could potentially be used maliciously.  You'll be required to set the **Credentials**.  
+
+Credentials:
+- *User: root*
+- *Password: nutanix/4u*.  
+
+Save the Blueprint.  The red **!** should no longer appear.
 
 
 Part 3: Launch Blueprint
