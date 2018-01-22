@@ -111,7 +111,7 @@ Let’s get started by setting up the basics
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image7.png
 
 +-----------------------+---------------+
-| **Name**              | Your choice   |
+| **Name**              | CETNOS        |
 +-----------------------+---------------+
 | **Username**          | root          |
 +-----------------------+---------------+
