@@ -68,40 +68,63 @@ For now, let’s step through each tab:
 
 Part 2: Creating a Web Server
 *****************************
-In this step we’ll add a second tier and connect it back into the DB
-Service created from Lab #1 Simple Blueprint service(MySQL).
 
-1. Click the + sign next to **Services** in the **Overview** pane
+In this step we’ll add a second tier and connect it to the DBService created from Lab #1 MySQL Blueprint.
 
-2. Notice that there is now a second block in the workspace.
+Adding App Service
+===================
 
+Create the Service was follows.
+
+1. Click the + sign next to **Services** in the **Overview** pane.
+2. Notice there are now 2 service block icons in the workspace.
 3. Rearrange the icons to your liking, then click on the new Service 2.
-   Since this is our application server, name the service AppService.
+4. Name your service **AppService** in the *Service Name* field.
+4. The Substrate section is the internal Calm name for this Service. Name this **AppSubstrate.**
+5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+6. The VM should look as follows:
 
-4. Give the Substrate a name, and choose a VM name like above. Proceed
-   and configure the rest of the application as we did with the DB
-   server
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image27.png
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image3.png
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image4.png
+Configure the VM
+================
 
-Be sure to scroll down, add a NIC and configure the credentials.
+1. update the VM Configuration section to match the following:
 
-Now that our PHP server has the basic VM settings, navigate over to the
-Package page.
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image28.png
 
-Once again, give the package a unique name (PHPPackage) and set the
-script type to shell (using the credentials you used above). Fill in the
-Install script with the following script:
+Configure Network
+=================
+
+1. Scroll to the bottom and add a NIC attached to the **SQLDB** network
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
+
+
+Configure Credentials
+=====================
+
+1. Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image24.png
+
+Package Configuration
+=====================
+
+- Scroll to the top of the Service Panel and click **Package**.
+- Here is where we specify the installation and uninstall scripts for this service.
+- Give the install package a name **AppPackage**,
+- Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+- Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
    #!/bin/bash
    sudo yum update -y
-   sudo yum -y install epel­release
+   sudo yum -y install epel-release
    rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-   sudo yum install -y nginx php56w­fpm php56w-cli php56w-mcrypt php56w-mysql php56w-mbstring php56w-dom git
+   sudo yum install -y nginx php56w-fpm php56w-cli php56w-mcrypt php56w-mysql php56w-mbstring php56w-dom git
    mkdir -p /var/www/laravel
    echo "server {
          listen   80 default_server;
@@ -158,7 +181,7 @@ Here you see variables like before, but also something new:
 @@{MySQL.address}@@
 
 This is a **Calm Macro**. What this does it get the IP address from
-the \ **MySQL** server and replaces that in this script. With that it
+the **MySQL** server and replaces that in this script. With that it
 doesn’t matter what IP the DB comes up with, the PHP server will always
 know where it’s DB is. There are many more native macros - a full list
 will be available in documentation at launch!
@@ -172,25 +195,26 @@ Fill in the uninstall script with the same basic exit as before:
 
 Before we’re finished here, we have 1 more step to do. Since we need the
 DB address to bring up the PHP server, we need to add a **Dependency**.
-Click on the
 
-**PHP** service, click on the Arrow icon that appears right above it,
-then click on the **MySQL** service
+- Click on the . **AppService** service, 
+- Click on the Arrow icon that appears right above it,
+- Click on the **MySQL** service
 
 This tells Calm to hold running the script until the **MySQL** service
-is up. **Save** the blueprint, then click on the **Create** action from
-the **Overview** pane to see this.
+is up. 
 
-Part 3: Scale-out PHP and Load Balancer
-***************************************
+**Save** the blueprint, then click on the **Create** action from the **Overview** pane to see this.
+
+Part 3: Scale-out AppService and Load Balancer
+**********************************************
 
 In this part we’re going to finally finish the provisioning blueprint.  
 
-1. Click on the \ **PHP** \ service. 
+1. Click on the **AppService** service. 
 
-2. Click on the \ **Service** \ tab. 
+2. Click on the **Service** tab. 
 
-3. Change \ **Number of replicas** \ under \ **Deployment Config** \ from 1 to 2.  
+3. Change **Number of replicas** under **Deployment Config** from 1 to 2.  
 
 This service will now deploy 2 VMs with the same configuration rather
 than just 1
