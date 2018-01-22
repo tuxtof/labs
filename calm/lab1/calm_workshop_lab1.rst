@@ -105,7 +105,7 @@ Create Blueprint Workflow
 Let’s get started by setting up the basics
 
 1. Update the Blueprint Name to Calm_Workshop
-2. Click on Credentials (|image5|) button. Update credentials as follows:
+2. Click on the **Credentials** button along the top of the Blueprint workspace. Update credentials as follows:
 
 +-----------------------+---------------+
 | **Name**              | CENTOS        |
@@ -181,7 +181,6 @@ With these basics setup, let’s create our first service.
 
 7. Scroll to the bottom and add the NIC **bootcamp** to the **MYSQL** VM.
 8. Configure the **Credentials** to use **CENTOS** created earlier.
-
 
 Package Configuration
 =====================
