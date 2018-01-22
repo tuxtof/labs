@@ -56,10 +56,13 @@ Getting Familiar with the Tools
 3. Click on the Apps tab across the top of Prism
 
 Welcome to Calm! Upon accessing this page you will now notice a new
-ribbon along the left ­ this is used to navigate through Calm.
+ribbon along the left - this is used to navigate through Calm.
 
 You are, by default, dropped into the Applications tab and can see all
 the instances of applications that have been launched from a blueprint.
+
+Tabbed Navigation
+=================
 
 For now, let’s step through each tab:
 
