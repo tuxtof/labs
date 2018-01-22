@@ -131,7 +131,7 @@ To inusre the blueprint has affinity with your working cluster, you'll need to i
 Part 3: Launch Blueprint
 ************************
 
-Once the blueprint has been successfully saved, click the (|image5|) button to lanuch the Blueprint.  Name the application with *Calm Workshop Troubleshooting*.  
+Once the blueprint has been successfully updated and saved, click the (|image5|) button to lanuch the Blueprint.  Name the application with *Calm Workshop Troubleshooting*.  
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image6.png
 
