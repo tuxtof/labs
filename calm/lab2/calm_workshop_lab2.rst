@@ -82,7 +82,7 @@ Create the Service was follows.
 4. Name your service **AppService** in the *Service Name* field.
 4. The Substrate section is the internal Calm name for this Service. Name this **AppSubstrate.**
 5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
-6. The VM should look as follows:
+6. The Service should look as follows:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image27.png
 
@@ -90,14 +90,14 @@ Create the Service was follows.
 Configure the VM
 ================
 
-1. update the VM Configuration section to match the following:
+Update the VM Configuration section to match the following:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image28.png
 
 Configure Network
 =================
 
-1. Scroll to the bottom and add a NIC attached to the **SQLDB** network
+Scroll to the bottom and add a NIC attached to the **SQLDB** network
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image22.png
 
@@ -105,7 +105,7 @@ Configure Network
 Configure Credentials
 =====================
 
-1. Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
+Configure the **Credentials** at the bottom to use the credentials **CENTOS** created earlier.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image24.png
 
@@ -114,7 +114,7 @@ Package Configuration
 
 - Scroll to the top of the Service Panel and click **Package**.
 - Here is where we specify the installation and uninstall scripts for this service.
-- Give the install package a name **AppPackage**,
+- Nme install package **AppPackage**,
 - Set the install script to **shell** and select the credential **CENTOS** created earlier. 
 - Copy the following script into the *script* field of the **install** window:
 
@@ -180,11 +180,9 @@ Here you see variables like before, but also something new:
 
 @@{MySQL.address}@@
 
-This is a **Calm Macro**. What this does it get the IP address from
-the **MySQL** server and replaces that in this script. With that it
-doesn’t matter what IP the DB comes up with, the PHP server will always
-know where it’s DB is. There are many more native macros - a full list
-will be available in documentation at launch!
+This is a **Calm Macro**. What this does it get the IP address from the **MySQL** server and replaces that in this script. Using the Macro,  it doesn’t matter what IP the DB comes up with, the PHP server will always know where it’s DB is. 
+
+There are many more native macros and can be foundin the the Calm Deep-Dive sections...
 
 Fill in the uninstall script with the same basic exit as before:
 
@@ -193,8 +191,7 @@ Fill in the uninstall script with the same basic exit as before:
    #!/bin/bash
    echo "goodbye!"
 
-Before we’re finished here, we have 1 more step to do. Since we need the
-DB address to bring up the PHP server, we need to add a **Dependency**.
+Since we need the DB IP Address to bring up the AppServer, we need to add a **Dependency**.
 
 - Click on the . **AppService** service, 
 - Click on the Arrow icon that appears right above it,
@@ -208,26 +205,25 @@ is up.
 Part 3: Scale-out AppService and Load Balancer
 **********************************************
 
-In this part we’re going to finally finish the provisioning blueprint.  
+In this part we’re going to complete the provisioning of the blueprint.  
 
 1. Click on the **AppService** service. 
-
 2. Click on the **Service** tab. 
-
 3. Change **Number of replicas** under **Deployment Config** from 1 to 2.  
 
-This service will now deploy 2 VMs with the same configuration rather
-than just 1
+This service will now deploy 2 VMs with the same configuration rather than just 1
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab2/image5.png
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab2/image6.png
 
-We’ve now added redundancy or load balancing capacity to the PHP server,
-but need something to actually to the load balancing.
+
+Load Balancer
+=============
+
+Now that we've added redundancy or load balancing capacity to the AppServer we need something to actually perform the load balancing.
 
 1. Add another Service. This will be our load balancer, so name the Service **HAProxy**, give the substrate and VM a name and configure the rest of the service.
-
 2. Remember to configure the NIC and credentials at the bottom
 
 Under **Package** configure the following install script
