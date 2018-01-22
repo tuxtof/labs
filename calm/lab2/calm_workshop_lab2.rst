@@ -104,7 +104,7 @@ Package Configuration
 
 - Scroll to the top of the Service Panel and click **Package**.
 - Here is where we specify the installation and uninstall scripts for this service.
-- Nme install package **APACHE_PHP_PACKAGE**,
+- Name install package **APACHE_PHP_PACKAGE**,
 - Set the install script to **shell** and select the credential **CENTOS** created earlier. 
 - Copy the following script into the *script* field of the **install** window:
 
@@ -128,7 +128,10 @@ Package Configuration
    sudo systemctl restart httpd
    sudo systemctl enable httpd
 
-Fill in the uninstall script with the same basic exit as before:
+**Fill in the uninstall script:**
+
+- Set the uninstall script to **shell** and select the credential **CENTOS** created earlier. 
+- Copy the following script into the *script* field of the **uninstall** window:
 
 .. code-block:: bash
 
@@ -188,6 +191,7 @@ Package Configuration
 =====================
 
 - Scroll to the top of the Service Panel and click **Package**.
+- Here is where we specify the installation and uninstall scripts for this service.
 - Name the package **HAPROXY_PACKAGE**,
 - Set the install script to **shell** and select the credential **CENTOS** created earlier. 
 - Copy the following script into the *script* field of the **install** window:
@@ -255,7 +259,10 @@ Package Configuration
   sudo systemctl enable haproxy
   sudo systemctl restart haproxy
 
-Add the following uninstall script
+**Fill in the uninstall script:**
+
+- Set the uninstall script to **shell** and select the credential **CENTOS** created earlier. 
+- Copy the following script into the *script* field of the **uninstall** window:
 
 .. code-block:: bash
 
