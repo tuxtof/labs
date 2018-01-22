@@ -47,20 +47,17 @@ ran on the target machine. Macros and Variables are denoted in the
 Part 1: Accessing and Navigating Calm
 *************************************
 
-Getting Familiar with the Tools
+Getting Familiar with the Tools:
 
 1. Connect to https://<HPOC.PC:9440>
 
-2. Login to Prism Central using the credentials specified above (use
-   these credentials unless specified otherwise throughout this lab 
+2. Login to Prism Central using the credentials specified above (use these credentials unless specified otherwise throughout this lab.
 
 3. Click on the Apps tab across the top of Prism
 
-Welcome to Calm! Upon accessing this page you will now notice a new
-ribbon along the left - this is used to navigate through Calm.
+4. Welcome to Calm! Upon accessing this page you will now notice a new ribbon along the left - this is used to navigate through Calm.
 
-You are, by default, dropped into the Applications tab and can see all
-the instances of applications that have been launched from a blueprint.
+5. You are, by default, dropped into the Applications tab and can see all the instances of applications that have been launched from a blueprint.
 
 For now, let’s step through each tab:
 
@@ -102,11 +99,11 @@ Create the Service as follows.
 Package Configuration
 =====================
 
-- Scroll to the top of the Service Panel and click **Package**.
-- Here is where we specify the installation and uninstall scripts for this service.
-- Name install package **APACHE_PHP_PACKAGE**,
-- Set the install script to **shell** and select the credential **CENTOS** created earlier. 
-- Copy the following script into the *script* field of the **install** window:
+1. Scroll to the top of the Service Panel and click **Package**.
+2. Here is where we specify the installation and uninstall scripts for this service.
+3. Name install package **APACHE_PHP_PACKAGE**,
+4. Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+5. Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
@@ -130,8 +127,8 @@ Package Configuration
 
 **Fill in the uninstall script:**
 
-- Set the uninstall script to **shell** and select the credential **CENTOS** created earlier. 
-- Copy the following script into the *script* field of the **uninstall** window:
+6. Set the uninstall script to **shell** and select the credential **CENTOS** created earlier. 
+7. Copy the following script into the *script* field of the **uninstall** window:
 
 .. code-block:: bash
 
@@ -140,13 +137,11 @@ Package Configuration
 
 Since we need the DB IP Address to bring up the AppServer, we need to add a **Dependency**.
 
-- Click on the **APACHE_PHP_PACKAGE** service, 
-- Click on the Arrow icon that appears right above it,
-- Click on the **MYSQL** service.
-
-This tells Calm to hold running the script until the **MYSQL** service is up. 
-
-**Save** the blueprint, then click on the **Create** action from the **Overview** pane to see this.
+8. Click on the **APACHE_PHP_PACKAGE** service, 
+9. Click on the Arrow icon that appears right above it,
+10. Click on the **MYSQL** service.
+11. This tells Calm to hold running the script until the **MYSQL** service is up. 
+12. **Save** the blueprint, then click on the **Create** action from the **Overview** pane to see this.
 
 Scale-out AppService
 ====================
@@ -156,8 +151,7 @@ Here we'll complete the provisioning of the blueprint.  
 1. Click on the **APACHE_PHP_PACKAGE** service. 
 2. Click on the **Service** tab. 
 3. Change **Number of replicas** under **Deployment Config** from 1 to 2.  
-
-This service will now deploy 2 VMs with the same configuration rather than just 1
+4. This service will now deploy 2 VMs with the same configuration rather than just 1
 
 Part 3: - Create HA Proxy Load Balancer
 ***************************************
@@ -189,15 +183,14 @@ Create Service
 8. Scroll to the bottom and add the NIC **bootcamp** to the **HAProxy** VM.
 9. Configure the **Credentials** to use **CENTOS** created earlier.
 
-
 Package Configuration
 =====================
 
-- Scroll to the top of the Service Panel and click **Package**.
-- Here is where we specify the installation and uninstall scripts for this service.
-- Name the package **HAPROXY_PACKAGE**,
-- Set the install script to **shell** and select the credential **CENTOS** created earlier. 
-- Copy the following script into the *script* field of the **install** window:
+1. Scroll to the top of the Service Panel and click **Package**.
+2. Here is where we specify the installation and uninstall scripts for this service.
+3. Name the package **HAPROXY_PACKAGE**,
+4. Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+5. Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
@@ -252,7 +245,6 @@ Package Configuration
 
   hosts=$(echo "@@{APACHE_PHP.address}@@" | sed 's/^,//' | sed 's/,$//' | tr "," "\n")
 
-
   for host in $hosts
   do
      echo "  server host-${host} ${host}:${port} weight 1 maxconn 100 check" | sudo tee -a /etc/haproxy/haproxy.cfg
@@ -264,23 +256,21 @@ Package Configuration
 
 **Fill in the uninstall script:**
 
-- Set the uninstall script to **shell** and select the credential **CENTOS** created earlier. 
-- Copy the following script into the *script* field of the **uninstall** window:
+6. Set the uninstall script to **shell** and select the credential **CENTOS** created earlier. 
+7. Copy the following script into the *script* field of the **uninstall** window:
 
 .. code-block:: bash
 
    #!/bin/bash
    echo "goodbye!"
    
-We need to add a **Dependency** between **HAProxy** and **APACHE_PHP_AHV**
+8. We need to add a **Dependency** between **HAProxy** and **APACHE_PHP_AHV**
 
-- Click on the **HAProxy** service, 
-- Click on the Arrow icon that appears right above it,
-- Click on the **APACHE_PHP_AHV** service.
-
-This tells Calm to hold running the script until the **APACHE_PHP_AHV** service is up.   
-
-Save the blueprint, and launch it.
+9. Click on the **HAProxy** service, 
+10. Click on the Arrow icon that appears right above it,
+11. Click on the **APACHE_PHP_AHV** service.
+12. This tells Calm to hold running the script until the **APACHE_PHP_AHV** service is up.   
+13. Save the blueprint, and launch it.
 
 
 .. |image0| image:: lab2/media/image1.png
