@@ -55,11 +55,9 @@ Getting Familiar with the Tools
 
 3. Click on the Apps tab across the top of Prism
 
-Welcome to Calm! Upon accessing this page you will now notice a new
-ribbon along the left - this is used to navigate through Calm.
+Welcome to Calm! Upon accessing this page you will now notice a new ribbon along the left - this is used to navigate through Calm.
 
-You are, by default, dropped into the Applications tab and can see all
-the instances of applications that have been launched from a blueprint.
+You are, by default, dropped into the Applications tab and can see all the instances of applications that have been launched from a blueprint.
 
 Tabbed Navigation
 =================
@@ -86,9 +84,7 @@ Part 2: Your Entry Level Blueprint
 This section provides the steps to create a simple service.
 
 1. Navigate to the Blueprint (|image2|) tab.
-
 2. Click on **Create Application Blueprint**.
-
 3. Assign this Blueprint to the **Calm** project
 
 
@@ -124,19 +120,11 @@ Let’s get started by setting up the basics
 Setting Variables
 =================
 
-At this step let’s set some variables up. It’s not necessary to do it at
-this point, however it will make our lives easier for the rest of the
-lab.
+1. At this step let’s set some variables up. It’s not necessary to do it at this point, however it will make our lives easier for the rest of the lab.
 
-Variables have 2 settings, **Secret** and **Runtime**. Normally
-variables are stored in plaintext and shown in the window here, the
-**Secret** setting changes that (perfect for passwords). **Runtime**
-specifies if this variable should be static (and only editable here) or
-should be able to be changed during the Launch Process.
+2. Variables have 2 settings, **Secret** and **Runtime**. Normally variables are stored in plaintext and shown in the window here, the **Secret** setting changes that (perfect for passwords). **Runtime** specifies if this variable should be static (and only editable here) or should be able to be changed during the Launch Process.
 
-Variables can be referred to while configuring VMs using the
-**@@{variable\_name}@@** construct - Calm will evaluate and replace that
-string before sending it down to the VM.
+3. Variables can be referred to while configuring VMs using the **@@{variable\_name}@@** construct - Calm will evaluate and replace that string before sending it down to the VM.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image8.png
 
@@ -185,10 +173,10 @@ With these basics setup, let’s create our first service.
 Package Configuration
 =====================
 
-- Scroll to the top of the Service Panel and click **Package**.
-- Name the install package **MYSQL_PACKAGE**,
-- Set the install script to **shell** and select the credential **CENTOS** created earlier. 
-- Copy the following script into the *script* field of the **install** window:
+1. Scroll to the top of the Service Panel and click **Package**.
+2. Name the install package **MYSQL_PACKAGE**,
+3. Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+4. Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
@@ -226,16 +214,11 @@ Package Configuration
    EOF
    
    
-Looking at this script, we see that we’re using the variables we set
-before and doing basic mySQL configuration. This can be customized for
-whatever unique need you have.
+5. Looking at this script, we see that we’re using the variables we set before and doing basic mySQL configuration. This can be customized for whatever unique need you have.
 
-Since we don’t need anything special ran when uninstalling, we will just
-add a very basic script to the uninstall. This can be useful for cleanup
-(for example, releasing DNS names or cleaning up AD), but we won’t use
-it here.
+6. Since we don’t need anything special ran when uninstalling, we will just add a very basic script to the uninstall. This can be useful for cleanup (for example, releasing DNS names or cleaning up AD), but we won’t use it here.
 
-Set the uninstall script to **shell** and select the credential **CENTOS** created earlie. 
+7. Set the uninstall script to **shell** and select the credential **CENTOS** created earlie. 
 Addthe following to the *script* field in the **uninstall** window:
 
 .. code-block:: bash
@@ -243,20 +226,20 @@ Addthe following to the *script* field in the **uninstall** window:
    #!/bin/bash
    echo "Goodbye!"
 
-After completing the configuration, click the **Save** button. If any errors come up, go back and review the configuration to ensure that all fields have been filled.
+8. After completing the configuration, click the **Save** button. If any errors come up, go back and review the configuration to ensure that all fields have been filled.
 
 Part 3: Launching the Blueprint
 *******************************
 
-Now that the blueprint has been created and saved, you can launch it!
+1. Now that the blueprint has been created and saved, you can launch it!
 
-Click on the **Launch** button in the top right of the blueprint. This will bring up the the launch window. 
+2. Click on the **Launch** button in the top right of the blueprint. This will bring up the the launch window. 
 
-Give this instance a unique name **Calm_Workshop_MYSQL_App_1**. 
+3. Give this instance a unique name **Calm_Workshop_MYSQL_App_1**. 
 
 .. note:: Every launch performed requires a name change, making each launch unique - this can be done by incrementing the suffix in the name.
 
-This will now bring you to the **Instance** page. The bar across the top allows you to see various information about the application instance:
+5. This will now bring you to the **Instance** page. The bar across the top allows you to see various information about the application instance:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image25.png
 
