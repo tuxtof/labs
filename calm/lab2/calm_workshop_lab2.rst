@@ -195,10 +195,13 @@ Since we need the DB IP Address to bring up the AppServer, we need to add a **De
 
 - Click on the . **AppService** service, 
 - Click on the Arrow icon that appears right above it,
-- Click on the **MySQL** service
+- Click on the **MySQL** service.
 
-This tells Calm to hold running the script until the **MySQL** service
-is up. 
+.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image5.png
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image6.png
+
+This tells Calm to hold running the script until the **MySQL** service is up. 
 
 **Save** the blueprint, then click on the **Create** action from the **Overview** pane to see this.
 
@@ -213,17 +216,14 @@ In this part we’re going to complete the provisioning of the blueprint.  
 
 This service will now deploy 2 VMs with the same configuration rather than just 1
 
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image5.png
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image6.png
-
-
 Load Balancer
 =============
 
 Now that we've added redundancy or load balancing capacity to the AppServer we need something to actually perform the load balancing.
 
-1. Add another Service. This will be our load balancer, so name the Service **HAProxy**, give the substrate and VM a name and configure the rest of the service.
+1. Add another Service. This will be our load balancer, so name the Service **HAProxy**.
+2. Name the **Substrate** AppProxy
+3. Name the VM **ProxyVM** and configure the rest of the service.
 2. Remember to configure the NIC and credentials at the bottom
 
 Under **Package** configure the following install script
@@ -311,41 +311,9 @@ Your blueprint should now look like this:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab2/image8.png
 
-Part 4: Next steps
-******************
+Save the blueprint, and launch it.
 
-In this lab we just configured the provisioning steps. Calm also does
-hybrid cloud management and lifecycle management. We also didn’t publish
-this blueprint to the marketplace. Explore these on your own, using the
-following as a guide as the ideas are the same throughout.
 
-**Custom Actions**
-
-Click the + sign next to **Actions** in the **Overview** pane to create
-your own action.
-
-You can now create variables specific to this action, add subtasks on
-each service, and wire them up to ensure they are executed in the right
-order
-
-**NOTE:** The orange arrows run in the opposite direction then the white
-provisioning arrows. Rather than pointing at what this subaction depends
-on, it instead points in the order of operations.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image9.png
-
-Application Profiles
-
-You already have a default profile created, you can clone this by
-clicking the ... next to the name. Using this you can now change
-deployment configuration or move to a different cloud. With multiple
-profiles, you will be asked which one you want when you go to launch the
-application.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image10.png
-
-**NOTE:** In this lab, the only active project is **Default** and all
-users are a member of it.
 
 .. |image0| image:: lab2/media/image1.png
 .. |image1| image:: lab2/media/image2.png
