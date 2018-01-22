@@ -87,9 +87,9 @@ This section provides the steps to create a simple service.
 
 1. Navigate to the Blueprint (|image2|) tab.
 
-2. Click on Create Blueprint.
+2. Click on **Create Application Blueprint**.
 
-3. Assign this Blueprint to the **Calm** 
+3. Assign this Blueprint to the **Calm** project
 
 
 Create Blueprint Workflow
@@ -101,7 +101,6 @@ In general, the Blueprint creation flow goes:
 2. Configure the object in the configuration pane.
 3. Repeat for each object.
 4. Connect dependencies in the workspace.
-
 
 Let’s get started by setting up the basics
 
@@ -137,9 +136,12 @@ should be able to be changed during the Launch Process.
 
 Variables can be referred to while configuring VMs using the
 **@@{variable\_name}@@** construct - Calm will evaluate and replace that
-string before sending it down to the VM
+string before sending it down to the VM.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image8.png
+
+
+**Setup the variables as specified in the table below:**
 
 +----------------------+------------------------------------------------------+
 | **Variable Name**    | **Value**                                            |
@@ -153,7 +155,6 @@ string before sending it down to the VM
 | App\_git\_link       | https://github.com/ideadevice/quickstart-basic.git   |
 +----------------------+------------------------------------------------------+
 
-Setup the variables as specified in the table above.
 
 Adding A DB Service
 ===================
@@ -163,7 +164,7 @@ With these basics setup, let’s create our first service.
 1. Click the + sign next to **Services** in the **Overview** pane.
 2. Notice that the **Configuration** pane has changed and there is now a box in the **Workspace.**
 3. Name your service **MYSQL** in the *Service Name* field.
-4. The Substrate section is the internal Calm name for this Service. Name this **MMYSQLAHV**
+4. The *Substrate* section is the internal Calm name for this Service. Name this **MYSQLAHV**
 5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
 6. Configure the VM as follows:
 
