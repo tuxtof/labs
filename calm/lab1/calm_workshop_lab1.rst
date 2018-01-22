@@ -65,6 +65,18 @@ For now, let’s step through each tab:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image2.png
 
+Blueprint Editor Overview
+=========================
+
+Welcome to the Blueprint Editor! Let’s take a look at the interface.
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image4.png
+
+There are 2 more buttons that are helpful to use while making a blueprint:
+
+.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image5.png
+
+
 Part 2: Your Entry Level Blueprint
 ***********************************
 
@@ -77,14 +89,6 @@ This section provides the steps to create a simple service.
 3. Assign this Blueprint to the **Calm** 
 
 
-Blueprint Editor Overview
-=========================
-
-Welcome to the Blueprint Editor! Let’s take a look at the interface.
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image4.png
-
-
 Create Blueprint Workflow
 =========================
 
@@ -95,17 +99,11 @@ In general, the Blueprint creation flow goes:
 3. Repeat for each object.
 4. Connect dependencies in the workspace.
 
-There are 2 more buttons that are helpful to use while making a blueprint:
-
-.. figure:: http://s3.nutanixworkshops.com/calm/lab1/image5.png
-
-Getting Started
-===============
 
 Let’s get started by setting up the basics
 
 1. Update the Blueprint Name to Calm_Workshop_<<yourName>>
-2. Click on Credentials ( |image5|) button ○ Credentials are unique per blueprint
+2. Click on Credentials (|image5|) button. Credentials are unique per blueprint
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image7.png
 
