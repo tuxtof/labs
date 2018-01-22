@@ -237,7 +237,7 @@ Run the following command to update the system applications:
 
 .. code-block:: bash
 
-  $ yum -y update
+  $ sudo yum -y update
 
 Preparing The System for Development Installations
 ==================================================
@@ -265,13 +265,13 @@ In order to get the necessary development tools, run the following:
 
 .. code-block:: bash
 
-  $ yum groupinstall -y development
+  $ sudo yum groupinstall -y development
 
 or;
 
 .. code-block:: bash
 
-  $ yum groupinstall -y 'development tools'
+  $ sudo yum groupinstall -y 'development tools'
 
 **Note:** The former (shorter) version might not work on older distributions of CentOS.
 
@@ -279,7 +279,7 @@ To download some additional packages which are handy:
 
 .. code-block:: bash
 
-  $ yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel
+  $ sudo yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel
 
 Remember: Albeit optional, these "handy" tools are very much required for most of the tasks that you will come across in future. Unless they are installed in advance, Python, during compilation, will not be able to link to them.
 
