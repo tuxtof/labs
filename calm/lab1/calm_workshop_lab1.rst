@@ -68,24 +68,24 @@ For now, let’s step through each tab:
 Part 2: Your Entry Level Blueprint
 ***********************************
 
-Part 2 provides the steps to create a simple service.
+This section provides the steps to create a simple service.
 
-1. Navigate to the Blueprint ( |image2|) tab.
+1. Navigate to the Blueprint (|image2|) tab.
 
 2. Click on Create Blueprint.
 
-3. Assign this Blueprint to the Default Project Welcome to the Blueprint Editor! Let’s take a look at the interface.
+3. Assign this Blueprint to the **Calm** 
+
+
+Welcome to the Blueprint Editor! Let’s take a look at the interface.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image4.png
 
 In general, the Blueprint creation flow goes:
 
 - Create Object in Application Overview or select an existing object either from the workspace or the Overview panel.
-
 - Configure the object in the configuration pane.
-
 - Repeat for each object.
-
 - Connect dependencies in the workspace.
 
 There are 2 more buttons that are helpful to use while making a blueprint:
@@ -94,8 +94,7 @@ There are 2 more buttons that are helpful to use while making a blueprint:
 
 Let’s get started by setting up the basics
 
-1. Update the Blueprint Name to HOL­<<yourName>>
-
+1. Update the Blueprint Name to Calm_Workshop_<<yourName>>
 2. Click on Credentials ( |image5|) button ○ Credentials are unique per blueprint
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image7.png
@@ -113,6 +112,7 @@ Let’s get started by setting up the basics
 +-----------------------+---------------+
 
 Setting Variables
+=================
 
 At this step let’s set some variables up. It’s not necessary to do it at
 this point, however it will make our lives easier for the rest of the
@@ -144,7 +144,8 @@ string before sending it down to the VM
 
 Setup the variables as specified in the table above.
 
-**Adding A DB Service**
+Adding A DB Service
+===================
 
 With these basics setup, let’s create our first service.
 
@@ -163,12 +164,11 @@ Now update the VM Configuration section to match the following:
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image11.png
 
 1. Scroll to the bottom and add a NIC attached to the **DemoVMs** network
-
 2. Configure the **Credentials** at the bottom to use the credentials you made above
-
 3. Scroll back up to the top and click **Package**
 
-**Package Configuration**
+Package Configuration
+=====================
 
 Here is where we specify the installation and uninstall scripts for this
 service. Give the install package a name (MySQL\_Package for example),
