@@ -2,8 +2,6 @@
 Install and Configure Active Directory on Windows 2012R2 Domain Controller
 **************************************************************************
 
-.. contents::
-
 
 Connectivity Instructions:
 **************************
