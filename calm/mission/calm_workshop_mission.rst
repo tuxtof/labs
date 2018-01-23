@@ -2,8 +2,6 @@
 NuCalm Mission(s)
 *****************
 
-.. contents:: 
-
 
 Connectivity Instructions:
 **************************
