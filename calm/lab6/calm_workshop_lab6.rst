@@ -301,7 +301,7 @@ Extract the archive as follows:
 
 .. code-block:: bash
 
-  $ tar -xzvf
+  $ tar -xzvf calm_workshop_lab6_lamp_example.tar.gz
 
 CentOS v7 reflects playbook changes in:
 
