@@ -172,7 +172,7 @@ html_theme_options = {
     'bootstrap_version': "3",
 }
 
-html_sidebars = {'calm/*': ['localtoc.html'],'intro/*': ['localtoc.html'],'templates/*': ['localtoc.html'],'workshop_setup/*': ['localtoc.html']}
+html_sidebars = {'calm/*': ['localtoc.html'],'intro/*': ['localtoc.html'],'templates/*': ['localtoc.html'],'setup/*': ['localtoc.html']}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

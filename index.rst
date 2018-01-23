@@ -1,6 +1,8 @@
 .. raw:: html
   :file: jumbotron.html
 
+.. title:: Nutanix Workshops
+
 .. _intro-docs:
 
 .. toctree::
@@ -11,6 +13,7 @@
 
   intro/getstarted
   templates/index
+  .. setup/index
   .. ce
   .. versions
   .. building
@@ -24,7 +27,6 @@
   :name: _lab-docs
   :hidden:
 
-  workshop_setup/index
   calm/index
   .. vdi_ahv/index
   .. example/index

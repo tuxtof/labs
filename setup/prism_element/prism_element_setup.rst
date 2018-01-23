@@ -3,12 +3,12 @@ Configuring HPOC Prism Element
 ******************************
 
 
-This Setup Guide is designed with these assumptions
+Requirements
 ***************************************************
 
-1. AOS 5.5.x (or higher)
-2. AHV (for 5.5)
-3. Using 1 HPOC (If using more then one, do the same on both)
+* AOS 5.5.x (or higher)
+* AHV (for 5.5)
+* Using 1 HPOC (If using more then one, do the same on both)
 
 
 Connectivity & HPOC Info:
