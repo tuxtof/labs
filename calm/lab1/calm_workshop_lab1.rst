@@ -2,8 +2,6 @@
 Lab1 - Blueprint (MySQL)
 *******************************
 
-.. contents::
-
 Connectivity Instructions:
 **************************
 
