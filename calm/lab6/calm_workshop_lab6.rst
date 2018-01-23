@@ -1,6 +1,6 @@
-**************
-Lab6 - Ansible
-**************
+***************
+Lab 6 - Ansible
+***************
 
 .. toctree::
      :maxdepth: 2
@@ -340,16 +340,16 @@ database server.
 If successfull, your browser should connect to the new webserver and display the following message:
 
 .. code-block:: bash
-  
-   Homepage_ 
+
+   Homepage_
    Hello, World! I am a web server configured using Ansible and I am : CentOS.localdomain
-   List of Databases: 
+   List of Databases:
    information_schema foodb mysql performance_schema test
 
 Click on the hyperlink Homepage_ displayed in the browser. The browser should display the following message:
 
 .. code-block:: bash
-  
+
    Hello Calm Workshop! My App deployed via Ansible...
 
 Summary:

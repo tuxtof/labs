@@ -1,5 +1,5 @@
 ***********************
-Lab2 - Blueprint (LAMP)
+Lab 2 - Blueprint (LAMP)
 ***********************
 
 
@@ -77,11 +77,11 @@ Create the Service as follows.
 3. Rearrange the icons to your liking, then click on the new Service 2.
 4. Name your service **APACHE_PHP** in the *Service Name* field.
 5. The Substrate section is the internal Calm name for this Service. Name this **APACHE_PHP_AHV**
-6. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+6. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux**
 7. Configure the VM as follows:
 
 .. code-block:: bash
-  
+
   VM Name .  : APACHE_PHP
   Image .    : CentOS
   Disk Type .: DISK
@@ -99,7 +99,7 @@ Package Configuration
 1. Scroll to the top of the Service Panel and click **Package**.
 2. Here is where we specify the installation and uninstall scripts for this service.
 3. Name install package **APACHE_PHP_PACKAGE**,
-4. Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+4. Set the install script to **shell** and select the credential **CENTOS** created earlier.
 5. Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
@@ -118,13 +118,13 @@ Package Configuration
 
    echo "<?php
    phpinfo();
-   ?>" | sudo tee /var/www/html/info.php 
+   ?>" | sudo tee /var/www/html/info.php
    sudo systemctl restart httpd
    sudo systemctl enable httpd
 
 **Fill in the uninstall script:**
 
-6. Set the uninstall script to **shell** and select the credential **CENTOS** created earlier. 
+6. Set the uninstall script to **shell** and select the credential **CENTOS** created earlier.
 7. Copy the following script into the *script* field of the **uninstall** window:
 
 .. code-block:: bash
@@ -134,10 +134,10 @@ Package Configuration
 
 Since we need the DB IP Address to bring up the AppServer, we need to add a **Dependency**.
 
-8. Click on the **APACHE_PHP_PACKAGE** service, 
+8. Click on the **APACHE_PHP_PACKAGE** service,
 9. Click on the Arrow icon that appears right above it,
 10. Click on the **MYSQL** service.
-11. This tells Calm to hold running the script until the **MYSQL** service is up. 
+11. This tells Calm to hold running the script until the **MYSQL** service is up.
 12. **Save** the blueprint, then click on the **Create** action from the **Overview** pane to see this.
 
 Scale-out AppService
@@ -163,11 +163,11 @@ Create Service
 3. Rearrange the icons to your liking, then click on the new Service 3.
 4. Name your service **HAProxy** in the *Service Name* field.
 5. Name the *Substrate*  **HAPROXYAHV**
-6. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+6. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux**
 7. Configure the VM as follows:
 
 .. code-block:: bash
-  
+
   VM Name .  : HAProxy
   Image .    : CentOS
   Disk Type .: DISK
@@ -186,7 +186,7 @@ Package Configuration
 1. Scroll to the top of the Service Panel and click **Package**.
 2. Here is where we specify the installation and uninstall scripts for this service.
 3. Name the package **HAPROXY_PACKAGE**,
-4. Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+4. Set the install script to **shell** and select the credential **CENTOS** created earlier.
 5. Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
@@ -253,20 +253,20 @@ Package Configuration
 
 **Fill in the uninstall script:**
 
-6. Set the uninstall script to **shell** and select the credential **CENTOS** created earlier. 
+6. Set the uninstall script to **shell** and select the credential **CENTOS** created earlier.
 7. Copy the following script into the *script* field of the **uninstall** window:
 
 .. code-block:: bash
 
    #!/bin/bash
    echo "goodbye!"
-   
+
 8. We need to add a **Dependency** between **HAProxy** and **APACHE_PHP_AHV**
 
-9. Click on the **HAProxy** service, 
+9. Click on the **HAProxy** service,
 10. Click on the Arrow icon that appears right above it,
 11. Click on the **APACHE_PHP_AHV** service.
-12. This tells Calm to hold running the script until the **APACHE_PHP_AHV** service is up.   
+12. This tells Calm to hold running the script until the **APACHE_PHP_AHV** service is up.
 13. Save the blueprint, and launch it.
 
 

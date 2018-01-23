@@ -1,5 +1,5 @@
 *******************************
-Lab1 - Blueprint (MySQL)
+Lab 1 - Blueprint (MySQL)
 *******************************
 
 Connectivity Instructions:
@@ -10,7 +10,7 @@ Connectivity Instructions:
 +------------+--------------------------------------------------------+
 | Username   |                                           Cluster User |
 +------------+--------------------------------------------------------+
-| Password   |                                           Cluster Pass | 
+| Password   |                                           Cluster Pass |
 +------------+--------------------------------------------------------+
 
 Lab Overview
@@ -151,11 +151,11 @@ With these basics setup, let’s create our first service.
 2. Notice that the **Configuration** pane has changed and there is now a box in the **Workspace.**
 3. Name your service **MYSQL** in the *Service Name* field.
 4. The *Substrate* section is the internal Calm name for this Service. Name this **MYSQLAHV**
-5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux** 
+5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux**
 6. Configure the VM as follows:
 
 .. code-block:: bash
-  
+
   VM Name .  : MYSQL
   Image .    : CentOS
   Disk Type .: DISK
@@ -173,28 +173,28 @@ Package Configuration
 
 1. Scroll to the top of the Service Panel and click **Package**.
 2. Name the install package **MYSQL_PACKAGE**,
-3. Set the install script to **shell** and select the credential **CENTOS** created earlier. 
+3. Set the install script to **shell** and select the credential **CENTOS** created earlier.
 4. Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
    #!/bin/bash
    set -ex
-   
+
    yum install -y "http://repo.mysql.com/mysql-community-release-el7.rpm"
    yum update -y
    yum install -y mysql-community-server.x86_64
-   
+
    /bin/systemctl start mysqld
-   
+
    #Mysql secure installation
    mysql -u root<<-EOF
-   
+
    #UPDATE mysql.user SET Password=PASSWORD('@@{Mysql_password}@@') WHERE User='@@{Mysql_user}@@';
    DELETE FROM mysql.user WHERE User='@@{Mysql_user}@@' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
    DELETE FROM mysql.user WHERE User='';
    DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%';
-   
+
    FLUSH PRIVILEGES;
    EOF
 
@@ -210,17 +210,17 @@ Package Configuration
 
    FLUSH PRIVILEGES;
    EOF
-   
-   
+
+
 5. Looking at this script, we see that we’re using the variables we set before and doing basic mySQL configuration. This can be customized for whatever unique need you have.
 
 6. Since we don’t need anything special ran when uninstalling, we will just add a very basic script to the uninstall. This can be useful for cleanup (for example, releasing DNS names or cleaning up AD), but we won’t use it here.
 
-7. Set the uninstall script to **shell** and select the credential **CENTOS** created earlie. 
+7. Set the uninstall script to **shell** and select the credential **CENTOS** created earlie.
 Addthe following to the *script* field in the **uninstall** window:
 
 .. code-block:: bash
-   
+
    #!/bin/bash
    echo "Goodbye!"
 
@@ -231,9 +231,9 @@ Part 3: Launching the Blueprint
 
 1. Now that the blueprint has been created and saved, you can launch it!
 
-2. Click on the **Launch** button in the top right of the blueprint. This will bring up the the launch window. 
+2. Click on the **Launch** button in the top right of the blueprint. This will bring up the the launch window.
 
-3. Give this instance a unique name **Calm_Workshop_MYSQL_App_1**. 
+3. Give this instance a unique name **Calm_Workshop_MYSQL_App_1**.
 
 .. note:: Every launch performed requires a name change, making each launch unique - this can be done by incrementing the suffix in the name.
 
