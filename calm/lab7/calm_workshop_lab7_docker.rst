@@ -2,7 +2,6 @@
 Lab7 - Docker
 *************
 
-.. contents::
 
 Connectivity Instructions:
 **************************
