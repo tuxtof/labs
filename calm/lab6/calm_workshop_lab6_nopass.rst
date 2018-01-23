@@ -103,8 +103,4 @@ Test your password-less logins using *ssh* to login to each of the hosts partici
   Last login: Sun Dec 10 09:24:56 2017 from 10.21.9.85
   $
 
-**Note:** You should **NOT** be prompted for a password...
-
-.. Note:: If you want to do the Optional SSH Daemon Config, you can go back to the configure-centos-server-v7_ docker
-
-.. _configure-centos-server-v7: lab6/calm_workshop_lab6_config_centos.html
+.. note:: You should **NOT** be prompted for a password...
