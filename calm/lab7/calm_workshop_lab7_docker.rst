@@ -1,6 +1,6 @@
-*************
-Lab7 - Docker
-*************
+**************
+Lab 7 - Docker
+**************
 
 .. toctree::
      :maxdepth: 2
@@ -19,7 +19,7 @@ Connectivity Instructions:
 +------------+--------------------------------------------------------+
 | Username   |                                           Cluster User |
 +------------+--------------------------------------------------------+
-| Password   |                                           Cluster Pass | 
+| Password   |                                           Cluster Pass |
 +------------+--------------------------------------------------------+
 
 Lab Overview
@@ -70,13 +70,13 @@ Create an empty directory. Change directories (cd) into the new directory, creat
 
   # Make port 80 available to the world outside this container
   EXPOSE 80
-  
+
   # Define environment variable
   ENV NAME World
 
   # Run app.py when the container launches
   CMD ["python", "app.py"]
-  
+
 
 Proxy servers can block connections to your web app once it’s up and running. If you are behind a proxy server, add the following lines to your Dockerfile, using the ENV command to specify the host and port for your proxy servers:
 
@@ -144,7 +144,7 @@ We are ready to build the app. Make sure you are still at the top level of your 
 
   $ ls
     Dockerfile		app.py			requirements.txt
-  
+
 Now run the build command. This creates a Docker image, which we’re going to tag using -t so it has a friendly name.
 
 .. code-block:: bash
@@ -159,7 +159,7 @@ Where is your built image? It’s in your machine’s local Docker image registr
 
     REPOSITORY            TAG                 IMAGE ID
     calmWorkshop          latest              326387cea398
-    
+
 Tip: You can use the commands docker images or the newer docker image ls list images. They give you the same output.
 
 Run the Application
@@ -186,13 +186,13 @@ Go to that URL in a web browser to see the display content served up on a web pa
 This port remapping of 4000:80 is to demonstrate the difference between what you EXPOSE within the Dockerfile, and what you publish using docker run -p. In later steps, we’ll just map port 80 on the host to port 80 in the container and use http://localhost.
 
 Hit CTRL+C in your terminal to quit.
-  
+
 Now let’s run the app in the background, in detached mode:
 
 .. code-block:: bash
 
   $ docker run -d -p 4000:80 calmWorkshop
-  
+
 You get the long container ID for your app and then are kicked back to your terminal. Your container is running in the background. You can also see the abbreviated container ID with docker container ls (and both work interchangeably when running commands):
 
 .. code-block:: bash
@@ -255,7 +255,7 @@ Run docker images to see your newly tagged image. (You can also use docker image
     dogfish/get-started      part2               d9e555c53008        3 minutes ago       195MB
     python                   2.7-slim            1c7128a655f6        5 days ago          183MB
     ...
-    
+
 Publish the image
 *****************
 

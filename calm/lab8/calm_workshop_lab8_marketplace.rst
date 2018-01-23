@@ -1,6 +1,6 @@
-*********************
-Lab8 - Marketplace P2
-*********************
+**************************
+Lab 8 - Marketplace Part 2
+**************************
 
 
 Connectivity Instructions:
@@ -11,15 +11,15 @@ Connectivity Instructions:
 +------------+--------------------------------------------------------+
 | Username   |                                           Cluster User |
 +------------+--------------------------------------------------------+
-| Password   |                                           Cluster Pass | 
+| Password   |                                           Cluster Pass |
 +------------+--------------------------------------------------------+
 
 Calm Glossary
 *************
 
-**Service:** One tier of a multiple tier application. This can be made up of 1 more VMs (or existing machines) that all have the same config and do the same thing. 
+**Service:** One tier of a multiple tier application. This can be made up of 1 more VMs (or existing machines) that all have the same config and do the same thing.
 
-**Application (App):** A whole application with multiple parts that are all working towards the same thing (for example, a Web Application might be made up of an Apache Server, a MySQL database and a HAProxy Load balancer. Alone each service doesn’t do much, but as a whole they do what they’re supposed to). 
+**Application (App):** A whole application with multiple parts that are all working towards the same thing (for example, a Web Application might be made up of an Apache Server, a MySQL database and a HAProxy Load balancer. Alone each service doesn’t do much, but as a whole they do what they’re supposed to).
 
 **Macro:** A Calm construct that is evaluated before being ran on the target machine. Macros and Variables are denoted in the *@@{[name]}@@* format in the scripts.
 
@@ -36,7 +36,7 @@ In this exercise we'll walk through the steps to:
 2. Use the Marketplace Manager to approve, assign roles and projects, and publish to the Marketplace.
 3. Edit the Project Environment so the blueprint can be launched from the Marketplace as an application.
 
-**Note:** This lab assumes pariticipants have Blueprints built and staged from previous exercises. 
+**Note:** This lab assumes pariticipants have Blueprints built and staged from previous exercises.
 
 Part 1: Accessing and Navigating Calm
 *************************************
@@ -62,11 +62,11 @@ Navigate to the *Blueprint Workspace* by clicking (|image1|) icon located on the
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab8/image17.png
 
-Select an *Active* working Blueprint by clicking on the *Name* and opening the workspace.  With the workspace open, Click the |image3| action located at the top of the Blueprint workspace tool bar. 
+Select an *Active* working Blueprint by clicking on the *Name* and opening the workspace.  With the workspace open, Click the |image3| action located at the top of the Blueprint workspace tool bar.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab8/image15.png
 
-A modal dialog will appear.  Verify the *Name* and *Description*, and click the Publish button. 
+A modal dialog will appear.  Verify the *Name* and *Description*, and click the Publish button.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab8/image18.png
 
@@ -82,7 +82,7 @@ To approve the Blueprint, click the *Approval Pending* action located along the 
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab8/image19.png
 
-Click the checkbox to the left of the *Blueprint Name*. 
+Click the checkbox to the left of the *Blueprint Name*.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab8/image20.png
 
@@ -179,5 +179,3 @@ Monitor the execution of the Applciation until complete.
 .. |image17| image:: lab8/media/image29.png
 .. |image18| image:: lab8/media/image30.png
 .. |image19| image:: lab8/media/image31.png
-
-

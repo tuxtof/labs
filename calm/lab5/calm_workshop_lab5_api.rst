@@ -1,6 +1,6 @@
-****************
-Lab5 - REST APIs
-****************
+*****************
+Lab 5 - REST APIs
+*****************
 
 .. toctree::
      :hidden:
@@ -20,7 +20,7 @@ Connectivity Instructions:
 +------------+--------------------------------------------------------+
 | Username   |                                           Cluster User |
 +------------+--------------------------------------------------------+
-| Password   |                                           Cluster Pass | 
+| Password   |                                           Cluster Pass |
 +------------+--------------------------------------------------------+
 
 Lab Overview
@@ -81,11 +81,11 @@ We'll need to make sure the python 2.7 runtime has all the appropriate packages,
 .. code-block:: bash
 
   $ yum install epel-release
-  
+
 As a matter of best practice we’ll update our package(s)
- 
+
 .. code-block:: bash
- 
+
   $ yum -y update
 
 Then let’s install python-pip and any required packages:
@@ -93,14 +93,14 @@ Then let’s install python-pip and any required packages:
 .. code-block:: bash
 
   $ yum -y install python-pip
-  
+
 View a list of helpful commands, and check the version of *pip* that is installed:
 
 .. code-block:: bash
 
   $ pip --help
   $ pip -v
-  
+
 Once *pip has been installed and verified, we can now install *requests* as follows:
 
 .. code-block:: bash
@@ -109,19 +109,19 @@ Once *pip has been installed and verified, we can now install *requests* as foll
 
     Collecting requests
       Downloading requests-2.18.4-py2.py3-none-any.whl (88kB)
-        100% |████████████████████████████████| 92kB 6.9MB/s 
+        100% |████████████████████████████████| 92kB 6.9MB/s
     Collecting certifi>=2017.4.17 (from requests)
       Downloading certifi-2017.11.5-py2.py3-none-any.whl (330kB)
-        100% |████████████████████████████████| 337kB 3.4MB/s 
+        100% |████████████████████████████████| 337kB 3.4MB/s
     Collecting chardet<3.1.0,>=3.0.2 (from requests)
       Downloading chardet-3.0.4-py2.py3-none-any.whl (133kB)
-        100% |████████████████████████████████| 143kB 6.8MB/s 
+        100% |████████████████████████████████| 143kB 6.8MB/s
     Collecting idna<2.7,>=2.5 (from requests)
       Downloading idna-2.6-py2.py3-none-any.whl (56kB)
-        100% |████████████████████████████████| 61kB 10.4MB/s 
+        100% |████████████████████████████████| 61kB 10.4MB/s
     Collecting urllib3<1.23,>=1.21.1 (from requests)
       Downloading urllib3-1.22-py2.py3-none-any.whl (132kB)
-        100% |████████████████████████████████| 133kB 7.4MB/s 
+        100% |████████████████████████████████| 133kB 7.4MB/s
     Installing collected packages: certifi, chardet, idna, urllib3, requests
     Successfully installed certifi-2017.11.5 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
 
@@ -137,12 +137,12 @@ Accessing the REST API's
 
 A link for launching the REST API Explorer may not be accessible via Prism Central - specifically in the case of AOS v5.5.  The explorer can be launched by explicitly typing the *url* in the address bar of your browser as follows:
 
-**Note:** The NTNX v3 REST API Explorer in AOS v5.5.0.x can only be accessed using the Prism Central(PC) *url* typed into the active browsers address bar.  
+**Note:** The NTNX v3 REST API Explorer in AOS v5.5.0.x can only be accessed using the Prism Central(PC) *url* typed into the active browsers address bar.
 
 .. code-block:: bash
 
   https://[PC-IPADDRESS]:9440/api/nutanix/v3/api_explorer/index.html
-  
+
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image1.png
 
@@ -165,9 +165,9 @@ All *list* requests require a small payload.  the following is the minimal paylo
 .. code-block:: json
 
   {
-    "filter": "", 
-    "offset": 0,  
-    "length": 20 
+    "filter": "",
+    "offset": 0,
+    "length": 20
   }
 
 
@@ -177,15 +177,15 @@ All *list* requests require a small payload.  the following is the minimal paylo
 
 **App:**
 
-1. Navigate the REST API Explorer, find *app* and expand by clicking *List Operations*. 
+1. Navigate the REST API Explorer, find *app* and expand by clicking *List Operations*.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image7.png
 
-2. Find **POST** */apps/list* and click to expand.  Copy the JSON code block shown above and paste it in the *get_entities_request*. 
+2. Find **POST** */apps/list* and click to expand.  Copy the JSON code block shown above and paste it in the *get_entities_request*.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image8.png
 
-3. Click *Try it out!* to execute the **POST** */apps/list Request*...  A *Response Code* of 200 indicates the request was successfully executed: 
+3. Click *Try it out!* to execute the **POST** */apps/list Request*...  A *Response Code* of 200 indicates the request was successfully executed:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image11.png
 
@@ -206,8 +206,8 @@ All *list* requests require a small payload.  the following is the minimal paylo
         .
         .
         .
-        
-      } 
+
+      }
    }
 
 
@@ -243,7 +243,7 @@ In this section we'll learn how to Navigate the REST API Explorer to read and ga
 
 1. In the previous section **Issuing List Requests**, examine the **Response Body** for */apps/list* and copy an elements *uuid* located under *status*.
 
-2. Navigate the REST API Explorer, find *app* and expand by clicking *List Operations*. 
+2. Navigate the REST API Explorer, find *app* and expand by clicking *List Operations*.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image7.png
 
@@ -258,7 +258,7 @@ In this section we'll learn how to Navigate the REST API Explorer to read and ga
 .. code-block:: bash
 
   {
-      
+
     "status": {
       "description": "Accessibility:\n* http://[IP_ADDRESS]:8080",
       "resources": {
@@ -272,11 +272,11 @@ In this section we'll learn how to Navigate the REST API Explorer to read and ga
             "critical": false,
             "attrs": {},
             "runbook": {
-            
+
         .
         .
         .
-        
+
    }
 
 
@@ -302,7 +302,7 @@ The key takeway of this exercise is that the **GET** */element/uuid* request pro
 Issuing a Import Blueprint Request
 **********************************
 
-In this section we'll Navigate the REST API Explorer to execute importing a blueprint from a file.  Typically, when Blueprints are exported, they're in JSON format.  This exercise will manually import a Blueprint.json file using the REST API.  
+In this section we'll Navigate the REST API Explorer to execute importing a blueprint from a file.  Typically, when Blueprints are exported, they're in JSON format.  This exercise will manually import a Blueprint.json file using the REST API.
 
 **Note:** The NTNX v3 REST API is intentful, making the JSON very complex and difficult to manage for requests such as Import, Launch, Create, etc..., without using JSON edititng tools.  In the following exercise we'll use the JSON editor integrated as part of the Chrome client web-browser (see requirements Chrome-JSON-Editor-Extension_).
 
@@ -314,7 +314,7 @@ In this section we'll Navigate the REST API Explorer to execute importing a blue
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image21.png
 
-3. Insert an *object* to **metadata** by right-clicking on the Node *metadata*.  Select *insert* and then *object*.  
+3. Insert an *object* to **metadata** by right-clicking on the Node *metadata*.  Select *insert* and then *object*.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image22.png
 
@@ -324,19 +324,19 @@ In this section we'll Navigate the REST API Explorer to execute importing a blue
 
 5. Name the **key/value** pairs as *kind:project*, and *uuid:[UUID for Calm Project]*.  Retrieving the the Calm project uuid as follows:
 
-- Navigate the NTNX REST API Explorer and open **POST** *projects/list* REST API request. Copy the following JSON body and paste it in the *get_entities_request* field. 
+- Navigate the NTNX REST API Explorer and open **POST** *projects/list* REST API request. Copy the following JSON body and paste it in the *get_entities_request* field.
 
 .. code-block:: json
-  
+
   {
     "filter": "name==Calm",
     "offset": 0,
     "length": 10
   }
 
-- Click *Try it out!* to invoke the **POST** */projects/list* request. 
+- Click *Try it out!* to invoke the **POST** */projects/list* request.
 
-- Check for a status-code of 200.  The Project's *uuid* should be listed in the *Response Body*.  Copy and paste to the *project_reference* object. 
+- Check for a status-code of 200.  The Project's *uuid* should be listed in the *Response Body*.  Copy and paste to the *project_reference* object.
 
 - The object *project_reference* object should look similar to the following:
 
@@ -356,21 +356,21 @@ In this section we'll Navigate the REST API Explorer to execute importing a blue
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image29.png
 
-10. Click *Try it out!* to invoke the **POST** */blueprints/import_json* request. 
+10. Click *Try it out!* to invoke the **POST** */blueprints/import_json* request.
 
 11. Check for a status-code of 200.
 
 12. Using the REST API Explorer, navigate to **POST** *blueprints/list* REST API request and paste the following JSON to the *get_entities_request* field:
 
 .. code-block:: json
- 
+
   {
     "filter": "name==Import_API_Lab",
     "offset": 0,
     "length": 10
   }
 
-13. Click *Try it out!* to invoke the **POST** */blueprints/list* request. 
+13. Click *Try it out!* to invoke the **POST** */blueprints/list* request.
 
 14. Check for a status-code of 200.  The Blueprint contents should be listed in the *Response Body*.
 
@@ -389,25 +389,25 @@ Notice that the blueprint imported in the previous section is in **Draft** state
 
 **Workflow:**
 
-**GET** /blueprint_id ---> **PUT** /blueprint_id 
+**GET** /blueprint_id ---> **PUT** /blueprint_id
 
 
 1. Using the REST API Explorer, navigate to **POST** *blueprints/list* REST API request and paste the following JSON to the *get_entities_request* field:
 
 .. code-block:: json
- 
+
   {
     "filter": "name==Import_API_Lab",
     "offset": 0,
     "length": 10
   }
 
-2. Click *Try it out!* to invoke the **POST** */blueprints/list* request. 
+2. Click *Try it out!* to invoke the **POST** */blueprints/list* request.
 
 3. Check for a status-code of 200.  The Blueprint contents should be listed in the *Response Body*.
 
 4. Copy the UUID value from the *Response Body* , and paste it to the *uuid* value field of the Blueprint **GET** /blueprints/{uuid} API request call, and click *Try it out!* to invoke the request.
- 
+
 5. Verify the request returns a *Response code* of 200.
 
 6. Copy the entire *Response Body* from the Blueprint **GET** */blueprints/{uuid}* API request and paste it to the Chrome JSON Editor (Chrome-JSON-Editor-Extension_). Once it's pasted, click (|image9|) to migrate the json to a node-structure.
@@ -422,7 +422,7 @@ Notice that the blueprint imported in the previous section is in **Draft** state
 
 10. Select the entire JSON contents shown in the left JSON view panel and copy it to the Blueprint **PUT** */blueprints/{uuid}*  *Body* within the v3 REST API Explorer.  You'll also be required to copy the blueprint *uuid* to the *uuid* field as shown below:
 
-11. Click *Try it out!* to invoke the **PUT** */blueprints/{uuid}/* request. 
+11. Click *Try it out!* to invoke the **PUT** */blueprints/{uuid}/* request.
 
 12. Check for a status-code of 200.
 
@@ -432,30 +432,30 @@ Notice that the blueprint imported in the previous section is in **Draft** state
 Issuing a Launch Blueprint Request
 **********************************
 
-In this section we'll Navigate the REST API Explorer to execute launching a blueprint recently imported from the previous section.  
+In this section we'll Navigate the REST API Explorer to execute launching a blueprint recently imported from the previous section.
 
 **Note:** The NTNX v3 REST API is intentful, making the JSON very complex and difficult to manage for requests such as Import, Launch, Create, etc..., without using JSON edititng tools.  In the following exercise we'll use the JSON editor integrated as part of the Chrome client web-browser (see requirements Chrome-JSON-Editor-Extension_).
 
 **Workflow:**
 
 **POST** */blueprints/list* ----> **GET** */blueprints/{uuid}* ----> **POST** */blueprints/launch* ----> **POST** */apps/list*
- 
+
 1. Using the REST API Explorer, navigate to the Blueprint, **POST** */blueprints/list* and paste the following JSON into the *get_entities_request* field and click *Try it out!* to invoke the request.
- 
+
 .. code-block:: json
- 
+
   {
     "filter": "name==Import_API_Lab;state==ACTIVE",
     "offset": 0,
     "length": 20
   }
- 
+
 2. Verify the request returns a *Response Code* of 200.
- 
+
 3. Copy the UUID value from the *Response Body* , and paste it to the *uuid* value field of the Blueprint **GET** /blueprints/{uuid} API request call, and click *Try it out!* to invoke the request.
- 
+
 4. Verify the request returns a *Response code* of 200.
- 
+
 5. Copy the entire *Response Body* from the Blueprint **GET** */blueprints/{uuid}* API request and paste it to the Chrome JSON Editor (Chrome-JSON-Editor-Extension_). Once it's pasted, click (|image9|) to migrate the json to a node-structure.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image31.png
@@ -468,11 +468,11 @@ In this section we'll Navigate the REST API Explorer to execute launching a blue
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image32.png
 
-8. Insert an *object* to **spec** by right-clicking on the Node *resources*.  Select *insert* and then *object*. 
+8. Insert an *object* to **spec** by right-clicking on the Node *resources*.  Select *insert* and then *object*.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image33.png
 
-9. Name the object *app_profile_reference*. Add 2 key/value pairs as *string* members to the *app_profile_reference* object by right-clicking on the node and select *append*, and then *string*.  Name the key/values *kind:app_profile* and 
+9. Name the object *app_profile_reference*. Add 2 key/value pairs as *string* members to the *app_profile_reference* object by right-clicking on the node and select *append*, and then *string*.  Name the key/values *kind:app_profile* and
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image34.png
 
@@ -490,21 +490,21 @@ In this section we'll Navigate the REST API Explorer to execute launching a blue
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image37.png
 
-14. Click *Try it out!* to invoke the **POST** */blueprints/{uuid}/launch* request. 
+14. Click *Try it out!* to invoke the **POST** */blueprints/{uuid}/launch* request.
 
 15. Check for a status-code of 200.
 
 16. Using the REST API Explorer, navigate to **POST** */apps/list* REST API request and paste the following JSON to the *get_entities_request* field:
 
 .. code-block:: json
- 
+
   {
     "filter": "name==Launch_API_Lab",
     "offset": 0,
     "length": 10
   }
 
-17. Click *Try it out!* to invoke the **POST** */apps/list* request. 
+17. Click *Try it out!* to invoke the **POST** */apps/list* request.
 
 18. Check for a status-code of 200.  The application contents should be listed in the *Response Body*.
 
@@ -521,26 +521,26 @@ You've successfully launched a blueprint that was previously imported from a fil
 Issuing a Delete Application Request
 ************************************
 
-In this section we'll Navigate the REST API Explorer to execute the deletion of an Active Application that was lancuhed as a Blueprint in the previous section. 
+In this section we'll Navigate the REST API Explorer to execute the deletion of an Active Application that was lancuhed as a Blueprint in the previous section.
 
 **Workflow:**
 
-**POST** */apps/list* ----> **POST** */apps/delete* 
- 
+**POST** */apps/list* ----> **POST** */apps/delete*
+
 1. Using the REST API Explorer, navigate to the Blueprint, **POST** */apps/list* and paste the following JSON into the **get_entities_request** field and click *Try it out!* to invoke the request.
- 
+
 .. code-block:: json
- 
+
   {
     "filter": "name==Launch_API_Lab",
     "offset": 0,
     "length": 20
   }
- 
+
 2. Verify the request returns a *Response Code* of 200.
- 
+
 3. Copy the UUID value from the *Response Body* , and paste it to the *uuid* value field of the Blueprint **DELETE** */apps/{uuid}* API request call, and click *Try it out!* to invoke the request.
- 
+
 4. Verify the request returns a *Response Code* of 200.
 
 **Summary**
@@ -552,7 +552,7 @@ Automation of REST Endpoints
 
 In this section we'll run python code instrumented to programmatically perform the commands you ran manually from previous steps using the NTNX REST API Explorer.  You'll begin by installing *git*, configuring a dev environment, cloning an exiting *git* repository to the dev environment, and execute the code downloaded from the repository.
 
-  
+
 **Install Git:**
 
 Starting from an active terminal session logged in as *root* to the CentOS v7 Server VM created earlier...
@@ -571,8 +571,8 @@ Create a directory for development:
 
   $ mkdir /root/development
   $ cd /root/development
-  
-Download the autuomation-code (python) used to automate REST from *github* as follows:   
+
+Download the autuomation-code (python) used to automate REST from *github* as follows:
 
 .. code-block:: bash
 
@@ -600,9 +600,9 @@ Check If the **v2** imports and function calls are commented with *#* in file */
   """
 
   #from V2 import *
-  from V3 import * 
-  from config import * 
-  from manageBlueprint import * 
+  from V3 import *
+  from config import *
+  from manageBlueprint import *
 
   __author__ = "M. Jastad"
   __copyright__ = "Copyright 2017, Calm Workshop"
@@ -625,15 +625,15 @@ Check If the **v2** imports and function calls are commented with *#* in file */
     connection = Connection(user, host)
 
     #v2 API
-    #showList(VirtualMachineService().getVMS(connection)) 
-    #showList(ImageService().getImages(connection)) 
-    #showList(StorageContainerService().getStorageContainers(connection)) 
+    #showList(VirtualMachineService().getVMS(connection))
+    #showList(ImageService().getImages(connection))
+    #showList(StorageContainerService().getStorageContainers(connection))
 
     #v3 API
-    showList(VirtualMachineService().getVMS(connection, data)) 
-    showList(ApplicationService().getApplications(connection, data)) 
-    showList(BlueprintService().getBlueprints(connection, data)) 
-    showList(ProjectService().getProjects(connection, data)) 
+    showList(VirtualMachineService().getVMS(connection, data))
+    showList(ApplicationService().getApplications(connection, data))
+    showList(BlueprintService().getBlueprints(connection, data))
+    showList(ProjectService().getProjects(connection, data))
 
     importBlueprint(connection, PROJECT, BLUEPRINT_FILE, BLUEPRINT, DRAFT)
     modifyCredential(connection, BLUEPRINT, DRAFT, CREDENTIAL, PASSWORD)
@@ -647,14 +647,14 @@ Check If the **v2** imports and function calls are commented with *#* in file */
 Test the runtime and the code by running the following comand from a local terminal window:
 
 .. code-block:: bash
-  
+
    $ python main.py
 
 If successfull, You should see output for VM, Blueprint, and deployed Application elements configured and/or running on the target cluster...
 
 **Summary**
 
-You've successfully installed git, setup a dev environment, cloned a git repistory, and executed python code that automates the commands previously ran manually using the NTNX v4 REST API Explorer... 
+You've successfully installed git, setup a dev environment, cloned a git repistory, and executed python code that automates the commands previously ran manually using the NTNX v4 REST API Explorer...
 
 
 .. _Chrome-JSON-Editor-Extension: https://chrome.google.com/webstore/detail/json-editor/lhkmoheomjbkfloacpgllgjcamhihfaj?hl=en
@@ -698,5 +698,3 @@ You've successfully installed git, setup a dev environment, cloned a git repisto
 .. |image27| image:: lab5/media/image37.png
 .. |image28| image:: lab5/media/image38.png
 .. |image29| image:: lab5/media/image39.png
-
-

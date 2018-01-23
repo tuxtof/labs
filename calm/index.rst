@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Calm Workshop
-==============
+Nutanix Calm
+============
 
 .. toctree::
    :name: _calm_toc
@@ -24,9 +24,8 @@ Calm Workshop
    lab2
    lab3
    lab4
-   lab5 
-   lab6 
+   lab5
+   lab6
    lab7
    lab8
-   mission  
-
+   mission

@@ -1,6 +1,6 @@
-**********************
-Lab3 - Troubleshooting
-**********************
+***********************
+Lab 3 - Troubleshooting
+***********************
 
 
 Connectivity Instructions:
@@ -11,15 +11,15 @@ Connectivity Instructions:
 +------------+--------------------------------------------------------+
 | Username   |                                           Cluster User |
 +------------+--------------------------------------------------------+
-| Password   |                                           Cluster Pass | 
+| Password   |                                           Cluster Pass |
 +------------+--------------------------------------------------------+
 
 Calm Glossary
 *************
 
-**Service:** One tier of a multiple tier application. This can be made up of 1 more VMs (or existing machines) that all have the same config and do the same thing 
+**Service:** One tier of a multiple tier application. This can be made up of 1 more VMs (or existing machines) that all have the same config and do the same thing
 
-**Application (App):** A whole application with multiple parts that are all working towards the same thing (for example, a Web Application might be made up of an Apache Server, a MySQL database and a HAProxy Load balancer. Alone each service doesn’t do much, but as a whole they do what they’re supposed to) 
+**Application (App):** A whole application with multiple parts that are all working towards the same thing (for example, a Web Application might be made up of an Apache Server, a MySQL database and a HAProxy Load balancer. Alone each service doesn’t do much, but as a whole they do what they’re supposed to)
 
 **Macro:** A Calm construct that is evaluated before being ran on the target machine. Macros and Variables are denoted in the *@@{[name]}@@* format in the scripts.
 
@@ -60,7 +60,7 @@ Download the blueprint to be imported:
 
 :download:`Blueprint <lab3/json/Troubleshooting.json>`
 
-From Apps (NuCalm) within Prism Central, navigate to the Blueprint Workspace by clicking (|image1|) icon located on the left tool ribbon.  This will open the Blueprint Workspace where self-authored blueprints are staged for editing, publishing, and/or launching as Applications.  When the Blueprint grid appears, click the **Upload Blueprint** button located along the top of the Blueprint grid.  
+From Apps (NuCalm) within Prism Central, navigate to the Blueprint Workspace by clicking (|image1|) icon located on the left tool ribbon.  This will open the Blueprint Workspace where self-authored blueprints are staged for editing, publishing, and/or launching as Applications.  When the Blueprint grid appears, click the **Upload Blueprint** button located along the top of the Blueprint grid.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image2.png
 
@@ -73,14 +73,14 @@ A modal dialog will appear prompting for a name and project when saving. Complet
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image3.png
 
-The Blueprint workspace should appear as follows.  
+The Blueprint workspace should appear as follows.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image4.png
 
 Assign Credential
 =================
 
-Since Blureprints are exported as clear text, they do not retain credential information that could potentially be used maliciously.  You'll be required to set the **Credentials**.  
+Since Blureprints are exported as clear text, they do not retain credential information that could potentially be used maliciously.  You'll be required to set the **Credentials**.
 
 +-------------------------------------------------------------------------+
 | **Credential**                                                          |
@@ -89,7 +89,7 @@ Since Blureprints are exported as clear text, they do not retain credential info
 +----------------+--------------------------------------------------------+
 | **User:**      |                                       root             |
 +----------------+--------------------------------------------------------+
-| **Password:**  |                                       nutanix/4u       | 
+| **Password:**  |                                       nutanix/4u       |
 +----------------+--------------------------------------------------------+
 
 Save the Blueprint.  The red **!** should no longer appear.
@@ -97,7 +97,7 @@ Save the Blueprint.  The red **!** should no longer appear.
 Part 3: Launch Blueprint
 ************************
 
-Once the blueprint has been successfully updated and saved, click the (|image5|) button to lanuch the Blueprint.  Name the application with *Calm Workshop Troubleshooting*.  
+Once the blueprint has been successfully updated and saved, click the (|image5|) button to lanuch the Blueprint.  Name the application with *Calm Workshop Troubleshooting*.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab3/image6.png
 
@@ -173,7 +173,3 @@ Repeat parts 4-6 until application successfully deploys...
 .. |image14| image:: lab3/media/image14.png
 .. |image15| image:: lab3/media/image15.png
 .. |image16| image:: lab3/media/image16.png
-
-
-
-
