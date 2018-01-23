@@ -2,7 +2,6 @@
 Lab8 - Marketplace P2
 *********************
 
-.. contents::
 
 Connectivity Instructions:
 **************************
