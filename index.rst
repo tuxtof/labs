@@ -28,5 +28,5 @@
   :hidden:
 
   calm/index
-  .. vdi_ahv/index
+  vdi_ahv/index
   .. example/index
