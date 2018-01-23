@@ -2,14 +2,6 @@
 Lab7 - Docker
 *************
 
-.. toctree::
-     :maxdepth: 2
-     :glob:
-
-     lab7/calm_workshop_lab7_setup
-     lab7/calm_workshop_lab7_centos_config
-     lab7/calm_workshop_lab7_ntnx_vol_driver_install
-
 
 Connectivity Instructions:
 **************************
@@ -27,7 +19,7 @@ Lab Overview
 
 In this lab participants will learn how to install and configure Docker.  Once Docker is installed and stable, participants
 will learn to create and deploy a container...  Once completed, participants will containerize and deploy a 3 Tier LAMP
-application..
+application.
 
 Requirements:
 *************
@@ -39,7 +31,6 @@ Requirements:
 
 Glossary:
 *********
-
 
 - **Image:** An image is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.
 
@@ -297,6 +288,6 @@ If the image isn’t available locally on the machine, Docker will pull it from 
 No matter where docker run executes, it pulls your image, along with Python and all the dependencies from requirements.txt, and runs your code. It all travels together in a neat little package, and the host machine doesn’t have to install anything but Docker to run it.
 
 
-.. _docker-installation: calm/lab7/calm_workshop_lab7_setup
-.. _centos-setup: calm/lab7/calm_workshop_lab7_centos_config
-.. _ntnx-plugin-setup: calm/lab7/calm_workshop_lab7_ntnx_vol_driver_install
+.. _docker-installation: lab7/calm_workshop_lab7_setup.html
+.. _centos-setup: lab7/calm_workshop_lab7_centos_config.html
+.. _ntnx-plugin-setup: lab7/calm_workshop_lab7_ntnx_vol_driver_install.html
