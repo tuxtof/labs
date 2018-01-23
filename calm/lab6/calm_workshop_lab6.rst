@@ -224,6 +224,7 @@ Preparing The System for Development - Installing Python
 
 Installation of Python on CentOS consists of a few (simple) stages, starting with updating the system, followed by getting any desired version of Python, and proceeding with the set up process.
 
+
 Remember: You can see all available releases of Python by checking out the Releases page. Using the instructions here, you should be able to install any or all of them.
 
 .. note:: This guide should be valid for CentOS version 7 as well as 6.x and 5.x.
