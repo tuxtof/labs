@@ -348,7 +348,7 @@ If successfull, your browser should connect to the new webserver and display the
    information_schema foodb mysql performance_schema test
    
    
-Clicking on the hyperlink Homepage_ displayed in the browser message should show the follow:
+Click on the hyperlink Homepage_ displayed in the browser. The browser should display the following message:
 
 .. code-block:: bash
   
