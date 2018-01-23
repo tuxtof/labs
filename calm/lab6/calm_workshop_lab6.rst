@@ -93,9 +93,9 @@ Imagine you have three servers you want to control with Ansible. Ansible communi
 
   $ ssh user@your_server_ip
 
-You should **NOT** be prompted for a password. While Ansible certainly has the ability to handle password-based SSH authentication, SSH keys help keep things simple (see _password-less configuration).
+You should **NOT** be prompted for a password. While Ansible certainly has the ability to handle password-based SSH authentication, SSH keys help keep things simple (see password-less_ configuration).
 
-Let's set this up so that we can refer to these individually as host1 and host2, or as a group as servers. To configure this, you would add this block to your hosts file:
+Let's set this up so that we can refer to these individually as host1 and host2, or as a group of servers. To configure this, you would add this block to your hosts file:
 
 */etc/ansible/hosts*
 
@@ -335,7 +335,7 @@ Once done, you can check the results by browsing to http://ntnxwebhost/index.php
 You should see a simple test page and a list of databases retrieved from the
 database server.
 
-.. note:: Replace ntnxwebhost with the ip-address of your webserver vm.  e.g.  http://10.21.68.92/index.php.
+.. note:: Replace http://ntnxwebhost/index.php with the ip-address of your webserver vm.  e.g.  if your websever ip-address is 10.21.68.92 you would use http://10.21.68.92/index.php
 
 
 .. _configure-centos-server-v7: lab6/calm_workshop_lab6_config_centos.html
