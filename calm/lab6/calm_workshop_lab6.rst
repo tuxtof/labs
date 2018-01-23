@@ -226,7 +226,7 @@ Like many other applications you will encounter, installation of Python on CentO
 
 Remember: You can see all available releases of Python by checking out the Releases page. Using the instructions here, you should be able to install any or all of them.
 
-**Note:** This guide should be valid for CentOS version 7 as well as 6.x and 5.x.
+.. note:: This guide should be valid for CentOS version 7 as well as 6.x and 5.x.
 
 Updating The Default CentOS Applications
 ========================================
@@ -273,7 +273,7 @@ or;
 
   $ sudo yum groupinstall -y 'development tools'
 
-**Note:** The former (shorter) version might not work on older distributions of CentOS.
+.. note:: The former (shorter) version might not work on older distributions of CentOS.
 
 To download some additional packages which are handy:
 
@@ -325,6 +325,8 @@ command:
 Once done, you can check the results by browsing to http://ntnxwebhost/index.php.
 You should see a simple test page and a list of databases retrieved from the
 database server.
+
+.. note:: Replace ntnxwebhost with the ip-address of your webserver vm.  e.g.  http://10.21.68.92/index.php.
 
 
 .. _configure-centos-server-v7: lab6/calm_workshop_lab6_config_centos.html
