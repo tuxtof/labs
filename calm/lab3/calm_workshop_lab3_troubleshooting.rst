@@ -2,7 +2,6 @@
 Lab3 - Troubleshooting
 **********************
 
-.. contents::
 
 Connectivity Instructions:
 **************************

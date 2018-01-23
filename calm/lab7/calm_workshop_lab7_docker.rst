@@ -2,7 +2,14 @@
 Lab7 - Docker
 *************
 
-.. contents::
+.. toctree::
+     :maxdepth: 2
+     :glob:
+
+     lab7/calm_workshop_lab7_setup
+     lab7/calm_workshop_lab7_centos_config
+     lab7/calm_workshop_lab7_ntnx_vol_driver_install
+
 
 Connectivity Instructions:
 **************************
