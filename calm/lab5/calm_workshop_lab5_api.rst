@@ -570,8 +570,9 @@ Create a directory for development:
 .. code-block:: bash
 
   $ mkdir /root/development
+  $ cd /root/development
   
-Change to the directory created above and run:
+Download the autuomation-code (python) used to automate REST from *github* as follows:   
 
 .. code-block:: bash
 
