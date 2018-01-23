@@ -338,6 +338,24 @@ database server.
 .. note:: Replace http://ntnxwebhost/index.php with the ip-address of your webserver vm.  e.g.  if your websever ip-address is 10.21.68.92 you would use http://10.21.68.92/index.php
 
 
+If successfull, your browser should connect to the new webserver and display the following message:
+
+.. code-block:: bash
+  
+   Homepage_ 
+   Hello, World! I am a web server configured using Ansible and I am : CentOS.localdomain
+   List of Databases: 
+   information_schema foodb mysql performance_schema test
+   
+   
+Clicking on the hyperlink Homepage_ displayed in the browser message should show the follow:
+
+.. code-block:: bash
+  
+   Hello Calm Workshop! My App deployed via Ansible...
+
+Congratulations!  You're now ready to be a DevOps Engineer!!
+
 .. _configure-centos-server-v7: lab6/calm_workshop_lab6_config_centos.html
 .. _password-less: lab6/calm_workshop_lab6_nopass.html
 .. _Building-DockerImages-Automatically-With-Jenkins-Pipeline: https://blog.nimbleci.com/2016/08/31/how-to-build-docker-images-automatically-with-jenkins-pipeline/
