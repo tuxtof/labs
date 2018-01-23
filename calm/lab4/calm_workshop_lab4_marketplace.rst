@@ -2,7 +2,6 @@
 Lab4 - Marketplace P1
 *********************
 
-.. contents::
 
 Connectivity Instructions:
 **************************
