@@ -14,7 +14,7 @@
   .. ce
   .. versions
   .. building
-  .. intro/contact
+  intro/contact
 
 .. _lab-docs:
 
