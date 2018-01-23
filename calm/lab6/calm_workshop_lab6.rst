@@ -337,7 +337,6 @@ database server.
 
 .. note:: Replace http://ntnxwebhost/index.php with the ip-address of your webserver vm.  e.g.  if your websever ip-address is 10.21.68.92 you would use http://10.21.68.92/index.php
 
-
 If successfull, your browser should connect to the new webserver and display the following message:
 
 .. code-block:: bash
@@ -346,8 +345,7 @@ If successfull, your browser should connect to the new webserver and display the
    Hello, World! I am a web server configured using Ansible and I am : CentOS.localdomain
    List of Databases: 
    information_schema foodb mysql performance_schema test
-   
-   
+
 Click on the hyperlink Homepage_ displayed in the browser. The browser should display the following message:
 
 .. code-block:: bash
