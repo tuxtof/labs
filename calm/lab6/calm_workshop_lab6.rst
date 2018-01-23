@@ -5,11 +5,11 @@ Lab6 - Ansible
 .. toctree::
      :maxdepth: 2
      :glob:
-     
+
      lab6/calm_workshop_ansible_architecture
      lab6/calm_workshop_ansible_modules
-  
-        
+
+
 Connectivity Instructions:
 **************************
 
@@ -18,7 +18,7 @@ Connectivity Instructions:
 +------------+--------------------------------------------------------+
 | Username   |                                           Cluster User |
 +------------+--------------------------------------------------------+
-| Password   |                                           Cluster Pass | 
+| Password   |                                           Cluster Pass |
 +------------+--------------------------------------------------------+
 
 Lab Overview
@@ -42,7 +42,8 @@ Prerequisites
 
 To follow this tutorial, you will need:
 
-- One CentOS v7 server to host Ansible. Follow the steps in configure-centos-server-v7_ to create a non-root user.
+- Deploy 2x CentOS v7 Servers (One will be used for Web server & One for DB server)
+- Deploy 1x CentOS v7 servers to host Ansible. Follow the steps in configure-centos-server-v7_ to create a non-root user.
 - Make sure you can connect to the server using a password-less_ connection/session.
 
 Step 1 — Installing Ansible
@@ -55,13 +56,13 @@ To get Ansible for CentOS 7, first ensure that the CentOS 7 EPEL repository is i
 .. code-block:: bash
 
   $ sudo yum install epel-release
-  
+
 Once the repository is installed, install Ansible with yum:
- 
+
 .. code-block:: bash
 
   $ sudo yum install ansible
-  
+
 
 Step 2 — Configuring Ansible Hosts
 **********************************
@@ -73,7 +74,7 @@ Open the file with root privileges like this:
 .. code-block:: bash
 
   $ sudo vi /etc/ansible/hosts
-  
+
 You will see a file that has a lot of example configurations commented out. Keep these examples in the file to help you learn Ansible's configuration if you want to implement more complex scenarios in the future.
 
 The hosts file is fairly flexible and can be configured in a few different ways. The syntax we are going to use though looks something like this:
@@ -82,7 +83,7 @@ The hosts file is fairly flexible and can be configured in a few different ways.
 
   [group_name]
   alias ansible_ssh_host=your_server_ip
-  
+
 
 The *group_name* is an organizational tag that lets you refer to any servers listed under it with one word. The alias is just a name to refer to that server.
 
@@ -92,18 +93,18 @@ Imagine you have three servers you want to control with Ansible. Ansible communi
 
   $ ssh user@your_server_ip
 
-You should **NOT** be prompted for a password. While Ansible certainly has the ability to handle password-based SSH authentication, SSH keys help keep things simple (see _password-less configuration).
+You should **NOT** be prompted for a password. While Ansible certainly has the ability to handle password-based SSH authentication, SSH keys help keep things simple (see password-less_ configuration).
 
-We will assume that our servers' IP addresses are based on the Host VM's participating in the MySQL Application deployed in lab1. Let's set this up so that we can refer to these individually as host1, host2, and host3, or as a group as servers. To configure this, you would add this block to your hosts file:
+Let's set this up so that we can refer to these individually as host1 and host2, or as a group of servers. To configure this, you would add this block to your hosts file:
 
 */etc/ansible/hosts*
 
 .. code-block:: bash
 
   [servers]
-  host1 ansible_ssh_host=IP ADDRESS [IP Address for MySQLMaster]
-  host2 ansible_ssh_host=IP ADDRESS [IP Address for MySQLSlave0]
-  host3 ansible_ssh_host=IP ADDRESS [AP Address for MySQLSlave1]
+  host1 ansible_ssh_host=IP ADDRESS
+  host2 ansible_ssh_host=IP ADDRESS
+
 
 Hosts can be in multiple groups and groups can configure parameters for all of their members. Let's try this out now.
 
@@ -117,7 +118,7 @@ Ansible will, by default, try to connect to remote hosts using your current user
       "msg": "Failed to connect to the host ia ssh.",
       "unreachable": true
   }
-  
+
 Let's specifically tell Ansible that it should connect to servers in the "servers" group with the **ansible** user. Create a directory in the Ansible configuration structure called group_vars.
 
 .. code-block:: bash
@@ -163,12 +164,12 @@ Ansible will return output like this:
       "changed": false,
       "ping": "pong"
   }
-  
+
   host2 | SUCCESS => {
       "changed": false,
       "ping": "pong"
   }
-  
+
   host3 | SUCCESS => {
       "changed": false,
       "ping": "pong"
@@ -183,7 +184,7 @@ The all portion means "all hosts." You could just as easily specify a group:
 .. code-block:: bash
 
   $ ansible -m ping servers
-  
+
 You can also specify an individual host:
 
 .. code-block:: bash
@@ -195,7 +196,7 @@ You can specify multiple hosts by separating them with colons:
 .. code-block:: bash
 
   $ ansible -m ping host1:host2
-  
+
 The shell module lets us send a terminal command to the remote host and retrieve the results. For instance, to find out the memory usage on our host1 machine, we could use:
 
 .. code-block:: bash
@@ -216,16 +217,17 @@ As you can see, you pass arguments into a script by using the -a switch. Here's 
 
 By now, you should have your Ansible server configured to communicate with the servers that you would like to control. You can verify that Ansible can communicate with each host you know how to use the ansible command to execute simple tasks remotely.
 
-Although this is useful, we have not covered the most powerful feature of Ansible in this lab: **Playbooks.** You have configured a great foundation for working with your servers through Ansible, so your next step is to learn how to use Playbooks to do the heavy lifting for you. 
+Although this is useful, we have not covered the most powerful feature of Ansible in this lab: **Playbooks.** You have configured a great foundation for working with your servers through Ansible, so your next step is to learn how to use Playbooks to do the heavy lifting for you.
 
 Preparing The System for Development - Installing Python
 ********************************************************
 
-Like many other applications you will encounter, installation of Python on CentOS consists of a few (simple) stages, starting with updating the system and followed by actually getting Python for any desired version and proceeding with the set up process.
+Installation of Python on CentOS consists of a few (simple) stages, starting with updating the system, followed by getting any desired version of Python, and proceeding with the set up process.
+
 
 Remember: You can see all available releases of Python by checking out the Releases page. Using the instructions here, you should be able to install any or all of them.
 
-**Note:** This guide should be valid for CentOS version 7 as well as 6.x and 5.x.
+.. note:: This guide should be valid for CentOS version 7 as well as 6.x and 5.x.
 
 Updating The Default CentOS Applications
 ========================================
@@ -236,7 +238,7 @@ Run the following command to update the system applications:
 
 .. code-block:: bash
 
-  $ yum -y update
+  $ sudo yum -y update
 
 Preparing The System for Development Installations
 ==================================================
@@ -264,21 +266,21 @@ In order to get the necessary development tools, run the following:
 
 .. code-block:: bash
 
-  $ yum groupinstall -y development
+  $ sudo yum groupinstall -y development
 
 or;
 
 .. code-block:: bash
 
-  $ yum groupinstall -y 'development tools'
+  $ sudo yum groupinstall -y 'development tools'
 
-**Note:** The former (shorter) version might not work on older distributions of CentOS.
+.. note:: The former (shorter) version might not work on older distributions of CentOS.
 
 To download some additional packages which are handy:
 
 .. code-block:: bash
 
-  $ yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel
+  $ sudo yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel
 
 Remember: Albeit optional, these "handy" tools are very much required for most of the tasks that you will come across in future. Unless they are installed in advance, Python, during compilation, will not be able to link to them.
 
@@ -292,9 +294,17 @@ These playbooks are meant to be a reference and starter's guide to building
 Ansible Playbooks. These playbooks were tested on CentOS 7.x so we recommend
 that you use CentOS Server v7 to test these modules.
 
-Clone this playbook repository to /etc/ansible/ on the server hosting Ansible. 
+Download the playbook.tar (see link below) and copy it to directory /etc/ansible/ on the server hosting Ansible.
 
-CentOS v7 reflects changes in:
+:download:`playbooks.tar <lab6/calm_workshop_lab6_lamp_example.tar.gz>`
+
+Extract the archive as follows:
+
+.. code-block:: bash
+
+  $ tar -xzvf calm_workshop_lab6_lamp_example.tar.gz
+
+CentOS v7 reflects playbook changes in:
 
 1. Network device naming scheme has changed
 
@@ -308,12 +318,12 @@ This LAMP stack can be on a single node or multiple nodes. The inventory file
 .. code-block:: bash
 
   [webservers]
-   ntnxwebhost
+   ntnxwebhost ansible_ssh_host=IP ADDRESS
 
   [dbservers]
-   ntnxdbhost
+   ntnxdbhost ansible_ssh_host=IP ADDRESS
 
-Here the webserver would be configured on the ntnxweb host and the dbserver on a
+Here the [webservers] would be configured on the ntnxweb host and the [dbservers] on a
 server called ntnxdbhost. The stack can be deployed using the following
 command:
 
@@ -325,13 +335,29 @@ Once done, you can check the results by browsing to http://ntnxwebhost/index.php
 You should see a simple test page and a list of databases retrieved from the
 database server.
 
+.. note:: Replace http://ntnxwebhost/index.php with the ip-address of your webserver vm.  e.g.  if your websever ip-address is 10.21.68.92 you would use http://10.21.68.92/index.php
+
+If successfull, your browser should connect to the new webserver and display the following message:
+
+.. code-block:: bash
   
+   Homepage_ 
+   Hello, World! I am a web server configured using Ansible and I am : CentOS.localdomain
+   List of Databases: 
+   information_schema foodb mysql performance_schema test
+
+Click on the hyperlink Homepage_ displayed in the browser. The browser should display the following message:
+
+.. code-block:: bash
+  
+   Hello Calm Workshop! My App deployed via Ansible...
+
+Summary:
+*********
+
+Congratulations!  You're now ready to be a DevOps Engineer!!
+
+.. _Homepage:
 .. _configure-centos-server-v7: lab6/calm_workshop_lab6_config_centos.html
 .. _password-less: lab6/calm_workshop_lab6_nopass.html
 .. _Building-DockerImages-Automatically-With-Jenkins-Pipeline: https://blog.nimbleci.com/2016/08/31/how-to-build-docker-images-automatically-with-jenkins-pipeline/
-
-
-
-
-
-
