@@ -293,9 +293,17 @@ These playbooks are meant to be a reference and starter's guide to building
 Ansible Playbooks. These playbooks were tested on CentOS 7.x so we recommend
 that you use CentOS Server v7 to test these modules.
 
-Clone this playbook repository to /etc/ansible/ on the server hosting Ansible.
+Download the playbook.tar (see link below) and copy it to directory /etc/ansible/ on the server hosting Ansible.
 
-CentOS v7 reflects changes in:
+:download:`playbooks.tar <lab6/calm_workshop_lab6_lamp_example.tar.gz>`
+
+Extract the archive as follows:
+
+.. code-block:: bash
+
+  $ tar -xzvf
+
+CentOS v7 reflects playbook changes in:
 
 1. Network device naming scheme has changed
 
@@ -314,7 +322,7 @@ This LAMP stack can be on a single node or multiple nodes. The inventory file
   [dbservers]
    ntnxdbhost ansible_ssh_host=IP ADDRESS
 
-Here the webserver would be configured on the ntnxweb host and the dbserver on a
+Here the [webservers] would be configured on the ntnxweb host and the [dbservers] on a
 server called ntnxdbhost. The stack can be deployed using the following
 command:
 
