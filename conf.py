@@ -93,9 +93,13 @@ html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 # (Optional) Logo. Should be small enough to fit the navbar (ideally 24x24).
 # Path should be relative to the ``_static`` files directory.
-html_logo = "Nutanix_X_CMYK-neg.svg"
+html_logo = "NutanixWorkshops.svg"
 
-html_add_permalinks = ""
+html_favicon = "favicon.ico"
+
+html_title = ""
+
+#html_add_permalinks = ""
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -106,7 +110,7 @@ html_add_permalinks = ""
 # theme further.
 html_theme_options = {
     # Navigation bar title. (Default: ``project`` value)
-    'navbar_title': "Nutanix Workshops",
+    'navbar_title': " ",
 
     # Tab name for entire site. (Default: "Site")
     'navbar_site_name': "Site",
@@ -147,7 +151,7 @@ html_theme_options = {
 
     # HTML navbar class (Default: "navbar") to attach to <div> element.
     # For black navbar, do "navbar navbar-inverse"
-    'navbar_class': "navbar navbar-inverse",
+    'navbar_class': "navbar-inverse",
 
     # Fix navigation bar to top of page?
     # Values: "true" (default) or "false"

@@ -222,7 +222,8 @@ Although this is useful, we have not covered the most powerful feature of Ansibl
 Preparing The System for Development - Installing Python
 ********************************************************
 
-Installation of Python on CentOS consists of a few (simple) stages, starting with updating the system and followed by actually getting Python for any desired version and proceeding with the set up process.
+Installation of Python on CentOS consists of a few (simple) stages, starting with updating the system, followed by getting any desired version of Python, and proceeding with the set up process.
+
 
 Remember: You can see all available releases of Python by checking out the Releases page. Using the instructions here, you should be able to install any or all of them.
 
