@@ -356,6 +356,7 @@ Clicking on the hyperlink Homepage_ displayed in the browser message should show
 
 Congratulations!  You're now ready to be a DevOps Engineer!!
 
+.. _Homepage:
 .. _configure-centos-server-v7: lab6/calm_workshop_lab6_config_centos.html
 .. _password-less: lab6/calm_workshop_lab6_nopass.html
 .. _Building-DockerImages-Automatically-With-Jenkins-Pipeline: https://blog.nimbleci.com/2016/08/31/how-to-build-docker-images-automatically-with-jenkins-pipeline/
