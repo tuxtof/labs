@@ -335,7 +335,7 @@ Once done, you can check the results by browsing to http://ntnxwebhost/index.php
 You should see a simple test page and a list of databases retrieved from the
 database server.
 
-.. note:: Replace ntnxwebhost with the ip-address of your webserver vm.  e.g.  http://10.21.68.92/index.php.
+.. note:: Replace http://ntnxwebhost/index.php with the ip-address of your webserver vm.  e.g.  if your websever ip-address is 10.21.68.92 you would use http://10.21.68.92/index.php
 
 
 .. _configure-centos-server-v7: lab6/calm_workshop_lab6_config_centos.html
