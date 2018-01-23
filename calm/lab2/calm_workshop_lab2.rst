@@ -2,7 +2,6 @@
 Lab2 - Blueprint (LAMP)
 ***********************
 
-.. contents::
 
 Connectivity Instructions
 *************************
