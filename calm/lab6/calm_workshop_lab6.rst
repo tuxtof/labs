@@ -42,8 +42,8 @@ Prerequisites
 
 To follow this tutorial, you will need:
 
-- That you have deployed the MySql blueprint from the Calm Marketplace. The deployed servers will be what we use to configure with Ansible.
-- One CentOS v7 server to host Ansible. Follow the steps in configure-centos-server-v7_ to create a non-root user.
+- Deploy Two CentOS v7 Servers (One will be used for Web server & One for DB server)
+- Deploy OneCentOS v7 servers to host Ansible. Follow the steps in configure-centos-server-v7_ to create a non-root user.
 - Make sure you can connect to the server using a password-less_ connection/session.
 
 Step 1 — Installing Ansible
@@ -95,16 +95,16 @@ Imagine you have three servers you want to control with Ansible. Ansible communi
 
 You should **NOT** be prompted for a password. While Ansible certainly has the ability to handle password-based SSH authentication, SSH keys help keep things simple (see _password-less configuration).
 
-We will assume that our servers' IP addresses are based on the Host VM's participating in the MySQL Application deployed in lab1. Let's set this up so that we can refer to these individually as host1, host2, and host3, or as a group as servers. To configure this, you would add this block to your hosts file:
+Let's set this up so that we can refer to these individually as host1 and host2, or as a group as servers. To configure this, you would add this block to your hosts file:
 
 */etc/ansible/hosts*
 
 .. code-block:: bash
 
   [servers]
-  host1 ansible_ssh_host=IP ADDRESS [IP Address for MySQLMaster]
-  host2 ansible_ssh_host=IP ADDRESS [IP Address for MySQLSlave0]
-  host3 ansible_ssh_host=IP ADDRESS [AP Address for MySQLSlave1]
+  host1 ansible_ssh_host=IP ADDRESS
+  host2 ansible_ssh_host=IP ADDRESS
+
 
 Hosts can be in multiple groups and groups can configure parameters for all of their members. Let's try this out now.
 
@@ -309,10 +309,10 @@ This LAMP stack can be on a single node or multiple nodes. The inventory file
 .. code-block:: bash
 
   [webservers]
-   ntnxwebhost
+   ntnxwebhost ansible_ssh_host=IP ADDRESS
 
   [dbservers]
-   ntnxdbhost
+   ntnxdbhost ansible_ssh_host=IP ADDRESS
 
 Here the webserver would be configured on the ntnxweb host and the dbserver on a
 server called ntnxdbhost. The stack can be deployed using the following

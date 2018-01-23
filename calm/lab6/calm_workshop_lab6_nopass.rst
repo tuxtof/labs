@@ -13,13 +13,13 @@ Follow the steps to create the password less login. Here we have two machines wi
 
 **Assumptions:**
 
-1. We'll assume you've successfulyl deployed the MySQL Application and is currently running.
+1. We'll assume you've successfully deployed the MySQL Application and is currently running.
 2. You've successfully created a CentOS Server v7 VM  to host *Ansible*.
 
 Step 1: Create remote users
 ****************************
 
-Create/Add a new user *ansible*, on each of the VMs as part of the MySQL Application (i.e. *MySQLMaster, MySQLSlave*).
+Create/Add a new user *ansible*, on each of the CentOS v7 servers used for Web and DB.
 
 .. code-block:: bash
 
@@ -88,6 +88,12 @@ Copy the new keys from the *Ansible* host to each host participating in the MySQ
 .. code-block:: bash
 
   $ ssh-copy-id -i ~/.ssh/id_rsa.pub ansible@remote-machine-ipaddress
+
+and
+
+.. code-block:: bash
+
+  $ ssh-copy-id -i ~/.ssh/id_rsa.pub root@remote-machine-ipaddress
 
 Test your password-less logins using *ssh* to login to each of the hosts participating in the MySQL Application.
 
