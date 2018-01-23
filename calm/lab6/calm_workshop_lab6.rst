@@ -42,8 +42,8 @@ Prerequisites
 
 To follow this tutorial, you will need:
 
-- Deploy Two CentOS v7 Servers (One will be used for Web server & One for DB server)
-- Deploy OneCentOS v7 servers to host Ansible. Follow the steps in configure-centos-server-v7_ to create a non-root user.
+- Deploy 2x CentOS v7 Servers (One will be used for Web server & One for DB server)
+- Deploy 1x CentOS v7 servers to host Ansible. Follow the steps in configure-centos-server-v7_ to create a non-root user.
 - Make sure you can connect to the server using a password-less_ connection/session.
 
 Step 1 — Installing Ansible
