@@ -2,7 +2,6 @@
 Configuring HPOC Prism Central
 ******************************
 
-.. contents::
 
 
 This Setup Guide is designed with these assumtpitons
