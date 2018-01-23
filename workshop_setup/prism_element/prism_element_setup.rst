@@ -2,8 +2,6 @@
 Configuring HPOC Prism Element
 ******************************
 
-.. contents::
-
 
 This Setup Guide is designed with these assumptions
 ***************************************************
