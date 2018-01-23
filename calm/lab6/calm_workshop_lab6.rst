@@ -352,6 +352,9 @@ Click on the hyperlink Homepage_ displayed in the browser. The browser should di
   
    Hello Calm Workshop! My App deployed via Ansible...
 
+Summary:
+*********
+
 Congratulations!  You're now ready to be a DevOps Engineer!!
 
 .. _Homepage:
