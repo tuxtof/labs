@@ -59,8 +59,6 @@ As root, run this command to add your new user to the wheel group (substitute th
 
 Now your user can run commands with super user privileges! For more information about how this works, check out our sudoers tutorial.
 
-.. Note:: At this point you can go to password-less_ to configure the SSH keys
-
 Step 4 (Optional) — Configure SSH Daemon
 *****************************
 
@@ -137,4 +135,3 @@ If all is well, you can exit your sessions by typing:
 
 At this point, you have a solid foundation for your server. You can install any of the software you need on your server now.
 
-.. _password-less: lab6/calm_workshop_lab6_nopass.html
