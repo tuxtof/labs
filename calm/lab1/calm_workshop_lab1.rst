@@ -146,13 +146,18 @@ In this subsection we'll create some variables. It’s not necessary to do it at
 Adding A DB Service
 ===================
 
-With these basics setup, let’s create our first service.
+We'll now create the basic service.
 
 - Click the + sign next to **Services** in the **Overview** pane.
+
 - Notice that the **Configuration** pane has changed and there is now a box in the **Workspace.**
+
 - Name your service **MYSQL** in the *Service Name* field.
+
 - The *Substrate* section is the internal Calm name for this Service. Name this **MYSQLAHV**
+
 - Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux**
+
 - Configure the VM as follows:
 
 .. code-block:: bash
@@ -165,7 +170,6 @@ With these basics setup, let’s create our first service.
   Core/vCPU .: 1
   Memory     : 4 GB
 
-
 - Scroll to the bottom and add the NIC **bootcamp** to the **MYSQL** VM.
 - Configure the **Credentials** to use **CENTOS** created earlier.
 
@@ -173,8 +177,11 @@ Package Configuration
 =====================
 
 - Scroll to the top of the Service Panel and click **Package**.
-- Name the install package **MYSQL_PACKAGE**,
+
+- Name the install package **MYSQL_PACKAGE**
+
 - Set the install script to **shell** and select the credential **CENTOS** created earlier.
+
 - Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
@@ -217,8 +224,9 @@ Package Configuration
 
 - Since we don’t need anything special ran when uninstalling, we will just add a very basic script to the uninstall. This can be useful for cleanup (for example, releasing DNS names or cleaning up AD), but we won’t use it here.
 
-- Set the uninstall script to **shell** and select the credential **CENTOS** created earlie.
-Addthe following to the *script* field in the **uninstall** window:
+- Set the uninstall script to **shell** and select the credential **CENTOS** created earlier.
+
+- Add the following to the *script* field in the **uninstall** window:
 
 .. code-block:: bash
 
@@ -233,7 +241,6 @@ Part 3: Launching the Blueprint
 Now that the blueprint has been created and saved, you can launch it!
 
 - Click on the **Launch** button in the top right of the blueprint. This will bring up the the launch window.
-
 - Give this instance a unique name **Calm_Workshop_MYSQL_App_1**.
 
 .. note:: Every launch performed requires a name change, making each launch unique - this can be done by incrementing the suffix in the name.
