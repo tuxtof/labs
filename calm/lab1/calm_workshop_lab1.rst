@@ -119,7 +119,7 @@ Click on the **Credentials** button along the top of the Blueprint workspace. Up
 Setting Variables
 =================
 
-- At this step let’s set some variables up. It’s not necessary to do it at this point, however it will make our lives easier for the rest of the lab.
+In this subsection we'll create some variables. It’s not necessary to do it at this point, however it will make things easier for the rest of the lab.
 
 - Variables have 2 settings, **Secret** and **Runtime**. Normally variables are stored in plaintext and shown in the window here, the **Secret** setting changes that (perfect for passwords). **Runtime** specifies if this variable should be static (and only editable here) or should be able to be changed during the Launch Process.
 
