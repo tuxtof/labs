@@ -98,8 +98,9 @@ Create Blueprint Workflow
 
 Let’s get started by setting up the basics
 
-1. Update the Blueprint Name to Calm_Workshop
-2. Click on the **Credentials** button along the top of the Blueprint workspace. Update credentials as follows:
+Update the Blueprint Name to Calm_Workshop
+
+Click on the **Credentials** button along the top of the Blueprint workspace. Update credentials as follows:
 
 +-----------------------+---------------+
 | **Name**              | CENTOS        |
@@ -118,11 +119,11 @@ Let’s get started by setting up the basics
 Setting Variables
 =================
 
-1. At this step let’s set some variables up. It’s not necessary to do it at this point, however it will make our lives easier for the rest of the lab.
+In this subsection we'll create some variables. It’s not necessary to do it at this point, however it will make things easier for the rest of the lab.
 
-2. Variables have 2 settings, **Secret** and **Runtime**. Normally variables are stored in plaintext and shown in the window here, the **Secret** setting changes that (perfect for passwords). **Runtime** specifies if this variable should be static (and only editable here) or should be able to be changed during the Launch Process.
+- Variables have 2 settings, **Secret** and **Runtime**. Normally variables are stored in plaintext and shown in the window here, the **Secret** setting changes that (perfect for passwords). **Runtime** specifies if this variable should be static (and only editable here) or should be able to be changed during the Launch Process.
 
-3. Variables can be referred to while configuring VMs using the **@@{variable\_name}@@** construct - Calm will evaluate and replace that string before sending it down to the VM.
+- Variables can be referred to while configuring VMs using the **@@{variable\_name}@@** construct - Calm will evaluate and replace that string before sending it down to the VM.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image8.png
 
@@ -145,14 +146,19 @@ Setting Variables
 Adding A DB Service
 ===================
 
-With these basics setup, let’s create our first service.
+We'll now create the basic service.
 
-1. Click the + sign next to **Services** in the **Overview** pane.
-2. Notice that the **Configuration** pane has changed and there is now a box in the **Workspace.**
-3. Name your service **MYSQL** in the *Service Name* field.
-4. The *Substrate* section is the internal Calm name for this Service. Name this **MYSQLAHV**
-5. Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux**
-6. Configure the VM as follows:
+- Click the + sign next to **Services** in the **Overview** pane.
+
+- Notice that the **Configuration** pane has changed and there is now a box in the **Workspace.**
+
+- Name your service **MYSQL** in the *Service Name* field.
+
+- The *Substrate* section is the internal Calm name for this Service. Name this **MYSQLAHV**
+
+- Make sure that the Cloud is set to **Nutanix** and the OS set to **Linux**
+
+- Configure the VM as follows:
 
 .. code-block:: bash
 
@@ -164,17 +170,19 @@ With these basics setup, let’s create our first service.
   Core/vCPU .: 1
   Memory     : 4 GB
 
-
-7. Scroll to the bottom and add the NIC **bootcamp** to the **MYSQL** VM.
-8. Configure the **Credentials** to use **CENTOS** created earlier.
+- Scroll to the bottom and add the NIC **bootcamp** to the **MYSQL** VM.
+- Configure the **Credentials** to use **CENTOS** created earlier.
 
 Package Configuration
 =====================
 
-1. Scroll to the top of the Service Panel and click **Package**.
-2. Name the install package **MYSQL_PACKAGE**,
-3. Set the install script to **shell** and select the credential **CENTOS** created earlier.
-4. Copy the following script into the *script* field of the **install** window:
+- Scroll to the top of the Service Panel and click **Package**.
+
+- Name the install package **MYSQL_PACKAGE**
+
+- Set the install script to **shell** and select the credential **CENTOS** created earlier.
+
+- Copy the following script into the *script* field of the **install** window:
 
 .. code-block:: bash
 
@@ -212,32 +220,32 @@ Package Configuration
    EOF
 
 
-5. Looking at this script, we see that we’re using the variables we set before and doing basic mySQL configuration. This can be customized for whatever unique need you have.
+- Looking at this script, we see that we’re using the variables we set before and doing basic mySQL configuration. This can be customized for whatever unique need you have.
 
-6. Since we don’t need anything special ran when uninstalling, we will just add a very basic script to the uninstall. This can be useful for cleanup (for example, releasing DNS names or cleaning up AD), but we won’t use it here.
+- Since we don’t need anything special ran when uninstalling, we will just add a very basic script to the uninstall. This can be useful for cleanup (for example, releasing DNS names or cleaning up AD), but we won’t use it here.
 
-7. Set the uninstall script to **shell** and select the credential **CENTOS** created earlie.
-Addthe following to the *script* field in the **uninstall** window:
+- Set the uninstall script to **shell** and select the credential **CENTOS** created earlier.
+
+- Add the following to the *script* field in the **uninstall** window:
 
 .. code-block:: bash
 
    #!/bin/bash
    echo "Goodbye!"
 
-8. After completing the configuration, click the **Save** button. If any errors come up, go back and review the configuration to ensure that all fields have been filled.
+- After completing the configuration, click the **Save** button. If any errors come up, go back and review the configuration to ensure that all fields have been filled.
 
 Part 3: Launching the Blueprint
 *******************************
 
-1. Now that the blueprint has been created and saved, you can launch it!
+Now that the blueprint has been created and saved, you can launch it!
 
-2. Click on the **Launch** button in the top right of the blueprint. This will bring up the the launch window.
-
-3. Give this instance a unique name **Calm_Workshop_MYSQL_App_1**.
+- Click on the **Launch** button in the top right of the blueprint. This will bring up the the launch window.
+- Give this instance a unique name **Calm_Workshop_MYSQL_App_1**.
 
 .. note:: Every launch performed requires a name change, making each launch unique - this can be done by incrementing the suffix in the name.
 
-5. This will now bring you to the **Instance** page. The bar across the top allows you to see various information about the application instance:
+- This will now bring you to the **Instance** page. The bar across the top allows you to see various information about the application instance:
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab1/image25.png
 
