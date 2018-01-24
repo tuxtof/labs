@@ -13,7 +13,7 @@
 
   intro/getstarted
   templates/index
-  .. setup/index
+  setup/index
   .. ce
   .. versions
   .. building
