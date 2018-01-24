@@ -51,7 +51,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Nutanix Workshops'
-copyright = u'2017, Nutanix'
+copyright = u'2017 Nutanix'
 author = u'Nutanix Global Technical Enablement'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -98,6 +98,8 @@ html_logo = "NutanixWorkshops.svg"
 html_favicon = "favicon.ico"
 
 html_title = ""
+
+html_show_sphinx = False
 
 #html_add_permalinks = ""
 
