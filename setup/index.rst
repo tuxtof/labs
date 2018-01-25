@@ -1,5 +1,5 @@
 ****************************
-Nutanix Workshop Setup Guide
+Workshop Setup Guide
 ****************************
 
 Info needed for an SE to setup a HPOC environment for a workshop.
