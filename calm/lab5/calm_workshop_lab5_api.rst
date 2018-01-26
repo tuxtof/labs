@@ -589,7 +589,7 @@ Edit */root/automation/solution/config.py* and set the connection variables (i.e
   IPADDRESS    = "10.21.81.39"     < edit
   PORT         = "9440"
 
-Check If the **v2** imports and function calls are commented with *#* in file */root/automation/solution/main.py*.  If they aren't, be sure to comment **v2** imports and function calls using *#*, and uncomment **v3** imports by removing *#* as shown:
+Check If the **v2** imports and function calls are commented with *#* in file */root/development/automation/solution/main.py*.  If they aren't, be sure to comment **v2** imports and function calls using *#*, and uncomment **v3** imports by removing *#* as shown:
 
 .. code-block:: python
 
