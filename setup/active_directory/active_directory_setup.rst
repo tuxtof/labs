@@ -150,11 +150,10 @@ In this step we will run a powershell script that will create the "Bootcamp User
 1. Log into the DC VM
 2. create a directory called "scripts" at the root of C:
 3. Create a directory called "logs" in "c:\\scripts"
-4. Download the following scripts and upload them to the DC VM "c:\\scripts":
+4. Download the following scripts and then upload them to the DC VM "c:\\scripts" directory:
 
 :download:`add-users.ps1 <setup/active_directory/scripts/add-users.ps1>`
-
-:download:`add-users.csv` <setup/active_directory/scripts/add-users.csv>`
+:download:`add-users.csv <setup/active_directory/scripts/add-users.csv>`
 
 5. Copy over the add-users.ps1 and add-users.csv to "C:\\scripts"
 
