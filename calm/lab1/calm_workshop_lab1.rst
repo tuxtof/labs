@@ -41,6 +41,8 @@ what they’re supposed to).
 ran on the target machine. Macros and Variables are denoted in the
 @@{[name]}@@ format in the scripts.
 
+**Subtrate:** A Calm object used to encapsulate the VM(s) within a Blueprint 
+
 Part 1: Accessing and Navigating Calm
 **************************************
 
