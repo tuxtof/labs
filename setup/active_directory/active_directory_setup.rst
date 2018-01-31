@@ -241,5 +241,5 @@ add-users.ps1_ and add-users.csv_
 
 
 .. _Prism_Element_Setup: ../prism_element/prism_element_setup.rst
-.. _add-users.ps1: ../active_directory/scripts/add-users.ps1
-.. _add-users.csv: ../active_directory/scripts/add-users.csv
+.. _add-users.ps1: ./scripts/add-users.ps1
+.. _add-users.csv: ./scripts/add-users.csv
