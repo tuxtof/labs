@@ -48,7 +48,7 @@ Part 1: Accessing and Navigating Calm
 
 Getting Familiar with the Tools:
 
-1. Connect to https://<HPOC.PC:9440>
+1. Connect to https://<PC-IPAddress:9440>
 
 2. Login to Prism Central using the credentials specified above (use these credentials unless specified otherwise throughout this lab).
 
