@@ -140,6 +140,8 @@ Since we need the DB IP Address to bring up the AppServer, we need to add a **De
 11. This tells Calm to hold running the script until the **MYSQL** service is up.
 12. **Save** the blueprint, then click on the **Create** action from the **Overview** pane to see this.
 
+.. figure:: http://s3.nutanixworkshops.com/calm/lab2/image11.png
+
 Scale-out AppService
 ====================
 
