@@ -198,4 +198,4 @@ Step 6 — Setup Authentication and Role Mapping (If Active Directory is needed 
 
 
 
-.. _Active-Directory: ../active_directory/active_directory_setup.rst
+.. _Active-Directory: ../active_directory/active_directory_setup.html
