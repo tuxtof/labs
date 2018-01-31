@@ -149,14 +149,9 @@ In this step we will run a powershell script that will create the "Bootcamp User
 
 1. Log into the DC VM
 2. create a directory called "scripts" at the root of C:
-3. Create a directory called "logs" in "c:\\scripts"
-4. Download the following scripts and then upload them to the DC VM "c:\\scripts" directory:
-
-:download:`add-users.ps1 <active_directory/scripts/add-users.ps1>`
-
-:download:`add-users.csv <active_directory/scripts/add-users.csv>`
-
-5. Copy over the add-users.ps1 and add-users.csv to "C:\\scripts"
+3. Create a directory called "logs" in "c:\\scripts".
+4. Create 2 files; *add-users.ps1* and *add-users.csv* in "c:\\scripts".
+5. Copy the following to *add-users.csv* in "C:\\scripts"
 
 .. code-block:: bash
 
@@ -210,7 +205,7 @@ In this step we will run a powershell script that will create the "Bootcamp User
 	$failedUsers |ForEach-Object {"$($b).) $($_)"; $b++} | out-file -FilePath  $LogFolder\FailedUsers.log -Force -Verbose
 	$successUsers | ForEach-Object {"$($a).) $($_)"; $a++} |out-file -FilePath  $LogFolder\successUsers.log -Force -Verbose
 
-5. Update the password in "c:\\scripts\\add-user.csv" to match the HPOC password
+6. Update the password in "c:\\scripts\\add-user.csv" to match the HPOC password
 
 .. code-block:: bash
 
