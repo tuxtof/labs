@@ -147,13 +147,16 @@ Step 5 — Adding Workshop Users & Group
 In this step we will run a powershell script that will create the "Bootcamp Users" AD group, and user01-user20
 (also adding them to the Bootcamp Users group)
 
-**Copy the contents of the following script and csv, and create the files on the Server in "C:\\scripts"**
-add-users.ps1_ and add-users.csv_
-
 1. Log into the DC VM
 2. create a directory called "scripts" at the root of C:
 3. Create a directory called "logs" in "c:\\scripts"
-4. Copy over the add-users.ps1 and add-users.csv to "C:\\scripts"
+4. Download the following scripts and upload them to the DC VM "c:\\scripts":
+
+:download:`add-users.ps1 <setup/active_directory/scripts/add-users.ps1>`
+
+:download:`add-users.csv` <setup/active_directory/scripts/add-users.csv>`
+
+5. Copy over the add-users.ps1 and add-users.csv to "C:\\scripts"
 
 .. code-block:: bash
 
