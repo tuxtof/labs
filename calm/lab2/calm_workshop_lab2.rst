@@ -50,7 +50,7 @@ Getting Familiar with the Tools:
 
 1. Connect to https://<HPOC.PC:9440>
 
-2. Login to Prism Central using the credentials specified above (use these credentials unless specified otherwise throughout this lab.
+2. Login to Prism Central using the credentials specified above (use these credentials unless specified otherwise throughout this lab).
 
 3. Click on the Apps tab across the top of Prism
 
