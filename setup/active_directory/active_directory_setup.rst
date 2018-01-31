@@ -231,8 +231,8 @@ In this step we will run a powershell script that will create the "Bootcamp User
 	user19,nutanix/4u
 	user20,nutanix/4u
 
-6. Open Powershell, and run the add-user.ps1
-7. Open Active Directory User & Computers, and verify the users and group are there.
+7. Open Powershell, and run the add-user.ps1
+8. Open Active Directory User & Computers, and verify the users and group are there.
 
 
 **Note:** Now you can head back to the Prism_Element_Setup_, and configure Authentication and Roles.
