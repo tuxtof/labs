@@ -189,7 +189,7 @@ Step 6 — Setup Authentication and Role Mapping (If Active Directory is needed 
 
 6. Close the Role Mapping and Authentication windows
 7. Log out of Prism Element
-8. Log in as **user01@bootcamp.local**
+8. Log in as **user01@bootcamp.local** using the password configured in the *add-user.csv* file.
 
 **Note:** If you are able to log in then you have completed Prism Element and AD setup
 
