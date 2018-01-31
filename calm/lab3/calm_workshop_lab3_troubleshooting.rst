@@ -56,7 +56,7 @@ You are, by default, dropped into the Applications tab and can see all the insta
 Part 2: Import Blueprint
 ************************
 
-Download the blueprint to be imported:
+Download the blueprint to be imported by clicking the following link **Blueprint**:
 
 :download:`Blueprint <lab3/json/Troubleshooting.json>`
 
