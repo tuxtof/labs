@@ -3,8 +3,7 @@ Configuring HPOC Prism Central
 ******************************
 
 
-
-This Setup Guide is designed with these assumtpitons
+This Setup Guide is designed with these assumptions
 ****************************************************
 
 1. AOS 5.5.x (or higher)
@@ -32,7 +31,7 @@ In this guide we will configure Prism Central for the HPOC you have checked out.
 Configure Prism Central for Workshop
 ************************************
 
-We will start by installing prism Central
+We will start by installing prism Central.  Users must be logged in as "admin" fto configure Prism Central(PC)...
 
 
 Step 1 — Install Prism Central
@@ -83,13 +82,13 @@ Step 2 — Register Prism Central
 | Password                 |                          HPOC Password   |
 +--------------------------+------------------------------------------+
 
-6. You should now see **OK** int he Prism Central Widget (On the main Cluster page)
+6. You should now see **OK** in the Prism Central Widget (On the main Cluster page)
 
 
 Step 3 — UI Settings
 ********************
 
-Change Session Timeout Values
+Change Session Timeout Values while loged in as "admin"
 
 1. Go To Gear --> UI Settings
 2. Session Timeout for Current User = 30 minutes
@@ -135,16 +134,15 @@ Step 4 — Setup Authentication and Role Mapping
 7. Log out of Prism Central
 8. Log in as **user01@bootcamp.local**
 9. Once you validate you can log in as user01, log out
-10. Log back into Prism Central as admin
-
 
 Step 5 — Configure Self-Service Admin Management
 ************************************************
 
 In this section we will configure Self-Service Portal (SSP)
 
-1. Go to Gear --> Self-Service Admin Management
-2. Fill in the following info under Connect to AD, and then click **Next**:
+1. Ensure you're Logged into Prism Central as user "admin"
+2. Go to Gear --> Self-Service Admin Management
+3. Fill in the following info under Connect to AD, and then click **Next**:
 
 +--------------------------+------------------------------------------+
 | Select Active Directory  |            Bootcamp                      |
@@ -154,8 +152,8 @@ In this section we will configure Self-Service Portal (SSP)
 | Password                 |            HPOC Password                 |
 +--------------------------+------------------------------------------+
 
-3. Click on **Add Admins**, and add the "Bootcamp Users" group. Click **Save**
-4. Click **Save**
+4. Click on **Add Admins**, and add the "Bootcamp Users" group. Click **Save**
+5. Click **Save**
 
 
 Step 6 — Enable App Management
