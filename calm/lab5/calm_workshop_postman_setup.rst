@@ -10,7 +10,7 @@ Download and install Postman by navigating to: https://www.getpostman.com/ and s
 Create Collection
 *****************
 
-The following steps assumes you have Postman installed.  
+The following steps assumes you have Postman installed and running.  
 
 Create a **Collection**, give it a name (i.e. Nutanix), and save it:
 
