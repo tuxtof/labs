@@ -639,6 +639,9 @@ Check If the **v2** imports and function calls are commented with *#* in file */
     importBlueprint(connection, PROJECT, BLUEPRINT_FILE, BLUEPRINT, DRAFT)
     modifyCredential(connection, BLUEPRINT, DRAFT, CREDENTIAL, PASSWORD)
     launchBlueprint(connection, BLUEPRINT, ACTIVE, APPLICATION)
+    
+    deleteBlueprint(connection, BLUEPRINT, ACTIVE)
+    deleteApplication(connection, APPLICATION)
 
   if __name__ == "__main__":
       main()
