@@ -172,7 +172,7 @@ All *list* requests require a small payload.  The following is the minimal paylo
 
 
 - *filter:* explicit filter i.e. *name* or *state[DELETED|ACTIVE]*
-- *offest:* starting element
+- *offset:* starting element
 - *length:* the #of elements to return from the *offset*
 
 **App:**
