@@ -247,7 +247,7 @@ In this section we'll learn how to Navigate the REST API Explorer to read and ga
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image7.png
 
-3. Find **GET** */apps/{uuid}* and click to expand.  Paste the *uuid* copied from step 1 into the value txt-field of the *uuid* paranter field for the **GET** /apps/{uuid}.
+3. Find **GET** */apps/{uuid}* and click to expand.  Paste the *uuid* copied from step 1 into the value txt-field of the *uuid* paramater field for the **GET** /apps/{uuid}.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image18.png
 
