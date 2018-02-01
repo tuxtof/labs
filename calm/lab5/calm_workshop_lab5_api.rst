@@ -99,7 +99,7 @@ View a list of helpful commands, and check the version of *pip* that is installe
 .. code-block:: bash
 
   $ pip --help
-  $ pip -v
+  $ pip --version
 
 Once *pip has been installed and verified, we can now install *requests* as follows:
 
@@ -151,7 +151,7 @@ Once the API Explorer appears, be sure to authenticate or sign-in (as shown abov
 Issuing List Requests
 *********************
 
-In this section we'll learn how to Navigate the REST API Explorer to read and gather information for:
+In this section we'll learn how to navigate the REST API Explorer in order to read and gather information for:
 
 - App(s)
 - Blueprint(s)
@@ -160,7 +160,7 @@ In this section we'll learn how to Navigate the REST API Explorer to read and ga
 
 Reading from v3 REST targets are consistent and are typically shown as *list* and executed as a POST command.  The *response* from a *list request* returns a subset of element information.  To retrieve all-inclusive element information, you'll use the element's *uuid* and issue a GET request.
 
-All *list* requests require a small payload.  the following is the minimal payload required:
+All *list* requests require a small payload.  The following is the minimal payload required:
 
 .. code-block:: json
 
