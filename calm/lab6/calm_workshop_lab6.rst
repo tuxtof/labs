@@ -129,7 +129,9 @@ Within this folder, we can create YAML-formatted files for each group we want to
 
 .. code-block:: bash
 
-  $ sudo nano /etc/ansible/group_vars/servers
+  $ sudo vi /etc/ansible/group_vars/servers
+
+.. note:: Other text editors other than "vi" can be used as needed (i.e. nano, emacs, etc...), my need to be installed.
 
 Add this code to the file:
 
