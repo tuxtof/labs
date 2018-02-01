@@ -512,6 +512,7 @@ In this section we'll Navigate the REST API Explorer to execute launching a blue
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image38.png
 
+.. note:: The response of 200 is expected indicating the launch was successful. The application provisioning will most likely fail and is expected.  The reason for the provisioning failure is due to the images being referenced on the cluster are different from where the blueprint was originally sourced.  The key takeway here is that it launched...
 
 **Summary**
 
