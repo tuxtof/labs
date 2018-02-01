@@ -472,7 +472,7 @@ In this section we'll Navigate the REST API Explorer to execute launching a blue
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image33.png
 
-9. Name the object *app_profile_reference*. Add 2 key/value pairs as *string* members to the *app_profile_reference* object by right-clicking on the node and select *append*, and then *string*.  Name the key/values *kind:app_profile* and
+9. Name the object *app_profile_reference*. Add 2 key/value pairs as *string* members to the *app_profile_reference* object by right-clicking on the node and select *append*, and then *string*.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/lab5/image34.png
 
