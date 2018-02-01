@@ -5,7 +5,9 @@ Lab Configuration - Postman
 Install Postman
 ***************
 
-Download and install Postman by navigating to: https://www.getpostman.com/ and selecting the appropriate install-package for your OS platform.  Follow the instructions as provided.
+If you have Postman already installed, skip to **Create Subfolders**, otherwise, proceed as follows:
+
+Download and install Postman by navigating to: https://www.getpostman.com/ and selecting the appropriate install-package for your OS platform.  Follow the instructions provided by the package installer to complete Postman installation.
 
 Create Collection
 *****************
