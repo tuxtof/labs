@@ -37,16 +37,16 @@ Ansible takes on a modular approach, making it easy to extend to use the functio
 
 In this lab, you'll install Ansible on a CentOS 7 server and learn some basics of how to use the software.
 
-Prerequisites
-*************
+Step 1 - Environment Setup
+**************************
 
 To follow this tutorial, you will need:
 
-- Deploy 2x CentOS v7 Servers (One will be used for Web server & One for DB server)
-- Deploy 1x CentOS v7 servers to host Ansible. Follow the steps in configure-centos-server-v7_ to create a non-root user.
+- Deploy 2x CentOS v7 Servers (One will be used for Web server & One for DB server).  Name the VM's: WebServer and DBServer respectively.
+- Deploy 1x CentOS v7 VM to host Ansible. Name the VM Ansible.  Follow the steps in configure-centos-server-v7_ to create a non-root user.
 - Make sure you can connect to the server using a password-less_ connection/session.
 
-Step 1 — Installing Ansible
+Step 2 — Installing Ansible
 ***************************
 
 To begin exploring Ansible as a means of managing our various servers, we need to install the Ansible software on at least one machine.  In this lab we'll install ansible using *yum*, but to be fare to the learner, the Ansible stack can also be installed using *git* or *pip*.
@@ -64,7 +64,7 @@ Once the repository is installed, install Ansible with yum:
   $ sudo yum install ansible
 
 
-Step 2 — Configuring Ansible Hosts
+Step 3 — Configuring Ansible Hosts
 **********************************
 
 Ansible keeps track of all of the servers that it knows about through a *"hosts"* file. We need to set up this file first before we can begin to communicate with our other computers.
@@ -146,7 +146,7 @@ Save and close this file when you are finished. Now Ansible will always use the 
 
 If you want to specify configuration details for every server, regardless of group association, you can put those details in a file at /etc/ansible/group_vars/all. Individual hosts can be configured by creating files under a directory at /etc/ansible/host_vars.
 
-Step 3 — Using Simple Ansible Commands
+Step 4 — Using Simple Ansible Commands
 **************************************
 
 Now that we have our hosts set up and enough configuration details to allow us to successfully connect to our hosts, we can try out our very first command.
@@ -221,8 +221,8 @@ By now, you should have your Ansible server configured to communicate with the s
 
 Although this is useful, we have not covered the most powerful feature of Ansible in this lab: **Playbooks.** You have configured a great foundation for working with your servers through Ansible, so your next step is to learn how to use Playbooks to do the heavy lifting for you.
 
-Preparing The System for Development - Installing Python
-********************************************************
+Step 5 - Preparing The System for Development - Installing Python
+*****************************************************************
 
 Installation of Python on CentOS consists of a few (simple) stages, starting with updating the system, followed by getting any desired version of Python, and proceeding with the set up process.
 
@@ -287,8 +287,8 @@ To download some additional packages which are handy:
 Remember: Albeit optional, these "handy" tools are very much required for most of the tasks that you will come across in future. Unless they are installed in advance, Python, during compilation, will not be able to link to them.
 
 
-Run Ansible Playbook to Deploy LAMP stack
-*****************************************
+Step 6 - Run Ansible Playbook to Deploy LAMP stack
+**************************************************
 
 **These playbooks require Ansible 1.2 or greater**
 
