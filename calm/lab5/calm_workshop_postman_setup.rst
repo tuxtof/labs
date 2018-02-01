@@ -2,6 +2,10 @@
 Lab Configuration - Postman
 ***************************
 
+Install Postman
+***************
+
+Install Postman by navigating to: https://www.getpostman.com/ and selecting the appropriate download for your OS platform.  Follow the instructions as provided.
 
 Create Collection
 *****************
