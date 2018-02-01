@@ -578,9 +578,9 @@ Download the autuomation-code (python) used to automate REST from *github* as fo
 
   $ git clone https://github.com/mjastad/automation.git
 
-If all was successfull you should find a directory */root/automation/solution/*
+If all was successfull you should find a directory */root/development/automation/solution/*
 
-Edit */root/automation/solution/config.py* and set the connection variables (i.e. *user, passwd, ipaddress*) using the associated information for your assigned cluster.  Make sure the values are within quotes(**"some_value"**) as follows:
+Edit */root/development/automation/solution/config.py* and set the connection variables (i.e. *user, passwd, ipaddress*) using the associated information for your assigned cluster.  Make sure the values are within quotes(**"some_value"**) as follows:
 
 .. code-block:: python
 
