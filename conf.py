@@ -19,7 +19,8 @@
 import os
 import sys
 import sphinx_bootstrap_theme
-sys.path.insert(0, os.path.abspath('..'))
+import sphinx_fontawesome
+#sys.path.insert(0, os.path.abspath('..'))
 
 
 # -- General configuration ------------------------------------------------
@@ -32,10 +33,9 @@ sys.path.insert(0, os.path.abspath('..'))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.todo',
-    'sphinx.ext.imgmath',
     'sphinx.ext.ifconfig',
-    'sphinx.ext.githubpages',
-    'sphinxcontrib.fulltoc']
+    'sphinxcontrib.fulltoc',
+    'sphinx_fontawesome']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -111,6 +111,10 @@ html_show_sphinx = False
 # Theme options are theme-specific and customize the look and feel of a
 # theme further.
 html_theme_options = {
+
+}
+
+html_theme_options = {
     # Navigation bar title. (Default: ``project`` value)
     'navbar_title': " ",
 
@@ -174,7 +178,7 @@ html_theme_options = {
     'bootstrap_version': "3",
 }
 
-html_sidebars = {'calm/*': ['localtoc.html'],'intro/*': ['localtoc.html'],'templates/*': ['localtoc.html'],'setup/*': ['localtoc.html'],'vdi_ahv/*': ['localtoc.html']}
+html_sidebars = {'calm/**': ['localtoc.html'],'intro/**': ['localtoc.html'],'templates/**': ['localtoc.html'],'setup/**': ['localtoc.html'],'vdi_ahv/**': ['localtoc.html'],'example/**': ['localtoc.html']}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

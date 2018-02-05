@@ -29,4 +29,4 @@
 
   calm/index
   vdi_ahv/index
-  .. example/index
+  example/index

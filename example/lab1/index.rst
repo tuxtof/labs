@@ -1,14 +1,16 @@
+.. _example-lab1:
+
 -------------------
-Lab 1 - Example Lab
+Lab 1 - Style Guide
 -------------------
 
 Overview
 ++++++++
 
-Here is where we provide a high level description of what the user will be doing during this module.
+Here is where we provide a high level description of what the user will be doing during this module. In this module we'll look at basic
 
-Configuring Something
-+++++++++++++++++++++
+Text and Figures
+++++++++++++++++
 
 Open \https://<*NUTANIX-CLUSTER-IP*>:9440 in your browser to access **Prism**. Log in as a user with administrative priveleges.
 
@@ -37,25 +39,12 @@ Click **Submit > Save**.
 
   .. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab1/2.png
 
-Doing Something Else
-++++++++++++++++++++
+Notes
++++++
 
-In **Prism > Storage**, click **+ Storage Container**. Specify **Default** as the **Name** of the storage container.
+Notes provide easily noticable interjections to lab instructions. Reasons to use a note include calling attention to a step that requires additional context or referencing external resources. Make sure to include a return before and after the note directive for it to render properly. **Please don't abuse notes.**
 
-.. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab1/4.png
-
-Click **Advanced Settings**. Select **Compression** and specify **0** as the **Delay**.
-
-.. figure:: http://s3.nutanixworkshops.com/vdi_ahv/lab1/5.png
-
-Click **Save**.
-
-Here's a code snippet:
-
-.. code:: python
-
-  if hasattr(obj, 'attr_name'):
-    # obj.attr_name exists.
+.. note:: Check out `this <http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html>`_ cheat sheet for helpful documentation on formatting text, links, tables, etc. in Restructured Text.
 
 Takeaways
 +++++++++
