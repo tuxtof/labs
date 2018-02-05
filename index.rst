@@ -22,7 +22,7 @@
 .. _lab-docs:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 1
   :caption:     Workshops
   :name: _lab-docs
   :hidden:
